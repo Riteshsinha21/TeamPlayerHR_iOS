@@ -1,0 +1,46 @@
+PODS:
+  - Alamofire (4.9.1)
+  - IQKeyboardManagerSwift (6.5.6)
+  - MBProgressHUD (1.2.0)
+  - ReachabilitySwift (5.0.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SkyFloatingLabelTextField (3.8.0)
+  - SwiftyJSON (5.0.1)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - IQKeyboardManagerSwift
+  - MBProgressHUD
+  - ReachabilitySwift
+  - SDWebImage
+  - SkyFloatingLabelTextField (~> 3.0)
+  - SwiftyJSON
+  - Toast-Swift (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - MBProgressHUD
+    - ReachabilitySwift
+    - SDWebImage
+    - SkyFloatingLabelTextField
+    - SwiftyJSON
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: e4b040fe48ee6728063abf5ecdbbf85020264924
+
+COCOAPODS: 1.10.1
