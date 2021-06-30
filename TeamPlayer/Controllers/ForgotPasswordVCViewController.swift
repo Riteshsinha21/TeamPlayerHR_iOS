@@ -16,6 +16,7 @@ class ForgotPasswordVCViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.forgotView.roundRadius(options: [.layerMinXMinYCorner, .layerMaxXMinYCorner], cornerRadius: 30)
     }
     
     @IBAction func sendAction(_ sender: Any) {

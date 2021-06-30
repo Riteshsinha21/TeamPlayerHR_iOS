@@ -9,6 +9,7 @@ import UIKit
 
 class SigninVC: UIViewController {
     
+    @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var nameTxt: UITextField!
     
@@ -21,6 +22,8 @@ class SigninVC: UIViewController {
         // Do any additional setup after loading the view.
         self.mailView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
         self.passwordView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
+        self.loginView.roundRadius(options: [.layerMinXMinYCorner, .layerMaxXMinYCorner], cornerRadius: 30)
+        
         
     }
     

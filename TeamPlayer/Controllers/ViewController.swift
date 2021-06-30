@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //newUserButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 17)
+        self.imageView.roundRadius(options: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], cornerRadius: 30)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onTapSignIn(_ sender: Any) {
+        isDemo = false
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
         self.navigationController?.pushViewController(vc, animated: true)
@@ -30,6 +32,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func onTapNewUser(_ sender: Any) {
+        isDemo = false
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "NewUserVC") as! NewUserVC
         self.navigationController?.pushViewController(vc, animated: true)
@@ -37,6 +40,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func onTapDemoRequest(_ sender: Any) {
+        isDemo = true
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+        UIApplication.shared.delegate!.window!!.rootViewController = viewController
     }
 }
 

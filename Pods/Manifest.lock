@@ -6,6 +6,7 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SideMenu (6.5.0)
   - SkyFloatingLabelTextField (3.8.0)
   - SwiftyJSON (5.0.1)
   - Toast-Swift (5.0.1)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - ReachabilitySwift
   - SDWebImage
+  - SideMenu
   - SkyFloatingLabelTextField (~> 3.0)
   - SwiftyJSON
   - Toast-Swift (~> 5.0.1)
@@ -27,6 +29,7 @@ SPEC REPOS:
     - MBProgressHUD
     - ReachabilitySwift
     - SDWebImage
+    - SideMenu
     - SkyFloatingLabelTextField
     - SwiftyJSON
     - Toast-Swift
@@ -37,10 +40,11 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: e4b040fe48ee6728063abf5ecdbbf85020264924
+PODFILE CHECKSUM: 421ff3ecc1277b14c8af7969858dbf8522cb4d55
 
 COCOAPODS: 1.10.1

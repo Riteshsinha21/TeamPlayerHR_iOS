@@ -36,6 +36,10 @@
 		58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D7292689E1DA007FC933 /* InitialHomeModel.swift */; };
 		58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D72B268A14B8007FC933 /* SigninVC.swift */; };
 		58C0D72E268AEE5D007FC933 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D72D268AEE5D007FC933 /* DashedView.swift */; };
+		58D0FF92268C472100402BEF /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF91268C472100402BEF /* SideMenuVC.swift */; };
+		58D0FF95268C47BE00402BEF /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF94268C47BE00402BEF /* SideMenuCell.swift */; };
+		58D0FF98268C4E1600402BEF /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D0FF97268C4E1600402BEF /* SideMenu.storyboard */; };
+		58D0FF9A268C509100402BEF /* EarlySideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */; };
 		808002A8D0CC26D740115E1D /* Pods_TeamPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +76,10 @@
 		58C0D7292689E1DA007FC933 /* InitialHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialHomeModel.swift; sourceTree = "<group>"; };
 		58C0D72B268A14B8007FC933 /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
 		58C0D72D268AEE5D007FC933 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
+		58D0FF91268C472100402BEF /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		58D0FF94268C47BE00402BEF /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		58D0FF97268C4E1600402BEF /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlySideMenuVC.swift; sourceTree = "<group>"; };
 		C3DA65BC52B4A125443B3AF8 /* Pods-TeamPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC49E1FC73C22467BF3CAA11 /* Pods-TeamPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.release.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,13 +131,14 @@
 				5830F7DE2689B955009FF756 /* Roboto-Thin.ttf */,
 				5830F7E12689B955009FF756 /* Roboto-ThinItalic.ttf */,
 				582DBDE0268B07CC000A02A5 /* TeamPlayer.entitlements */,
+				58D0FF93268C47A300402BEF /* Cells */,
 				584F9EB12689A80500CB6062 /* Extensions */,
 				58C0D7282689E1C5007FC933 /* Model */,
 				584F9EAE2689A68200CB6062 /* Constants */,
 				580FB73D2688A22600D3E0CE /* Network Engine */,
 				580FB72926889FB000D3E0CE /* AppDelegate.swift */,
 				58C0D7252689C87C007FC933 /* Controllers */,
-				580FB72F26889FB000D3E0CE /* Main.storyboard */,
+				58D0FF96268C4DF500402BEF /* View */,
 				580FB73226889FB300D3E0CE /* Assets.xcassets */,
 				580FB73426889FB300D3E0CE /* LaunchScreen.storyboard */,
 				580FB73726889FB300D3E0CE /* Info.plist */,
@@ -173,6 +182,8 @@
 				582DBDE1268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift */,
 				582DBDE3268B32AE000A02A5 /* HomeVC.swift */,
 				58610A8C268B6B0400D717C7 /* DemoVC.swift */,
+				58D0FF91268C472100402BEF /* SideMenuVC.swift */,
+				58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +194,23 @@
 				58C0D7292689E1DA007FC933 /* InitialHomeModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		58D0FF93268C47A300402BEF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				58D0FF94268C47BE00402BEF /* SideMenuCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		58D0FF96268C4DF500402BEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				580FB72F26889FB000D3E0CE /* Main.storyboard */,
+				58D0FF97268C4E1600402BEF /* SideMenu.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		740086AF14E8E8C2371D43A8 /* Frameworks */ = {
@@ -266,6 +294,7 @@
 				5830F7F12689B956009FF756 /* Roboto-MediumItalic.ttf in Resources */,
 				5830F7EA2689B956009FF756 /* Roboto-Thin.ttf in Resources */,
 				580FB73626889FB300D3E0CE /* LaunchScreen.storyboard in Resources */,
+				58D0FF98268C4E1600402BEF /* SideMenu.storyboard in Resources */,
 				5830F7EC2689B956009FF756 /* Roboto-LightItalic.ttf in Resources */,
 				5830F7ED2689B956009FF756 /* Roboto-ThinItalic.ttf in Resources */,
 				5830F7E82689B956009FF756 /* Roboto-BlackItalic.ttf in Resources */,
@@ -336,13 +365,16 @@
 				582DBDE4268B32AF000A02A5 /* HomeVC.swift in Sources */,
 				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
 				58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */,
+				58D0FF95268C47BE00402BEF /* SideMenuCell.swift in Sources */,
 				58C0D72E268AEE5D007FC933 /* DashedView.swift in Sources */,
 				582DBDDF268AFEDB000A02A5 /* ImageUploadServerClass.swift in Sources */,
 				582DBDE2268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift in Sources */,
+				58D0FF9A268C509100402BEF /* EarlySideMenuVC.swift in Sources */,
 				580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */,
 				58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */,
 				58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */,
 				580FB7402688A25500D3E0CE /* Internet.swift in Sources */,
+				58D0FF92268C472100402BEF /* SideMenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

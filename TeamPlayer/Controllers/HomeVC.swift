@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class HomeVC: UIViewController {
 
@@ -38,7 +39,35 @@ class HomeVC: UIViewController {
         
     }
     
-
+    @IBAction func onTapSideMenu(_ sender: Any) {
+        
+//        if isDemo {
+//            let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
+//            var settings = SideMenuSettings()
+//            settings.menuWidth = self.view.frame.width - 100
+//            menu.settings = settings
+//            present(menu, animated: true, completion: nil)
+//
+//        } else {
+//
+//            let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
+//            var settings = SideMenuSettings()
+//            settings.menuWidth = self.view.frame.width - 100
+//            menu.settings = settings
+//            present(menu, animated: true, completion: nil)
+//        }
+        
+        let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
+        var settings = SideMenuSettings()
+        settings.menuWidth = self.view.frame.width - 100
+        menu.settings = settings
+        present(menu, animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBAction func onTapNotification(_ sender: Any) {
+    }
     
 
 }

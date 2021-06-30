@@ -14,5 +14,6 @@ target 'TeamPlayer' do
   pod 'SDWebImage'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Toast-Swift', '~> 5.0.1'
+  pod 'SideMenu'
 
 end

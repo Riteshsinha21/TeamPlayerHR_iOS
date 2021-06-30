@@ -14,7 +14,7 @@
 		<string>Roboto-Black</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>To click Image and upload directly, we need access to your Camers.</string>
+	<string>To click Image and upload directly, we need access to your Camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To select Image and upload directly, we need access to your Photo Library.</string>
 	<key>UILaunchStoryboardName</key>

@@ -9,7 +9,9 @@ import UIKit
 
 class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var fullNameTxt: UITextField!
+    @IBOutlet weak var lastNameTxt: UITextField!
+    @IBOutlet weak var firstNameTxt: UITextField!
+    @IBOutlet weak var signupView: UIView!
     @IBOutlet weak var titleTxt: UITextField!
     
     @IBOutlet weak var roasTxt: UITextField!
@@ -53,6 +55,8 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        self.signupView.roundRadius(options: [.layerMinXMinYCorner, .layerMaxXMinYCorner], cornerRadius: 30)
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -172,8 +176,11 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
 
     
     @IBAction func submitAction(_ sender: Any) {
-        if self.fullNameTxt.text!.isEmpty {
-            self.view.makeToast("Please enter Full Name.")
+        if self.firstNameTxt.text!.isEmpty {
+            self.view.makeToast("Please enter First Name.")
+            return
+        } else if self.lastNameTxt.text!.isEmpty {
+            self.view.makeToast("Please enter Last Name.")
             return
         } else if self.titleTxt.text!.isEmpty {
             self.view.makeToast("Please enter Title.")
@@ -457,7 +464,7 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
             }
             
             
-            let param:[String:Any] = [ "email": self.emailTxt.text!,"title":self.titleTxt.text!,"phone":self.phoneTxt.text!, "cv": self.uplaodedCv,"address_line_1":self.hNoTxt.text!,"address_line_2":self.roasTxt.text!,"sector":self.sectorId,"occupation":self.occupationId,"country":self.countryId,"city":self.cityId,"state":self.stateId,"zip":self.zipTxt.text!,"password":self.passwordTxt.text!,"confirm_password":self.confirmPasswordTxt.text!,"agreeTerms":self.isTermsAgreed,"agreePrivacy":self.isTermsAgreed]
+            let param:[String:Any] = [ "email": self.emailTxt.text!,"title":self.titleTxt.text!,"phone":self.phoneTxt.text!, "cv": self.uplaodedCv,"address_line_1":self.hNoTxt.text!,"address_line_2":self.roasTxt.text!,"sector":self.sectorId,"occupation":self.occupationId,"country":self.countryId,"city":self.cityId,"state":self.stateId,"zip":self.zipTxt.text!,"password":self.passwordTxt.text!,"confirm_password":self.confirmPasswordTxt.text!,"agreeTerms":self.isTermsAgreed,"agreePrivacy":self.isTermsAgreed, "first_name": self.firstNameTxt.text!, "last_name": self.lastNameTxt.text!]
             
             ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.SIGNUP, successBlock: { (json) in
                 print(json)
