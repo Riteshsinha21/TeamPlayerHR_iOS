@@ -13,5 +13,11 @@
 		<string>Roboto-Regular</string>
 		<string>Roboto-Black</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>To click Image and upload directly, we need access to your Camers.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To select Image and upload directly, we need access to your Photo Library.</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>

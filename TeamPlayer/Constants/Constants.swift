@@ -84,6 +84,9 @@ struct PROJECT_URL {
     static let GET_OCCUPATION = "/occupation"
     static let GET_STATE = "/states"
     static let GET_CITIES = "/cities"
+    static let LOGIN = "/user/login"
+    static let SIGNUP = "/user/register"
+    static let FORGET_PASSWORD = "/user/forgot_password"
     
     
     
@@ -175,8 +178,11 @@ struct CONDITION_KEYS {
 
 struct USER_DEFAULTS_KEYS {
     
-    static let VENDOR_SIGNUP_OTP_ID = "vendorSignupOtpId"
     static let VENDOR_SIGNUP_TOKEN = "vendorSignupToken"
+
+    
+    
+    static let VENDOR_SIGNUP_OTP_ID = "vendorSignupOtpId"
     static let USER_TYPE = "userType"
     static let CART_ID = "cartId"
     static let USER_ID = "userId"

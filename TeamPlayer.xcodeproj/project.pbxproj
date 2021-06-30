@@ -14,6 +14,9 @@
 		580FB73626889FB300D3E0CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580FB73426889FB300D3E0CE /* LaunchScreen.storyboard */; };
 		580FB7402688A25500D3E0CE /* Internet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB73E2688A25500D3E0CE /* Internet.swift */; };
 		580FB7412688A25500D3E0CE /* ServerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB73F2688A25500D3E0CE /* ServerClass.swift */; };
+		582DBDDF268AFEDB000A02A5 /* ImageUploadServerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582DBDDE268AFEDB000A02A5 /* ImageUploadServerClass.swift */; };
+		582DBDE2268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582DBDE1268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift */; };
+		582DBDE4268B32AF000A02A5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582DBDE3268B32AE000A02A5 /* HomeVC.swift */; };
 		5830F7E62689B956009FF756 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7DA2689B954009FF756 /* Roboto-Black.ttf */; };
 		5830F7E72689B956009FF756 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7DB2689B955009FF756 /* Roboto-Regular.ttf */; };
 		5830F7E82689B956009FF756 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7DC2689B955009FF756 /* Roboto-BlackItalic.ttf */; };
@@ -28,9 +31,11 @@
 		5830F7F12689B956009FF756 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7E52689B956009FF756 /* Roboto-MediumItalic.ttf */; };
 		584F9EB02689A6A300CB6062 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EAF2689A6A200CB6062 /* Constants.swift */; };
 		584F9EB32689A81900CB6062 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EB22689A81900CB6062 /* Extensions.swift */; };
+		58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58610A8C268B6B0400D717C7 /* DemoVC.swift */; };
 		58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D7262689C8A8007FC933 /* NewUserVC.swift */; };
 		58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D7292689E1DA007FC933 /* InitialHomeModel.swift */; };
 		58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D72B268A14B8007FC933 /* SigninVC.swift */; };
+		58C0D72E268AEE5D007FC933 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D72D268AEE5D007FC933 /* DashedView.swift */; };
 		808002A8D0CC26D740115E1D /* Pods_TeamPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +49,10 @@
 		580FB73726889FB300D3E0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		580FB73E2688A25500D3E0CE /* Internet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internet.swift; sourceTree = "<group>"; };
 		580FB73F2688A25500D3E0CE /* ServerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerClass.swift; sourceTree = "<group>"; };
+		582DBDDE268AFEDB000A02A5 /* ImageUploadServerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadServerClass.swift; sourceTree = "<group>"; };
+		582DBDE0268B07CC000A02A5 /* TeamPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeamPlayer.entitlements; sourceTree = "<group>"; };
+		582DBDE1268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVCViewController.swift; sourceTree = "<group>"; };
+		582DBDE3268B32AE000A02A5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		5830F7DA2689B954009FF756 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		5830F7DB2689B955009FF756 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		5830F7DC2689B955009FF756 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -58,9 +67,11 @@
 		5830F7E52689B956009FF756 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
 		584F9EAF2689A6A200CB6062 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		584F9EB22689A81900CB6062 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		58610A8C268B6B0400D717C7 /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
 		58C0D7262689C8A8007FC933 /* NewUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserVC.swift; sourceTree = "<group>"; };
 		58C0D7292689E1DA007FC933 /* InitialHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialHomeModel.swift; sourceTree = "<group>"; };
 		58C0D72B268A14B8007FC933 /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
+		58C0D72D268AEE5D007FC933 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		C3DA65BC52B4A125443B3AF8 /* Pods-TeamPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC49E1FC73C22467BF3CAA11 /* Pods-TeamPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.release.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +122,7 @@
 				5830F7DB2689B955009FF756 /* Roboto-Regular.ttf */,
 				5830F7DE2689B955009FF756 /* Roboto-Thin.ttf */,
 				5830F7E12689B955009FF756 /* Roboto-ThinItalic.ttf */,
+				582DBDE0268B07CC000A02A5 /* TeamPlayer.entitlements */,
 				584F9EB12689A80500CB6062 /* Extensions */,
 				58C0D7282689E1C5007FC933 /* Model */,
 				584F9EAE2689A68200CB6062 /* Constants */,
@@ -128,6 +140,7 @@
 		580FB73D2688A22600D3E0CE /* Network Engine */ = {
 			isa = PBXGroup;
 			children = (
+				582DBDDE268AFEDB000A02A5 /* ImageUploadServerClass.swift */,
 				580FB73E2688A25500D3E0CE /* Internet.swift */,
 				580FB73F2688A25500D3E0CE /* ServerClass.swift */,
 			);
@@ -146,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				584F9EB22689A81900CB6062 /* Extensions.swift */,
+				58C0D72D268AEE5D007FC933 /* DashedView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -156,6 +170,9 @@
 				580FB72D26889FB000D3E0CE /* ViewController.swift */,
 				58C0D7262689C8A8007FC933 /* NewUserVC.swift */,
 				58C0D72B268A14B8007FC933 /* SigninVC.swift */,
+				582DBDE1268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift */,
+				582DBDE3268B32AE000A02A5 /* HomeVC.swift */,
+				58610A8C268B6B0400D717C7 /* DemoVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,7 +333,12 @@
 				584F9EB32689A81900CB6062 /* Extensions.swift in Sources */,
 				580FB7412688A25500D3E0CE /* ServerClass.swift in Sources */,
 				580FB72E26889FB000D3E0CE /* ViewController.swift in Sources */,
+				582DBDE4268B32AF000A02A5 /* HomeVC.swift in Sources */,
+				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
 				58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */,
+				58C0D72E268AEE5D007FC933 /* DashedView.swift in Sources */,
+				582DBDDF268AFEDB000A02A5 /* ImageUploadServerClass.swift in Sources */,
+				582DBDE2268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift in Sources */,
 				580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */,
 				58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */,
 				58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */,
@@ -468,6 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NQF57VC2KX;
@@ -501,6 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NQF57VC2KX;
