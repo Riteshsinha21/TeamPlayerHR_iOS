@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "demo.png",
+      "filename" : "Icon-Small.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "demo@2x.png",
+      "filename" : "Icon-Small-50.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "demo@3x.png",
+      "filename" : "Icon-76.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -21,6 +21,6 @@
     "version" : 1
   },
   "properties" : {
-    "template-rendering-intent" : "template"
+    "template-rendering-intent" : "original"
   }
 }

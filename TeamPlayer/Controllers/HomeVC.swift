@@ -57,16 +57,19 @@ class HomeVC: UIViewController {
 //            present(menu, animated: true, completion: nil)
 //        }
         
-        let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
+        let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! EarlySideMenuVC
+        
+        let vc = SideMenuNavigationController(rootViewController: menu)
         var settings = SideMenuSettings()
         settings.menuWidth = self.view.frame.width - 100
-        menu.settings = settings
-        present(menu, animated: true, completion: nil)
-        
+        vc.leftSide = true
+        vc.settings = settings
+        present(vc, animated: true, completion: nil)
         
     }
     
     @IBAction func onTapNotification(_ sender: Any) {
+        
     }
     
 

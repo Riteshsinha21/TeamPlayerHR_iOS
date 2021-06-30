@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SideMenu
 
 class EarlySideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,12 +20,8 @@ class EarlySideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
-       // self.navigationController?.pushViewController(vc, animated: true)
-        
-        let menu = SideMenuNavigationController(rootViewController: vc)
-        present(menu, animated: true, completion: nil)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -53,5 +48,6 @@ class EarlySideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
         return cell
     }
+
     
 }
