@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZxI-dG-cO2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZxI-dG-cO2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -38,7 +38,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="WELCOME">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="system" size="22"/>
+                                                    <font key="NSFont" size="22" name="Roboto-Bold"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -54,8 +54,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="gwz-6z-vcB"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Sign In"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -141,7 +142,7 @@
                                             <fragment content="https://dev.teamplayerhr.com/">
                                                 <attributes>
                                                     <color key="NSColor" red="0.25021547080000001" green="0.62232226130000001" blue="0.75058066840000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <font key="NSFont" size="16" name="Roboto-Bold"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -738,7 +739,7 @@
                                                         <rect key="frame" x="30" y="1491.5" width="354" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCx-fH-I08">
-                                                                <rect key="frame" x="102.5" y="18" width="149.5" height="14"/>
+                                                                <rect key="frame" x="105.5" y="18" width="143" height="14"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="14" id="m2m-eq-3Sh"/>
                                                                 </constraints>
@@ -747,15 +748,18 @@
                                                                         <attributes>
                                                                             <color key="NSBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                                            <font key="NSFont" size="12" name="Roboto-Bold"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzQ-VL-nEM">
-                                                                <rect key="frame" x="256" y="10" width="46" height="30"/>
-                                                                <state key="normal" title="Button"/>
+                                                                <rect key="frame" x="252.5" y="11.5" width="38" height="27"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                                <state key="normal" title="Sign In">
+                                                                    <color key="titleColor" red="0.023529411760000001" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="onTapSignIn:" destination="8ft-0J-cvM" eventType="touchUpInside" id="4PP-ZZ-JBh"/>
                                                                 </connections>
@@ -883,6 +887,12 @@
                                             <imageReference key="image" image="menu"/>
                                         </state>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request a Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Db-fe-CPp">
+                                        <rect key="frame" x="45" y="14.5" width="324" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR6-pA-XqY">
                                         <rect key="frame" x="374" y="12.5" width="25" height="25"/>
                                         <constraints>
@@ -898,9 +908,12 @@
                                 <color key="backgroundColor" red="0.023529411760000001" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="oHT-P0-iyN" firstAttribute="centerY" secondItem="ys8-56-GlS" secondAttribute="centerY" id="1Wz-0C-pR7"/>
+                                    <constraint firstItem="1Db-fe-CPp" firstAttribute="centerY" secondItem="ys8-56-GlS" secondAttribute="centerY" id="1fW-eH-TyQ"/>
                                     <constraint firstAttribute="height" constant="50" id="SU4-PA-yyG"/>
                                     <constraint firstItem="fR6-pA-XqY" firstAttribute="centerY" secondItem="oHT-P0-iyN" secondAttribute="centerY" id="VCg-aI-nNi"/>
                                     <constraint firstItem="oHT-P0-iyN" firstAttribute="leading" secondItem="ys8-56-GlS" secondAttribute="leading" constant="15" id="Veh-mz-I4z"/>
+                                    <constraint firstItem="fR6-pA-XqY" firstAttribute="leading" secondItem="1Db-fe-CPp" secondAttribute="trailing" constant="5" id="cWz-RG-P2l"/>
+                                    <constraint firstItem="1Db-fe-CPp" firstAttribute="leading" secondItem="oHT-P0-iyN" secondAttribute="trailing" constant="5" id="keJ-I4-N4g"/>
                                     <constraint firstAttribute="trailing" secondItem="fR6-pA-XqY" secondAttribute="trailing" constant="15" id="vDk-zN-8pd"/>
                                 </constraints>
                             </view>
@@ -1171,7 +1184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOF-z7-G9l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3189.8550724637685" y="1790.625"/>
+            <point key="canvasLocation" x="4100" y="1790.625"/>
         </scene>
         <!--FAQ-->
         <scene sceneID="7Ad-eO-YYt">
@@ -1189,7 +1202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgI-3C-g33" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3907.2463768115945" y="1790.625"/>
+            <point key="canvasLocation" x="4817.391304347826" y="1790.625"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="GFk-pr-rM6">
@@ -1207,12 +1220,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzG-zS-bAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4631.884057971015" y="1790.625"/>
+            <point key="canvasLocation" x="5542.0289855072469" y="1790.625"/>
         </scene>
         <!--Side MenuVC-->
         <scene sceneID="xyk-7e-17a">
             <objects>
-                <viewController id="b2O-tL-04E" customClass="SideMenuVC" customModule="TeamPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="b2O-tL-04E" customClass="SideMenuVC" customModule="TeamPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5xg-mv-Ysw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1241,7 +1254,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SideMenuCell" rowHeight="64" id="LfQ-oY-hZJ" customClass="SideMenuCell" customModule="TeamPlayer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="184.5" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="210" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LfQ-oY-hZJ" id="rPk-Sf-uv3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
@@ -1304,23 +1317,26 @@
         <!--Side Menu Navigation Controller-->
         <scene sceneID="zCt-bX-yBF">
             <objects>
-                <navigationController id="wq0-Xq-agI" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="EarlySideMenuVC" id="wq0-Xq-agI" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mgN-PD-xJa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="yoZ-gs-lkk" kind="relationship" relationship="rootViewController" id="E00-6g-D54"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCJ-Dl-zT3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="1861"/>
+            <point key="canvasLocation" x="1516" y="1861"/>
         </scene>
         <!--Early Side MenuVC-->
         <scene sceneID="Ii6-AP-U44">
             <objects>
-                <viewController storyboardIdentifier="EarlySideMenuVC" id="yoZ-gs-lkk" customClass="EarlySideMenuVC" customModule="TeamPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="yoZ-gs-lkk" customClass="EarlySideMenuVC" customModule="TeamPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mTs-Jg-lk2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1339,8 +1355,9 @@
                                                 <constraint firstAttribute="width" constant="220" id="KuW-9N-Hy8"/>
                                                 <constraint firstAttribute="height" constant="50" id="Nbd-aE-NC4"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" title="Sign In"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1389,7 +1406,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SideMenuCell" rowHeight="64" id="VKw-aP-RuZ" customClass="SideMenuCell" customModule="TeamPlayer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="184.5" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="210" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKw-aP-RuZ" id="DKp-V0-L6U">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
@@ -1447,14 +1464,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfa-T4-Got" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639.1304347826087" y="1860.9375"/>
+            <point key="canvasLocation" x="752" y="2435"/>
         </scene>
-        <!--Home-->
+        <!--HomeVC-->
         <scene sceneID="91R-3A-7xK">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yXs-Zt-x5c" customClass="HomeVC" customModule="TeamPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9T-Fy-py5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfY-Hh-tbZ">
@@ -1465,7 +1482,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxG-Ng-PNs">
-                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrG-6V-cgk">
                                         <rect key="frame" x="15" y="15" width="25" height="25"/>
@@ -1546,13 +1563,13 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-wd-HkE">
-                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="708"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcc-01-ocO">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="662.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjM-MJ-zJq">
-                                                <rect key="frame" x="30" y="50" width="354" height="586"/>
+                                                <rect key="frame" x="30" y="50" width="354" height="582.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-yE-Cbw">
                                                         <rect key="frame" x="10" y="20" width="334" height="150"/>
@@ -1600,7 +1617,7 @@
                                                             <fragment content="What are the benefits?">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.023529411764705882" green="0.62352941176470589" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" metaFont="system" size="18"/>
+                                                                    <font key="NSFont" size="18" name="Roboto-Bold"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -1608,15 +1625,15 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ydj-Dh-Hqq">
-                                                        <rect key="frame" x="15" y="226" width="324" height="46.5"/>
+                                                        <rect key="frame" x="15" y="226" width="324" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoe-Dc-2AV">
-                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="What are the benefits?">
                                                                         <attributes>
                                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <font key="NSFont" metaFont="system" size="16"/>
+                                                                            <font key="NSFont" size="16" name="Roboto-Bold"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
@@ -1624,12 +1641,12 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuA-XF-RMe">
-                                                                <rect key="frame" x="0.0" y="29.5" width="324" height="17"/>
+                                                                <rect key="frame" x="0.0" y="29" width="324" height="16.5"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="Sign up to join">
                                                                         <attributes>
                                                                             <color key="NSColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                                            <font key="NSFont" size="14" name="Roboto-Regular"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
@@ -1648,15 +1665,15 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdp-H9-upq">
-                                                        <rect key="frame" x="15" y="287.5" width="324" height="46.5"/>
+                                                        <rect key="frame" x="15" y="286.5" width="324" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aW-Mi-h6d">
-                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="What are the benefits?">
                                                                         <attributes>
                                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <font key="NSFont" metaFont="system" size="16"/>
+                                                                            <font key="NSFont" size="16" name="Roboto-Bold"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
@@ -1664,12 +1681,12 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpc-5s-g6x">
-                                                                <rect key="frame" x="0.0" y="29.5" width="324" height="17"/>
+                                                                <rect key="frame" x="0.0" y="29" width="324" height="16.5"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="Sign up to join">
                                                                         <attributes>
                                                                             <color key="NSColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                                            <font key="NSFont" size="14" name="Roboto-Regular"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
@@ -1688,25 +1705,31 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-VJ-fr1">
-                                                        <rect key="frame" x="15" y="349" width="324" height="46"/>
+                                                        <rect key="frame" x="15" y="347" width="324" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDx-cY-gWW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="What are the benefits?">
                                                                         <attributes>
                                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <font key="NSFont" metaFont="system" size="16"/>
+                                                                            <font key="NSFont" size="16" name="Roboto-Bold"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to join" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLB-rr-X19">
-                                                                <rect key="frame" x="0.0" y="29.5" width="324" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                                <color key="textColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLB-rr-X19">
+                                                                <rect key="frame" x="0.0" y="29" width="324" height="16.5"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Sign up to join">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="14" name="Roboto-Regular"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -1722,25 +1745,31 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Av-Ag-Ga1">
-                                                        <rect key="frame" x="15" y="410" width="324" height="46"/>
+                                                        <rect key="frame" x="15" y="407.5" width="324" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzQ-Bb-GbK">
-                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="19"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="What are the benefits?">
                                                                         <attributes>
                                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <font key="NSFont" metaFont="system" size="16"/>
+                                                                            <font key="NSFont" size="16" name="Roboto-Bold"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to join" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-tH-4Nb">
-                                                                <rect key="frame" x="0.0" y="29.5" width="324" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                                <color key="textColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-tH-4Nb">
+                                                                <rect key="frame" x="0.0" y="29" width="324" height="16.5"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Sign up to join">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="14" name="Roboto-Regular"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -1756,12 +1785,12 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7s-sJ-yze">
-                                                        <rect key="frame" x="15" y="471" width="324" height="17"/>
+                                                        <rect key="frame" x="15" y="468" width="324" height="16.5"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="What are the benefits?">
                                                                 <attributes>
                                                                     <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <font key="NSFont" metaFont="system" size="14"/>
+                                                                    <font key="NSFont" size="14" name="Roboto-Bold"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -1769,7 +1798,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deW-48-mop">
-                                                        <rect key="frame" x="15" y="508" width="324" height="58"/>
+                                                        <rect key="frame" x="15" y="504.5" width="324" height="58"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIo-5p-yGM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="21.5"/>
@@ -1777,17 +1806,23 @@
                                                                     <fragment content="How are We different?">
                                                                         <attributes>
                                                                             <color key="NSColor" red="0.023529411764705882" green="0.62352941176470589" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" metaFont="system" size="18"/>
+                                                                            <font key="NSFont" size="18" name="Roboto-Bold"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to join" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqG-lp-6eF">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqG-lp-6eF">
                                                                 <rect key="frame" x="0.0" y="31.5" width="324" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                                <color key="textColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Sign up to join">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="14" name="Roboto-Regular"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -1885,9 +1920,7 @@
                             <constraint firstItem="NfY-Hh-tbZ" firstAttribute="top" secondItem="g9T-Fy-py5" secondAttribute="top" id="hnh-p5-UaE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="home_selected" id="86s-lB-b7D">
-                        <imageReference key="image" image="home"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="64Y-9M-gGY"/>
                     <connections>
                         <outlet property="lastViewContentLbl" destination="QqG-lp-6eF" id="bbQ-n6-XC9"/>
                         <outlet property="v1ContentLbl" destination="HuA-XF-RMe" id="606-ad-cdR"/>
@@ -1903,19 +1936,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kny-RZ-L4B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2391" y="1861"/>
+            <point key="canvasLocation" x="3300.0000000000005" y="1860.9375"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="My0-ec-QBw">
             <objects>
                 <tabBarController storyboardIdentifier="tabBarcontroller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5O9-DU-jN2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5d0-EY-Gx5"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WLW-6A-mCk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.02236079425" green="0.62356859450000002" blue="0.74500244859999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="yXs-Zt-x5c" kind="relationship" relationship="viewControllers" id="05c-or-cso"/>
+                        <segue destination="leG-81-wqe" kind="relationship" relationship="viewControllers" id="05c-or-cso"/>
                         <segue destination="UAb-mz-U3K" kind="relationship" relationship="viewControllers" id="f2g-Xq-L7v"/>
                         <segue destination="MVL-wB-3CM" kind="relationship" relationship="viewControllers" id="mYJ-y7-Kb9"/>
                         <segue destination="yDW-fp-JAX" kind="relationship" relationship="viewControllers" id="e1B-j2-yZ1"/>
@@ -1986,7 +2020,7 @@
                                                         <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.5"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2040,7 +2074,7 @@
                                                         <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.5"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2091,7 +2125,7 @@
                                                 <rect key="frame" x="0.0" y="256" width="354" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsG-8D-IcJ">
-                                                        <rect key="frame" x="98.5" y="18" width="157" height="14"/>
+                                                        <rect key="frame" x="102" y="18" width="150" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="an6-0E-R0R"/>
                                                         </constraints>
@@ -2100,7 +2134,7 @@
                                                                 <attributes>
                                                                     <color key="NSBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" metaFont="system" size="14"/>
+                                                                    <font key="NSFont" size="14" name="Roboto-Bold"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -2108,8 +2142,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojg-l9-uIT">
-                                                        <rect key="frame" x="255.5" y="10" width="88.5" height="30"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <rect key="frame" x="252" y="10.5" width="92" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                        <state key="normal" title="Sign Up">
+                                                            <color key="titleColor" red="0.023529411760000001" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="onTapSignIn:" destination="8ft-0J-cvM" eventType="touchUpInside" id="6sW-W0-yee"/>
                                                             <action selector="signUpAction:" destination="X3u-0b-Jb2" eventType="touchUpInside" id="vd3-9q-KVr"/>
@@ -2152,7 +2189,10 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="hB1-D1-Y9U"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="SKIP">
+                                            <color key="titleColor" red="0.023529411760000001" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="onTapSignIn:" destination="8ft-0J-cvM" eventType="touchUpInside" id="7Pg-P2-HPs"/>
                                             <action selector="skipAction:" destination="X3u-0b-Jb2" eventType="touchUpInside" id="kOO-ev-fPa"/>
@@ -2391,6 +2431,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEP-kc-1g8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-158" y="1197"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="jEK-2F-ayF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="leG-81-wqe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="home_selected" id="86s-lB-b7D">
+                        <imageReference key="image" image="home"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="hpi-X3-Gor">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.023529411760000001" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yXs-Zt-x5c" kind="relationship" relationship="rootViewController" id="swA-9F-rOv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NhK-7R-Vg3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2389.8550724637685" y="1860.9375"/>
         </scene>
     </scenes>
     <resources>

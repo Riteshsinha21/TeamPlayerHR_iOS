@@ -32,6 +32,7 @@
 		584F9EB02689A6A300CB6062 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EAF2689A6A200CB6062 /* Constants.swift */; };
 		584F9EB32689A81900CB6062 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EB22689A81900CB6062 /* Extensions.swift */; };
 		58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58610A8C268B6B0400D717C7 /* DemoVC.swift */; };
+		58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58642F2A268D98EB00D85B2C /* ContactVC.swift */; };
 		58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D7262689C8A8007FC933 /* NewUserVC.swift */; };
 		58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D7292689E1DA007FC933 /* InitialHomeModel.swift */; };
 		58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0D72B268A14B8007FC933 /* SigninVC.swift */; };
@@ -40,6 +41,7 @@
 		58D0FF95268C47BE00402BEF /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF94268C47BE00402BEF /* SideMenuCell.swift */; };
 		58D0FF98268C4E1600402BEF /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D0FF97268C4E1600402BEF /* SideMenu.storyboard */; };
 		58D0FF9A268C509100402BEF /* EarlySideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */; };
+		58D0FF9C268C97A500402BEF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF9B268C97A500402BEF /* ProfileVC.swift */; };
 		808002A8D0CC26D740115E1D /* Pods_TeamPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,7 @@
 		584F9EAF2689A6A200CB6062 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		584F9EB22689A81900CB6062 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		58610A8C268B6B0400D717C7 /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
+		58642F2A268D98EB00D85B2C /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		58C0D7262689C8A8007FC933 /* NewUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserVC.swift; sourceTree = "<group>"; };
 		58C0D7292689E1DA007FC933 /* InitialHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialHomeModel.swift; sourceTree = "<group>"; };
 		58C0D72B268A14B8007FC933 /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		58D0FF94268C47BE00402BEF /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		58D0FF97268C4E1600402BEF /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlySideMenuVC.swift; sourceTree = "<group>"; };
+		58D0FF9B268C97A500402BEF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		C3DA65BC52B4A125443B3AF8 /* Pods-TeamPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC49E1FC73C22467BF3CAA11 /* Pods-TeamPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.release.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				58610A8C268B6B0400D717C7 /* DemoVC.swift */,
 				58D0FF91268C472100402BEF /* SideMenuVC.swift */,
 				58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */,
+				58D0FF9B268C97A500402BEF /* ProfileVC.swift */,
+				58642F2A268D98EB00D85B2C /* ContactVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -370,8 +376,10 @@
 				582DBDDF268AFEDB000A02A5 /* ImageUploadServerClass.swift in Sources */,
 				582DBDE2268B1D3D000A02A5 /* ForgotPasswordVCViewController.swift in Sources */,
 				58D0FF9A268C509100402BEF /* EarlySideMenuVC.swift in Sources */,
+				58D0FF9C268C97A500402BEF /* ProfileVC.swift in Sources */,
 				580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */,
 				58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */,
+				58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */,
 				58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */,
 				580FB7402688A25500D3E0CE /* Internet.swift in Sources */,
 				58D0FF92268C472100402BEF /* SideMenuVC.swift in Sources */,
@@ -531,12 +539,14 @@
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To click Image and upload directly, we need access to your Camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -565,12 +575,14 @@
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To click Image and upload directly, we need access to your Camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

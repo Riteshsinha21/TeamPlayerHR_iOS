@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import SideMenu
 
 extension UIView{
     @IBInspectable var borderColor:UIColor{
@@ -313,6 +314,25 @@ extension UIViewController {
         let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return roundedImage!
+    }
+    
+    func openSideMenu() {
+        if isDemo {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let menu = storyboard.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
+            var settings = SideMenuSettings()
+            settings.menuWidth = self.view.frame.width - 100
+            menu.settings = settings
+            present(menu, animated: true, completion: nil)
+
+        } else {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let menu = storyboard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
+            var settings = SideMenuSettings()
+            settings.menuWidth = self.view.frame.width - 100
+            menu.settings = settings
+            present(menu, animated: true, completion: nil)
+        }
     }
 }
 

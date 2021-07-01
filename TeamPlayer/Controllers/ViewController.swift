@@ -27,7 +27,9 @@ class ViewController: UIViewController {
         isDemo = false
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+       // self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -35,7 +37,9 @@ class ViewController: UIViewController {
         isDemo = false
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "NewUserVC") as! NewUserVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+       // self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

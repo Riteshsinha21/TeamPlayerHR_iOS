@@ -104,6 +104,7 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc func donePicker() {
@@ -473,12 +474,12 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 if success == "true"
                 {
                     //save data in userdefault..
-//                    UserDefaults.standard.setValue(json["otpId"].stringValue, forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_OTP_ID)
-//
-//                    let sellerStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let vc = sellerStoryboard.instantiateViewController(withIdentifier: "OtpVC") as! OtpVC
-//                    self.navigationController?.pushViewController(vc, animated: true)
-                    
+                    self.view.makeToast(json["message"].stringValue)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
                 }
                 else {
                     UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")

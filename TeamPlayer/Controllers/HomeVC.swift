@@ -39,10 +39,33 @@ class HomeVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     @IBAction func onTapSideMenu(_ sender: Any) {
         
+        if isDemo {
+            let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
+            var settings = SideMenuSettings()
+            settings.menuWidth = self.view.frame.width - 100
+            menu.settings = settings
+            present(menu, animated: true, completion: nil)
+
+        } else {
+
+            let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
+            var settings = SideMenuSettings()
+            settings.menuWidth = self.view.frame.width - 100
+            menu.settings = settings
+            present(menu, animated: true, completion: nil)
+        }
+        
 //        if isDemo {
-//            let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
+//
+//            let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
 //            var settings = SideMenuSettings()
 //            settings.menuWidth = self.view.frame.width - 100
 //            menu.settings = settings
@@ -50,21 +73,13 @@ class HomeVC: UIViewController {
 //
 //        } else {
 //
-//            let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
+//
+//            let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
 //            var settings = SideMenuSettings()
 //            settings.menuWidth = self.view.frame.width - 100
 //            menu.settings = settings
 //            present(menu, animated: true, completion: nil)
 //        }
-        
-        let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! EarlySideMenuVC
-        
-        let vc = SideMenuNavigationController(rootViewController: menu)
-        var settings = SideMenuSettings()
-        settings.menuWidth = self.view.frame.width - 100
-        vc.leftSide = true
-        vc.settings = settings
-        present(vc, animated: true, completion: nil)
         
     }
     

@@ -27,6 +27,13 @@ class SigninVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     @IBAction func showPasswordAction(_ sender: UIButton) {
         if sender.currentImage == UIImage.init(named: "password-hidden") {
             self.passwordTxt.isSecureTextEntry = false
@@ -57,10 +64,16 @@ class SigninVC: UIViewController {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NewUserVC") as! NewUserVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func skipAction(_ sender: Any) {
+        isDemo = true
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+        UIApplication.shared.delegate!.window!!.rootViewController = viewController
     }
     
     func loginApiCall() {
