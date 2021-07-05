@@ -39,17 +39,39 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 1 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
             self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 2 {
+            self.view.makeToast("Under Development")
+        } else if indexPath.row == 3 {
+            self.view.makeToast("Under Development")
+        } else if indexPath.row == 4 {
+            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "HowItWorksVC") as! HowItWorksVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 5 {
+            self.view.makeToast("Under Development")
+        } else if indexPath.row == 6 {
+            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "VisionVC") as! VisionVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 7 {
+            self.view.makeToast("Under Development")
         } else if indexPath.row == 8 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "ContactVC") as! ContactVC
             self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 9 {
+            self.view.makeToast("Under Development")
+        } else if indexPath.row == 10 {
+            self.view.makeToast("Under Development")
         } else if indexPath.row == 11 {
+            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "NewsVC") as! NewsVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 12 {
             
-            //self.view.makeToast(json["message"].stringValue)
+            self.view.makeToast("user Logged Out")
+            UserDefaults.standard.removeObject(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 
                 guard let window = UIApplication.shared.delegate?.window else {

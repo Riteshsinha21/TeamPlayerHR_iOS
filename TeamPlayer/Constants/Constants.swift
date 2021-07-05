@@ -75,6 +75,7 @@ struct PROJECT_URL {
     static let FORGET_PASSWORD = "/user/forgot_password"
     static let PROFILE = "/user/profile"
     static let CONTACT_US = "/user/contact"
+    static let LOGOUT = "/user/logout"
     
     
 }

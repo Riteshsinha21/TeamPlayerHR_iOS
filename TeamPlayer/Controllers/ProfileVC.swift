@@ -17,6 +17,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var professionLbl: UILabel!
     
+    var profileDic = profileStruct()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,21 +50,23 @@ class ProfileVC: UIViewController {
                 if success == "true"
                 {
                     
-//                    self.cityList.removeAll()
-//                    for i in 0..<json["data"].count
-//                    {
-//                        let title =  json["data"][i]["name"].stringValue
-//                        let id =  json["data"][i]["id"].intValue
-//
-//                        self.cityList.append(countryStruct.init(title: title, id: id))
-//                    }
-//
-//                    if self.cityList.count == 0 {
-//                        self.cityTxt.isUserInteractionEnabled = false
-//                    } else {
-//                        self.cityTxt.isUserInteractionEnabled = true
-//
-//                    }
+                    let title =  json["data"]["title"].stringValue
+                    let firstName =  json["data"]["first_name"].stringValue
+                    let lastName =  json["data"]["last_name"].stringValue
+                    let image =  json["data"]["image"].stringValue
+                    let phone =  json["data"]["phone"].stringValue
+                    let email =  json["data"]["email"].stringValue
+                    let profession =  json["data"]["occupation_data"]["name"].stringValue
+                    let professionId =  json["data"]["occupation_data"]["id"].intValue
+                    let im =  json["data"]["im"].stringValue
+                    
+                    
+                    self.profileDic = profileStruct.init(title: title, first_name: firstName, last_name: lastName, phone: phone, email: email, profession: profession, image: image, imId: im, professionId: professionId)
+                    
+                    DispatchQueue.main.async {
+                        self.setData()
+                    }
+                    
                     
                 } else {
                     UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
@@ -76,6 +80,21 @@ class ProfileVC: UIViewController {
             hideAllProgressOnView(appDelegateInstance.window!)
             UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
         }
+    }
+    
+    func setData() {
+        self.nameLbl.text = "\(self.profileDic.title) \(self.profileDic.first_name) \(self.profileDic.last_name)"
+        self.participantNameLbl.text = "\(self.profileDic.title) \(self.profileDic.first_name) \(self.profileDic.last_name)"
+        self.phoneLbl.text = self.profileDic.phone
+        self.emailLbl.text = self.profileDic.email
+        self.professionLbl.text = self.profileDic.profession
+        self.imIdLbl.text = self.profileDic.imId
+    }
+    
+    @IBAction func editProfileAction(_ sender: Any) {
+        let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "UpdateProfileVC") as! UpdateProfileVC
+        vc.profileDic = self.profileDic
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 

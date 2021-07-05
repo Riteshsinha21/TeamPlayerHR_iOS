@@ -29,7 +29,8 @@ class ForgotPasswordVCViewController: UIViewController {
     
     
     @IBAction func backAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func forgotPswrdApi() {
@@ -47,10 +48,16 @@ class ForgotPasswordVCViewController: UIViewController {
                 {
                     //save data in userdefault..
 //                    UserDefaults.standard.setValue(json["otpId"].stringValue, forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_OTP_ID)
-//
-//                    let sellerStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let vc = sellerStoryboard.instantiateViewController(withIdentifier: "OtpVC") as! OtpVC
-//                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                    self.view.makeToast(json["message"].stringValue)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        let sellerStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = sellerStoryboard.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
+                        vc.modalPresentationStyle = .fullScreen
+                       // self.navigationController?.pushViewController(vc, animated: true)
+                        self.present(vc, animated: true, completion: nil)
+                    }
                     
                 }
                 else {

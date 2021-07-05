@@ -60,13 +60,17 @@ class SigninVC: UIViewController {
     @IBAction func forgotPasswordAction(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordVCViewController") as! ForgotPasswordVCViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+       // self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func signUpAction(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "NewUserVC") as! NewUserVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+       // self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func skipAction(_ sender: Any) {
@@ -97,9 +101,9 @@ class SigninVC: UIViewController {
                         guard let window = UIApplication.shared.delegate?.window else {
                             return
                         }
-                        
-                        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
-                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+                                                
                         window!.rootViewController = viewController
                         let options: UIView.AnimationOptions = .transitionCrossDissolve
                         let duration: TimeInterval = 0.5
@@ -111,7 +115,8 @@ class SigninVC: UIViewController {
                     
                 }
                 else {
-                    UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")

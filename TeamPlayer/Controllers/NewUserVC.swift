@@ -236,7 +236,9 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     @IBAction func onTapSignIn(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        //self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func agreeBtnAction(_ sender: UIButton) {
@@ -482,7 +484,8 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                     }
                 }
                 else {
-                    UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
