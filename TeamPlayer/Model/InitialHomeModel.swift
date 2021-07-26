@@ -24,3 +24,14 @@ struct profileStruct {
     var imId:String = ""
     var professionId:Int = 0
 }
+
+struct demoQuestionStruct {
+    var question:String = ""
+    var answers = [demoAnswerStruct]()
+    
+}
+
+struct demoAnswerStruct {
+    var answerId:String = ""
+    var answer:String = ""
+}

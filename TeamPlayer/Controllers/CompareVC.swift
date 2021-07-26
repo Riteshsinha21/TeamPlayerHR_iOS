@@ -18,6 +18,7 @@ class CompareVC: UIViewController {
     @IBAction func menuAction(_ sender: Any) {
         openSideMenu()
     }
+    
     @IBAction func compareBtnAction(_ sender: Any) {
     }
     

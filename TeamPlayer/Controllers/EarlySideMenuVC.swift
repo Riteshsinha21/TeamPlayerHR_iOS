@@ -64,7 +64,8 @@ class EarlySideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "NewsVC") as! NewsVC
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 5 {
-            self.view.makeToast("FAQ is currently under Development")
+            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "FaqVC") as! FaqVC
+            self.navigationController?.pushViewController(vc, animated: true)
         } else {
             
         }

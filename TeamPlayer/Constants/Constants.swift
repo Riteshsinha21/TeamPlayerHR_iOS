@@ -76,6 +76,8 @@ struct PROJECT_URL {
     static let PROFILE = "/user/profile"
     static let CONTACT_US = "/user/contact"
     static let LOGOUT = "/user/logout"
+    static let FAQ = "/faq"
+    static let GET_QUESTION_LIST = "/demo/questions"
     
     
 }
