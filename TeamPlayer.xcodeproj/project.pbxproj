@@ -40,6 +40,12 @@
 		586FE62426A571F10027960D /* QuestionaireVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE62326A571F10027960D /* QuestionaireVC.swift */; };
 		586FE62626A5724B0027960D /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE62526A5724B0027960D /* QuestionCell.swift */; };
 		586FE62B26A572FB0027960D /* RadioAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE62A26A572FB0027960D /* RadioAnswerCell.swift */; };
+		586FE66126B038390027960D /* CheckboxAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66026B038370027960D /* CheckboxAnswerCell.swift */; };
+		586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66226B1D6EB0027960D /* InviteHeaderCell.swift */; };
+		586FE66526B1D71B0027960D /* InviteDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66426B1D71B0027960D /* InviteDataCell.swift */; };
+		586FE66726B1D8D30027960D /* InviteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66626B1D8D30027960D /* InviteVC.swift */; };
+		586FE66926B1E0F00027960D /* GroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66826B1E0EE0027960D /* GroupVC.swift */; };
+		586FE66D26B1E1C00027960D /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66C26B1E1C00027960D /* GroupCell.swift */; };
 		58767A3126931CE500B54EFA /* CompareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58767A3026931CE500B54EFA /* CompareVC.swift */; };
 		58767A332694393F00B54EFA /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58767A322694393F00B54EFA /* FaqVC.swift */; };
 		58767A352694396E00B54EFA /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58767A342694396D00B54EFA /* FaqCell.swift */; };
@@ -93,6 +99,12 @@
 		586FE62326A571F10027960D /* QuestionaireVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionaireVC.swift; sourceTree = "<group>"; };
 		586FE62526A5724B0027960D /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		586FE62A26A572FB0027960D /* RadioAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioAnswerCell.swift; sourceTree = "<group>"; };
+		586FE66026B038370027960D /* CheckboxAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxAnswerCell.swift; sourceTree = "<group>"; };
+		586FE66226B1D6EB0027960D /* InviteHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteHeaderCell.swift; sourceTree = "<group>"; };
+		586FE66426B1D71B0027960D /* InviteDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteDataCell.swift; sourceTree = "<group>"; };
+		586FE66626B1D8D30027960D /* InviteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteVC.swift; sourceTree = "<group>"; };
+		586FE66826B1E0EE0027960D /* GroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVC.swift; sourceTree = "<group>"; };
+		586FE66C26B1E1C00027960D /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		58767A3026931CE500B54EFA /* CompareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareVC.swift; sourceTree = "<group>"; };
 		58767A322694393F00B54EFA /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		58767A342694396D00B54EFA /* FaqCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
@@ -204,6 +216,7 @@
 			children = (
 				586FE62526A5724B0027960D /* QuestionCell.swift */,
 				586FE62A26A572FB0027960D /* RadioAnswerCell.swift */,
+				586FE66026B038370027960D /* CheckboxAnswerCell.swift */,
 			);
 			path = DemoQuestionaire;
 			sourceTree = "<group>";
@@ -228,6 +241,8 @@
 				58767A3026931CE500B54EFA /* CompareVC.swift */,
 				58767A322694393F00B54EFA /* FaqVC.swift */,
 				586FE62326A571F10027960D /* QuestionaireVC.swift */,
+				586FE66626B1D8D30027960D /* InviteVC.swift */,
+				586FE66826B1E0EE0027960D /* GroupVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -246,6 +261,9 @@
 				58D0FF94268C47BE00402BEF /* SideMenuCell.swift */,
 				58767A342694396D00B54EFA /* FaqCell.swift */,
 				58767A36269447A400B54EFA /* FaqContentCell.swift */,
+				586FE66226B1D6EB0027960D /* InviteHeaderCell.swift */,
+				586FE66426B1D71B0027960D /* InviteDataCell.swift */,
+				586FE66C26B1E1C00027960D /* GroupCell.swift */,
 				586FE62926A572690027960D /* DemoQuestionaire */,
 			);
 			path = Cells;
@@ -413,8 +431,11 @@
 				582DBDE4268B32AF000A02A5 /* HomeVC.swift in Sources */,
 				586FE62426A571F10027960D /* QuestionaireVC.swift in Sources */,
 				58680F84268DFFF000880108 /* NewsVC.swift in Sources */,
+				586FE66126B038390027960D /* CheckboxAnswerCell.swift in Sources */,
+				586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */,
 				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
 				58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */,
+				586FE66926B1E0F00027960D /* GroupVC.swift in Sources */,
 				58767A352694396E00B54EFA /* FaqCell.swift in Sources */,
 				58D0FF95268C47BE00402BEF /* SideMenuCell.swift in Sources */,
 				58C0D72E268AEE5D007FC933 /* DashedView.swift in Sources */,
@@ -425,8 +446,11 @@
 				58D0FF9A268C509100402BEF /* EarlySideMenuVC.swift in Sources */,
 				58D0FF9C268C97A500402BEF /* ProfileVC.swift in Sources */,
 				58680F86268E0C7500880108 /* UpdateProfileVC.swift in Sources */,
+				586FE66526B1D71B0027960D /* InviteDataCell.swift in Sources */,
 				580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */,
 				58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */,
+				586FE66726B1D8D30027960D /* InviteVC.swift in Sources */,
+				586FE66D26B1E1C00027960D /* GroupCell.swift in Sources */,
 				58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */,
 				58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */,
 				580FB7402688A25500D3E0CE /* Internet.swift in Sources */,

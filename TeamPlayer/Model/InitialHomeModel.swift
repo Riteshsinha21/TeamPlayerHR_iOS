@@ -27,11 +27,34 @@ struct profileStruct {
 
 struct demoQuestionStruct {
     var question:String = ""
+    var maxanswers:String = ""
+    var timelimit:String = ""
+    var subpart:String = ""
     var answers = [demoAnswerStruct]()
     
 }
 
 struct demoAnswerStruct {
     var answerId:String = ""
+    var sortorder:String = ""
+    var image:String = ""
+    var created_at:String = ""
     var answer:String = ""
+    var questionid:String = ""
+    var status:Bool = false
+    var updated_at:String = ""
+}
+
+struct inviteGroupStruct {
+    var id:String = ""
+    var name:String = ""
+    var max_size:String = ""
+    
+}
+
+struct inviteParticipantStruct {
+    var id:String = ""
+    var user_name:String = ""
+    var max_size:String = ""
+    
 }
