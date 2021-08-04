@@ -59,6 +59,9 @@
 		58D0FF98268C4E1600402BEF /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D0FF97268C4E1600402BEF /* SideMenu.storyboard */; };
 		58D0FF9A268C509100402BEF /* EarlySideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */; };
 		58D0FF9C268C97A500402BEF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0FF9B268C97A500402BEF /* ProfileVC.swift */; };
+		58D6616126B81A22000E9D47 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6616026B81A21000E9D47 /* AlertVC.swift */; };
+		58D6616326B81A94000E9D47 /* AlertGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6616226B81A94000E9D47 /* AlertGroupCell.swift */; };
+		58D6616526B94B3F000E9D47 /* InviteParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */; };
 		808002A8D0CC26D740115E1D /* Pods_TeamPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +121,9 @@
 		58D0FF97268C4E1600402BEF /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		58D0FF99268C509100402BEF /* EarlySideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlySideMenuVC.swift; sourceTree = "<group>"; };
 		58D0FF9B268C97A500402BEF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		58D6616026B81A21000E9D47 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		58D6616226B81A94000E9D47 /* AlertGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertGroupCell.swift; sourceTree = "<group>"; };
+		58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteParticipantCell.swift; sourceTree = "<group>"; };
 		C3DA65BC52B4A125443B3AF8 /* Pods-TeamPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC49E1FC73C22467BF3CAA11 /* Pods-TeamPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.release.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 				58767A3026931CE500B54EFA /* CompareVC.swift */,
 				58767A322694393F00B54EFA /* FaqVC.swift */,
 				586FE62326A571F10027960D /* QuestionaireVC.swift */,
+				58D6616026B81A21000E9D47 /* AlertVC.swift */,
 				586FE66626B1D8D30027960D /* InviteVC.swift */,
 				586FE66826B1E0EE0027960D /* GroupVC.swift */,
 			);
@@ -264,6 +271,8 @@
 				586FE66226B1D6EB0027960D /* InviteHeaderCell.swift */,
 				586FE66426B1D71B0027960D /* InviteDataCell.swift */,
 				586FE66C26B1E1C00027960D /* GroupCell.swift */,
+				58D6616226B81A94000E9D47 /* AlertGroupCell.swift */,
+				58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */,
 				586FE62926A572690027960D /* DemoQuestionaire */,
 			);
 			path = Cells;
@@ -429,11 +438,14 @@
 				586FE62626A5724B0027960D /* QuestionCell.swift in Sources */,
 				580FB72E26889FB000D3E0CE /* ViewController.swift in Sources */,
 				582DBDE4268B32AF000A02A5 /* HomeVC.swift in Sources */,
+				58D6616326B81A94000E9D47 /* AlertGroupCell.swift in Sources */,
 				586FE62426A571F10027960D /* QuestionaireVC.swift in Sources */,
 				58680F84268DFFF000880108 /* NewsVC.swift in Sources */,
 				586FE66126B038390027960D /* CheckboxAnswerCell.swift in Sources */,
 				586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */,
 				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
+				58D6616126B81A22000E9D47 /* AlertVC.swift in Sources */,
+				58D6616526B94B3F000E9D47 /* InviteParticipantCell.swift in Sources */,
 				58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */,
 				586FE66926B1E0F00027960D /* GroupVC.swift in Sources */,
 				58767A352694396E00B54EFA /* FaqCell.swift in Sources */,

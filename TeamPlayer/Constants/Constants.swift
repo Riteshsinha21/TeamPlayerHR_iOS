@@ -81,6 +81,11 @@ struct PROJECT_URL {
     static let SAVE_QUESTION = "/demo/questions/save_answer"
     static let GET_GROUP_LIST = "/demo/questionnaire"
     static let GET_GROUP_DETAIL = "/demo/questionnaire/detail?id="
+    static let GET_GROUP_JOINED = "/demo/group_joined"
+    static let GET_TEAMS = "/demo/get_subgroup"
+    static let SEND_INVITATION = "/demo/send_invite"
+    static let CREATE_TEAM = "/demo/add_subgroup"
+    static let ADD_TO_TEAM = "/demo/add_subgroup"
     
 }
 
