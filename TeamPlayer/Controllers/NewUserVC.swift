@@ -225,12 +225,17 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         } else if !self.isTermsAgreed {
             self.view.makeToast("Please check and agree Our Terms and Conditions.")
             return
-        } else if self.uplaodedCv.isEmpty {
-            self.view.makeToast("Please upload Resume.")
-            return
         }
         
-        self.signupApiCall()
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ResumeVC") as! ResumeVC
+        vc.completionHandlerCallback = {(cv: String?)->Void in
+            self.uplaodedCv = cv!
+            self.signupApiCall()
+        }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func onTapSignIn(_ sender: Any) {

@@ -62,6 +62,7 @@ let X_API_KEY = "AOmAfXgEOBiziaIZfynXNuUnnNvWnjjcoP1Qpd8S"
 
 var fcmKey:String = "dudaaaa"
 var isDemo = false
+var inviteGroupArr = [inviteGroupStruct]()
 
 struct PROJECT_URL {
     
@@ -85,7 +86,8 @@ struct PROJECT_URL {
     static let GET_TEAMS = "/demo/get_subgroup"
     static let SEND_INVITATION = "/demo/send_invite"
     static let CREATE_TEAM = "/demo/add_subgroup"
-    static let ADD_TO_TEAM = "/demo/add_subgroup"
+    static let ADD_TO_TEAM = "/demo/add_user_subgroup"
+    static let SEND_REMINDER = "/demo/send_reminder"
     
 }
 

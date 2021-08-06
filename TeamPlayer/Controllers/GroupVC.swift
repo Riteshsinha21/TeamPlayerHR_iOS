@@ -19,6 +19,7 @@ class GroupVC: UIViewController {
         // Do any additional setup after loading the view.
         self.tableView.dataSource = nil
         self.tableView.delegate = nil
+        self.tableView.tableFooterView = UIView()
         self.getGroupList()
     }
     
@@ -29,7 +30,10 @@ class GroupVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-
+    @IBAction func menuAction(_ sender: Any) {
+        openSideMenu()
+    }
+    
     func getGroupList() {
         if Reachability.isConnectedToNetwork() {
             showProgressOnView(appDelegateInstance.window!)
@@ -88,7 +92,7 @@ extension GroupVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         
         let groupListObj = self.inviteGroupArr[indexPath.row]
-        cell.cellLbl.text = groupListObj.name
+        cell.cellLbl.text = "Manage \(groupListObj.name)"
         
         return cell
     }

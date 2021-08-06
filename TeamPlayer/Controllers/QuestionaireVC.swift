@@ -9,6 +9,8 @@ import UIKit
 
 class QuestionaireVC: UIViewController {
     
+    @IBOutlet weak var timeView: UIView!
+    @IBOutlet weak var emptyView: UIImageView!
     @IBOutlet weak var secondLbl: UILabel!
     @IBOutlet weak var minuteLbl: UILabel!
     @IBOutlet weak var quesLbl: UILabel!
@@ -132,7 +134,9 @@ class QuestionaireVC: UIViewController {
                         }
                         
                         self.seconds = Int(timelimit)!
-                        self.demoQuestionArr.append(demoQuestionStruct.init(question: question, maxanswers: maxanswers, timelimit: timelimit, subpart: subpart, answers: self.demoAnswersArr))
+                        if !answer_saved {
+                            self.demoQuestionArr.append(demoQuestionStruct.init(question: question, maxanswers: maxanswers, timelimit: timelimit, subpart: subpart, answers: self.demoAnswersArr))
+                        }
                         
                     }
                     
@@ -141,7 +145,14 @@ class QuestionaireVC: UIViewController {
                             self.setQuestionTxt(0)
                             self.tableView.dataSource = self
                             self.tableView.delegate = self
+                            self.emptyView.isHidden = true
+                            self.tableView.isHidden = false
+                            self.timeView.isHidden = false
                             self.tableView.reloadData()
+                        } else {
+                            self.emptyView.isHidden = false
+                            self.tableView.isHidden = true
+                            self.timeView.isHidden = true
                         }
                     }
                     

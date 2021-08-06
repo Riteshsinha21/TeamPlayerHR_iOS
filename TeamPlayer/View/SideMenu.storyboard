@@ -1038,7 +1038,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo Questonaire" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPX-Q3-fRx">
-                                        <rect key="frame" x="45" y="14.5" width="324" height="21"/>
+                                        <rect key="frame" x="45" y="14.5" width="324" height="21.5"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1074,7 +1074,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sr5-Dq-d6y">
                                 <rect key="frame" x="0.0" y="100" width="414" height="269"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHm-PC-2VE">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHm-PC-2VE">
                                         <rect key="frame" x="137" y="69.5" width="140" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcr-Ka-HIZ">
@@ -1170,7 +1170,7 @@
                                             </constraints>
                                         </view>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="A5m-Mx-k4W">
-                                            <rect key="frame" x="0.0" y="254.5" width="380" height="65"/>
+                                            <rect key="frame" x="0.0" y="256" width="380" height="65"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGl-nh-R9m">
@@ -1211,17 +1211,17 @@
                                         </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuestionCell" id="PBV-C7-iel" customClass="QuestionCell" customModule="TeamPlayer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="94" width="380" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="94" width="380" height="38"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PBV-C7-iel" id="ed9-8J-qx9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="37.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="38"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQX-yl-IHj">
-                                                            <rect key="frame" x="5" y="5" width="370" height="27.5"/>
+                                                            <rect key="frame" x="5" y="5" width="370" height="28"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXl-Zg-iSQ">
-                                                                    <rect key="frame" x="15" y="5" width="340" height="17.5"/>
+                                                                    <rect key="frame" x="15" y="5" width="340" height="18"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="Label">
                                                                             <attributes>
@@ -1254,17 +1254,17 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RadioAnswerCell" id="fTC-It-hfk" customClass="RadioAnswerCell" customModule="TeamPlayer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="131.5" width="380" height="47.5"/>
+                                                <rect key="frame" x="0.0" y="132" width="380" height="48"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fTC-It-hfk" id="HdH-0V-egI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="47.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="48"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xwz-HS-OLQ">
-                                                            <rect key="frame" x="5" y="5" width="370" height="37.5"/>
+                                                            <rect key="frame" x="5" y="5" width="370" height="38"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-qU-BpB">
-                                                                    <rect key="frame" x="45" y="10" width="310" height="17.5"/>
+                                                                    <rect key="frame" x="45" y="10" width="310" height="18"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="Label">
                                                                             <attributes>
@@ -1309,17 +1309,17 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CheckboxAnswerCell" id="slu-Vi-DoB" customClass="CheckboxAnswerCell" customModule="TeamPlayer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="179" width="380" height="47.5"/>
+                                                <rect key="frame" x="0.0" y="180" width="380" height="48"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="slu-Vi-DoB" id="l7f-Od-qBP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="47.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="48"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-sS-MnA">
-                                                            <rect key="frame" x="5" y="5" width="370" height="37.5"/>
+                                                            <rect key="frame" x="5" y="5" width="370" height="38"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukz-4Z-7b3">
-                                                                    <rect key="frame" x="45" y="10" width="310" height="17.5"/>
+                                                                    <rect key="frame" x="45" y="10" width="310" height="18"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="Label">
                                                                             <attributes>
@@ -1369,10 +1369,18 @@
                                             <outlet property="delegate" destination="Jzv-Xa-Cjh" id="v2Z-Ug-bTF"/>
                                         </connections>
                                     </tableView>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1FR-Rm-ypD">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="547"/>
+                                        <imageReference key="image" image="Group 18"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="1FR-Rm-ypD" firstAttribute="leading" secondItem="uS9-hb-AYH" secondAttribute="leading" id="Cwl-4g-bBT"/>
+                                    <constraint firstAttribute="bottom" secondItem="1FR-Rm-ypD" secondAttribute="bottom" id="OBV-49-wWx"/>
                                     <constraint firstAttribute="bottom" secondItem="Xaz-CK-Why" secondAttribute="bottom" constant="10" id="Ue9-be-SdF"/>
+                                    <constraint firstAttribute="trailing" secondItem="1FR-Rm-ypD" secondAttribute="trailing" id="XKm-01-Kqx"/>
+                                    <constraint firstItem="1FR-Rm-ypD" firstAttribute="top" secondItem="uS9-hb-AYH" secondAttribute="top" id="j7k-n9-TKo"/>
                                     <constraint firstItem="Xaz-CK-Why" firstAttribute="top" secondItem="uS9-hb-AYH" secondAttribute="top" constant="10" id="ohc-hs-E8Y"/>
                                     <constraint firstAttribute="trailing" secondItem="Xaz-CK-Why" secondAttribute="trailing" constant="2" id="rvP-gS-0D5"/>
                                     <constraint firstItem="Xaz-CK-Why" firstAttribute="leading" secondItem="uS9-hb-AYH" secondAttribute="leading" constant="2" id="ylp-Y8-naW"/>
@@ -1413,10 +1421,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyView" destination="1FR-Rm-ypD" id="qKG-7X-QrJ"/>
                         <outlet property="minuteLbl" destination="kcr-Ka-HIZ" id="zam-Rh-r6A"/>
                         <outlet property="quesLbl" destination="ntA-f8-45b" id="ade-Ee-Xty"/>
                         <outlet property="secondLbl" destination="klO-e4-Ulo" id="FRz-Dj-Ls7"/>
                         <outlet property="tableView" destination="Xaz-CK-Why" id="gPJ-Sp-PhJ"/>
+                        <outlet property="timeView" destination="NHm-PC-2VE" id="iHP-gJ-ZwD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwK-uz-LpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2530,6 +2540,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Group 18" width="400.5" height="493"/>
         <image name="about_img" width="1030.5" height="457"/>
         <image name="back" width="96" height="64"/>
         <image name="call" width="50" height="50"/>

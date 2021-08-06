@@ -49,6 +49,7 @@ struct inviteGroupStruct {
     var id:String = ""
     var name:String = ""
     var max_size:String = ""
+    var survey_progress:Bool = false
     
 }
 
@@ -56,6 +57,7 @@ struct inviteParticipantStruct {
     var id:String = ""
     var user_name:String = ""
     var survey_progress:Bool = false
+    var email:String = ""
     
 }
 

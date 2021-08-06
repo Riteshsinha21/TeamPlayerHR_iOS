@@ -10,6 +10,7 @@ import SideMenu
 
 class HomeVC: UIViewController {
 
+    @IBOutlet weak var alertTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var v1HeadingLbl: UILabel!
@@ -23,7 +24,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var v5HeadingLbl: UILabel!
     @IBOutlet weak var lastViewContentLbl: UILabel!
     
-    var inviteGroupArr = [inviteGroupStruct]()
+    
+    var fromSideMenu: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,18 +44,28 @@ class HomeVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        self.getGroupList()
+        if inviteGroupArr.count == 0 {
+            self.getGroupList()
+        } else {
+            for i in 0..<inviteGroupArr.count {
+                let inviteGroupObj = inviteGroupArr[i]
+                if !inviteGroupObj.survey_progress || self.fromSideMenu {
+                    self.alertView.isHidden = false
+                }
+            }
+        }
+        
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//
-//        self.navigationController?.navigationBar.isHidden = true
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "AlertVC") as! AlertVC
-//        self.present(vc, animated: true, completion: nil)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+        self.navigationController?.navigationBar.isHidden = true
+        
+        
+        
+    }
     
     @IBAction func onTapSideMenu(_ sender: Any) {
         
@@ -73,24 +85,6 @@ class HomeVC: UIViewController {
             present(menu, animated: true, completion: nil)
         }
         
-//        if isDemo {
-//
-//            let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
-//            var settings = SideMenuSettings()
-//            settings.menuWidth = self.view.frame.width - 100
-//            menu.settings = settings
-//            present(menu, animated: true, completion: nil)
-//
-//        } else {
-//
-//
-//            let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
-//            var settings = SideMenuSettings()
-//            settings.menuWidth = self.view.frame.width - 100
-//            menu.settings = settings
-//            present(menu, animated: true, completion: nil)
-//        }
-        
     }
     
     @IBAction func onTapNotification(_ sender: Any) {
@@ -109,22 +103,22 @@ class HomeVC: UIViewController {
                 //success == "true"
                 if success == "true"
                 {
-                    self.inviteGroupArr.removeAll()
+                    inviteGroupArr.removeAll()
 
                     for i in 0..<json["data"].count {
                         let id =  json["data"][i]["id"].stringValue
                         let name =  json["data"][i]["name"].stringValue
                         let max_size =  json["data"][i]["max_size"].stringValue
-                        
-                        if !json["data"][i]["survey_progress"].boolValue {
+                        let survey_progress = json["data"][i]["survey_progress"].boolValue
+                        if !survey_progress || self.fromSideMenu {
                             self.alertView.isHidden = false
                         }
                         
-                        self.inviteGroupArr.append(inviteGroupStruct.init(id: id, name: name, max_size: max_size))
+                        inviteGroupArr.append(inviteGroupStruct.init(id: id, name: name, max_size: max_size, survey_progress: survey_progress))
                      }
 
                     DispatchQueue.main.async {
-                        if self.inviteGroupArr.count > 0 {
+                        if inviteGroupArr.count > 0 {
                             
                             self.tableView.dataSource = self
                             self.tableView.delegate = self
@@ -147,29 +141,34 @@ class HomeVC: UIViewController {
         }
     }
     
+    @IBAction func alertCloseAction(_ sender: Any) {
+        self.alertView.isHidden = true
+    }
+    
+    
 
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.inviteGroupArr.count
+        return inviteGroupArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlertGroupCell", for: indexPath) as! AlertGroupCell
         
-        let groupListObj = self.inviteGroupArr[indexPath.row]
+        let groupListObj = inviteGroupArr[indexPath.row]
         cell.cellLbl.text = groupListObj.name
         
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let groupListObj = self.inviteGroupArr[indexPath.row]
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InviteVC") as! InviteVC
-//        vc.groupId = groupListObj.id
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // let groupListObj = inviteGroupArr[indexPath.row]
+        let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "QuestionaireVC") as! QuestionaireVC
+       // vc.groupId = groupListObj.id
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
 }

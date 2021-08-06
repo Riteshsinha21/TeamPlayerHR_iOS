@@ -28,6 +28,9 @@
 		5830F7EF2689B956009FF756 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7E32689B956009FF756 /* Roboto-Italic.ttf */; };
 		5830F7F02689B956009FF756 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7E42689B956009FF756 /* Roboto-Bold.ttf */; };
 		5830F7F12689B956009FF756 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7E52689B956009FF756 /* Roboto-MediumItalic.ttf */; };
+		584D3C8E26BBFDA9000AE123 /* ManageTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584D3C8D26BBFDA9000AE123 /* ManageTeamVC.swift */; };
+		584F84C126BAA4800028DE76 /* ResumeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F84C026BAA4800028DE76 /* ResumeVC.swift */; };
+		584F84C326BABD3B0028DE76 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F84C226BABD3B0028DE76 /* PurchaseVC.swift */; };
 		584F9EB02689A6A300CB6062 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EAF2689A6A200CB6062 /* Constants.swift */; };
 		584F9EB32689A81900CB6062 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EB22689A81900CB6062 /* Extensions.swift */; };
 		58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58610A8C268B6B0400D717C7 /* DemoVC.swift */; };
@@ -90,6 +93,9 @@
 		5830F7E32689B956009FF756 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		5830F7E42689B956009FF756 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5830F7E52689B956009FF756 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		584D3C8D26BBFDA9000AE123 /* ManageTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamVC.swift; sourceTree = "<group>"; };
+		584F84C026BAA4800028DE76 /* ResumeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeVC.swift; sourceTree = "<group>"; };
+		584F84C226BABD3B0028DE76 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		584F9EAF2689A6A200CB6062 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		584F9EB22689A81900CB6062 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		58610A8C268B6B0400D717C7 /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
@@ -250,6 +256,9 @@
 				58D6616026B81A21000E9D47 /* AlertVC.swift */,
 				586FE66626B1D8D30027960D /* InviteVC.swift */,
 				586FE66826B1E0EE0027960D /* GroupVC.swift */,
+				584F84C026BAA4800028DE76 /* ResumeVC.swift */,
+				584F84C226BABD3B0028DE76 /* PurchaseVC.swift */,
+				584D3C8D26BBFDA9000AE123 /* ManageTeamVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -443,6 +452,7 @@
 				58680F84268DFFF000880108 /* NewsVC.swift in Sources */,
 				586FE66126B038390027960D /* CheckboxAnswerCell.swift in Sources */,
 				586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */,
+				584F84C126BAA4800028DE76 /* ResumeVC.swift in Sources */,
 				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
 				58D6616126B81A22000E9D47 /* AlertVC.swift in Sources */,
 				58D6616526B94B3F000E9D47 /* InviteParticipantCell.swift in Sources */,
@@ -469,8 +479,10 @@
 				586FE62B26A572FB0027960D /* RadioAnswerCell.swift in Sources */,
 				58D0FF92268C472100402BEF /* SideMenuVC.swift in Sources */,
 				58680F82268DFF5B00880108 /* VisionVC.swift in Sources */,
+				584D3C8E26BBFDA9000AE123 /* ManageTeamVC.swift in Sources */,
 				58642F2F268DF75E00D85B2C /* HowItWorksVC.swift in Sources */,
 				58767A37269447A400B54EFA /* FaqContentCell.swift in Sources */,
+				584F84C326BABD3B0028DE76 /* PurchaseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
