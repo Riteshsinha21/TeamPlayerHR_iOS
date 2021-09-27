@@ -13,7 +13,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
 //    var sideMenuArr = ["Home","Participants Profile", "Purchase Breif Qestionaores", "Compare IM Intrinsic Matrix", "How it Works","What are the benefits", "Vision and Technology", "FAQ's", "Contact Us", "Subscription", "Demo", "News", "Logout"]
-    var sideMenuArr = ["Home","Participants Profile","App Groups Joined", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Participant Full Questionnaire", "Company Subscription", "How it Works", "What are the benefits", "Vision and Technology", "FAQ's", "Request Demo", "Logout"]
+    var sideMenuArr = ["Home","Participants Profile","App Groups Joined", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Purchase Full Questionnaire", "Company Subscription", "How it Works", "What are the benefits", "Vision and Technology", "FAQ's", "Request Demo", "Logout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +54,26 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 4 {
             self.view.makeToast("Under Development")
         } else if indexPath.row == 5 {
-            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "QuestionaireVC") as! QuestionaireVC
-            self.navigationController?.pushViewController(vc, animated: true)
+            if let url = URL(string: "https://dev.teamplayerhr.com") {
+                UIApplication.shared.open(url)
+            }
         } else if indexPath.row == 6 {
             self.view.makeToast("Under Development")
         } else if indexPath.row == 7 {
-            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "HowItWorksVC") as! HowItWorksVC
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "HowItWorksVC") as! HowItWorksVC
+//            self.navigationController?.pushViewController(vc, animated: true)
+            
+            guard let url = URL(string: "https://dev.teamplayerhr.com/mobile-value-calculator") else {
+              return //be safe
+            }
+
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+            
         } else if indexPath.row == 8 {
             self.view.makeToast("Under Development")
         } else if indexPath.row == 9 {

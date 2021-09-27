@@ -23,6 +23,7 @@ class InviteVC: UIViewController {
     var groupId = ""
     var participantArr = [inviteParticipantStruct]()
     var teamsArr = [inviteTeamStruct]()
+    var teamUserListArr = [teamUserListStruct]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +37,8 @@ class InviteVC: UIViewController {
         self.participantTableView.tableFooterView = UIView()
         self.dashedView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
         self.dashedView1.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
-        self.getGroupDetail()
-        self.getTeamAPI()
+//        self.getGroupDetail()
+//        self.getTeamAPI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +46,8 @@ class InviteVC: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        self.getGroupDetail()
+        self.getTeamAPI()
     }
     
     @IBAction func createAction(_ sender: Any) {
@@ -76,6 +79,10 @@ class InviteVC: UIViewController {
         } else if sender.titleLabel?.text == "Show" {
            
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ManageTeamVC") as! ManageTeamVC
+            let indexPath: IndexPath? = tableView.indexPathForRow(at: sender.convert(CGPoint.zero, to: tableView))
+             let teamUserListObj = self.teamsArr[indexPath!.row]
+            vc.teamParticipantObj = teamUserListObj
+//            vc.teamUserListArr = teamUserListObj
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let indexPath: IndexPath? = participantTableView.indexPathForRow(at: sender.convert(CGPoint.zero, to: participantTableView))
@@ -130,7 +137,7 @@ class InviteVC: UIViewController {
                 {
                     self.participantArr.removeAll()
                     for i in 0..<json["data"]["survey_participants"].count {
-                        let id =  json["data"]["survey_participants"][i]["id"].stringValue
+                        let id =  json["data"]["survey_participants"][i]["profile_id"].stringValue
                         let user_name =  json["data"]["survey_participants"][i]["user_name"].stringValue
                         let survey_progress =  json["data"]["survey_participants"][i]["survey_progress"].boolValue
                         let email = json["data"]["survey_participants"][i]["email"].stringValue
@@ -176,9 +183,24 @@ class InviteVC: UIViewController {
                     self.teamsArr.removeAll()
                     for i in 0..<json["data"].count {
                         let id =  json["data"][i]["id"].stringValue
+                        let group_id =  json["data"][i]["group_id"].stringValue
                         let name =  json["data"][i]["name"].stringValue
+                        let userList = json["data"][i]["user_list"].arrayValue
+                        let teamCount = userList.count
                         
-                        self.teamsArr.append(inviteTeamStruct.init(id: id, name: name))
+                        self.teamUserListArr.removeAll()
+                        for j in 0..<json["data"][i]["user_list"].count {
+                            let user_type = json["data"][i]["user_list"][j]["user_type"].stringValue
+                            let id = json["data"][i]["user_list"][j]["id"].stringValue
+                            let user_name = json["data"][i]["user_list"][j]["user_name"].stringValue
+                            let subgroup_id = json["data"][i]["user_list"][j]["subgroup_id"].stringValue
+                            let group_id = json["data"][i]["user_list"][j]["group_id"].stringValue
+                            let user_id = json["data"][i]["user_list"][j]["user_id"].stringValue
+                            
+                            self.teamUserListArr.append(teamUserListStruct.init(id: id, user_type: user_type, user_name: user_name, group_id: group_id, subgroup_id: subgroup_id, user_id: user_id))
+                        }
+                        
+                        self.teamsArr.append(inviteTeamStruct.init(id: id, group_id: group_id, name: name, teamCount: "\(teamCount)", userList: self.teamUserListArr))
                      }
 
                     DispatchQueue.main.async {
@@ -275,12 +297,12 @@ class InviteVC: UIViewController {
         }
     }
     
-    func addToTeamAPI(_ name: String, subgroup_id: String, user_id: String) {
+    func addToTeamAPI(_ name: String, subgroup_id: String, group_id: String, user_id: String) {
         
         if Reachability.isConnectedToNetwork() {
             showProgressOnView(appDelegateInstance.window!)
             
-            let param:[String:String] = ["group_id": self.groupId, "user_name": name, "subgroup_id": subgroup_id, "user_id": user_id]
+            let param:[String:String] = ["group_id": group_id, "user_name": name, "subgroup_id": subgroup_id, "user_id": user_id]
             ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.ADD_TO_TEAM, successBlock: { (json) in
                 print(json)
                 hideAllProgressOnView(appDelegateInstance.window!)
@@ -288,6 +310,7 @@ class InviteVC: UIViewController {
                 if success == "true"
                 {
                     self.view.makeToast(json["message"].stringValue)
+                    self.getTeamAPI()
                     
                 }
                 else {
@@ -312,7 +335,7 @@ class InviteVC: UIViewController {
         for item in self.teamsArr{
             let classButton = UIAlertAction(title: item.name , style: .default, handler: { (action) in
                 
-                self.addToTeamAPI(userName, subgroup_id: item.id, user_id: userId)
+                self.addToTeamAPI(userName, subgroup_id: item.id, group_id: item.group_id, user_id: userId)
             })
             alertController.addAction(classButton)
         }
@@ -320,6 +343,14 @@ class InviteVC: UIViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
+    
+    @IBAction func showInviteesAction(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ShowInviteeVC") as! ShowInviteeVC
+        vc.id = self.groupId
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     
 
 }
@@ -355,7 +386,7 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
             
             let groupListObj = self.teamsArr[indexPath.row]
             cell.cellNameLbl.text = "Team Name: \(groupListObj.name)"
-            //cell.cellStatusLbl.text = "Participants: \(groupListObj.survey_progress ? "Complete" : "Pending")"
+            cell.cellStatusLbl.text = "Participants: \(groupListObj.teamCount)"
             
             return cell
         }

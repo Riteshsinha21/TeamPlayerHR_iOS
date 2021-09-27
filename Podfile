@@ -14,6 +14,13 @@ target 'TeamPlayer' do
   pod 'SDWebImage'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Toast-Swift', '~> 5.0.1'
+  pod 'Braintree'
+  pod 'BraintreeDropIn'
+  pod 'Braintree/PayPal'
+  pod 'Braintree/Venmo'
+  pod 'Braintree/Apple-Pay'
+  pod 'SideMenu'
+  pod "youtube-ios-player-helper"
   
 
 end

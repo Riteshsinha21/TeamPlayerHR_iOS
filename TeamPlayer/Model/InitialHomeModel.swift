@@ -23,6 +23,7 @@ struct profileStruct {
     var image:String = ""
     var imId:String = ""
     var professionId:Int = 0
+    var address:String = ""
 }
 
 struct demoQuestionStruct {
@@ -63,6 +64,25 @@ struct inviteParticipantStruct {
 
 struct inviteTeamStruct {
     var id:String = ""
+    var group_id:String = ""
     var name:String = ""
+    var teamCount:String = ""
+    var userList:[teamUserListStruct] = [teamUserListStruct]()
+}
+
+struct teamUserListStruct {
+    var id:String = ""
+    var user_type:String = ""
+    var user_name:String = ""
+    var group_id:String = ""
+    var subgroup_id:String = ""
+    var user_id:String = ""
+}
+
+struct showInviteeListStruct {
+    var id:String = ""
+    var email:String = ""
+    var on_date:String = ""
+    var group_id:String = ""
     
 }

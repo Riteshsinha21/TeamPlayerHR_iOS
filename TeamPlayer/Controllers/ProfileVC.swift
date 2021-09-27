@@ -7,9 +7,11 @@
 
 import UIKit
 import SideMenu
+import SDWebImage
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var participantNameLbl: UILabel!
     @IBOutlet weak var imIdLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
@@ -23,13 +25,14 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.getProfileApi()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         self.navigationController?.navigationBar.isHidden = true
+        self.getProfileApi()
         
     }
     
@@ -59,9 +62,9 @@ class ProfileVC: UIViewController {
                     let profession =  json["data"]["occupation_data"]["name"].stringValue
                     let professionId =  json["data"]["occupation_data"]["id"].intValue
                     let im =  json["data"]["im"].stringValue
+                    let address = json["data"]["address_line_1"].stringValue
                     
-                    
-                    self.profileDic = profileStruct.init(title: title, first_name: firstName, last_name: lastName, phone: phone, email: email, profession: profession, image: image, imId: im, professionId: professionId)
+                    self.profileDic = profileStruct.init(title: title, first_name: firstName, last_name: lastName, phone: phone, email: email, profession: profession, image: image, imId: im, professionId: professionId, address: address)
                     
                     DispatchQueue.main.async {
                         self.setData()
@@ -89,6 +92,7 @@ class ProfileVC: UIViewController {
         self.emailLbl.text = self.profileDic.email
         self.professionLbl.text = self.profileDic.profession
         self.imIdLbl.text = self.profileDic.imId
+        self.profileImg.sd_setImage(with: URL(string: FILE_BASE_URL + "/\(self.profileDic.image)"), placeholderImage: UIImage(named: "profile"))
     }
     
     @IBAction func editProfileAction(_ sender: Any) {

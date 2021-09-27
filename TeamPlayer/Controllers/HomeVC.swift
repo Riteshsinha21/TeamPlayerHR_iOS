@@ -7,9 +7,11 @@
 
 import UIKit
 import SideMenu
+import youtube_ios_player_helper
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, YTPlayerViewDelegate {
 
+    @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var alertTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -31,6 +33,10 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        playerView.delegate = self
+        playerView.load(withVideoId: "1OxRDJe0pFI", playerVars: ["playsinline": 1])
+        
         self.v1HeadingLbl.text = "• Employee Productivity"
         self.v1ContentLbl.text = "Decrease the 20% to 30% lost productivity that companies suffer due to unhappy and poorly engaged employees"
         self.v2HeadingLbl.text = "• Team Assignments"
@@ -39,7 +45,7 @@ class HomeVC: UIViewController {
         self.v3ContentLbl.text = "Management Focus - A decrease of up to 20% of manager time focused on HR issues"
         self.v4HeadingLbl.text = "• Staff Hiring"
         self.v4ContentLbl.text = "Building Teams - An increase of up to 20% in employee productivity"
-        self.v5HeadingLbl.text = "Augmenting Teams - Up to 30% reduction in the number and cost of bad hir"
+        self.v5HeadingLbl.text = "Augmenting Teams - Up to 30% reduction in the number and cost of bad hire"
         self.lastViewContentLbl.text = "TeamPlayerHR is not a psychometric test.\nTeamPlayerHR patented technology quickly assesses how individuals will interact with each other and tells its users whether individuals will work together effectively by assessing their cultural compatibility so they can create high performing teams."
         
         tableView.delegate = self
@@ -50,11 +56,10 @@ class HomeVC: UIViewController {
             for i in 0..<inviteGroupArr.count {
                 let inviteGroupObj = inviteGroupArr[i]
                 if !inviteGroupObj.survey_progress || self.fromSideMenu {
-                    self.alertView.isHidden = false
+//                    self.alertView.isHidden = false
                 }
             }
         }
-        
         
     }
     
@@ -62,9 +67,10 @@ class HomeVC: UIViewController {
         super.viewWillAppear(true)
 
         self.navigationController?.navigationBar.isHidden = true
-        
-        
-        
+    }
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        playerView.playVideo()
     }
     
     @IBAction func onTapSideMenu(_ sender: Any) {
@@ -111,7 +117,7 @@ class HomeVC: UIViewController {
                         let max_size =  json["data"][i]["max_size"].stringValue
                         let survey_progress = json["data"][i]["survey_progress"].boolValue
                         if !survey_progress || self.fromSideMenu {
-                            self.alertView.isHidden = false
+//                            self.alertView.isHidden = false
                         }
                         
                         inviteGroupArr.append(inviteGroupStruct.init(id: id, name: name, max_size: max_size, survey_progress: survey_progress))

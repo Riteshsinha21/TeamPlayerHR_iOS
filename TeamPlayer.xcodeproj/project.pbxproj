@@ -33,6 +33,9 @@
 		584F84C326BABD3B0028DE76 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F84C226BABD3B0028DE76 /* PurchaseVC.swift */; };
 		584F9EB02689A6A300CB6062 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EAF2689A6A200CB6062 /* Constants.swift */; };
 		584F9EB32689A81900CB6062 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EB22689A81900CB6062 /* Extensions.swift */; };
+		5853294626CA5D1F00D1138F /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5853294526CA5D1F00D1138F /* GroupListCell.swift */; };
+		5853294826CA6D8F00D1138F /* BenchmarkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5853294726CA6D8F00D1138F /* BenchmarkListCell.swift */; };
+		5853294A26CA87FA00D1138F /* ParticipantListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5853294926CA87FA00D1138F /* ParticipantListCell.swift */; };
 		58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58610A8C268B6B0400D717C7 /* DemoVC.swift */; };
 		58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58642F2A268D98EB00D85B2C /* ContactVC.swift */; };
 		58642F2D268DE13F00D85B2C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58642F2C268DE13E00D85B2C /* MapKit.framework */; };
@@ -40,6 +43,9 @@
 		58680F82268DFF5B00880108 /* VisionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58680F81268DFF5B00880108 /* VisionVC.swift */; };
 		58680F84268DFFF000880108 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58680F83268DFFF000880108 /* NewsVC.swift */; };
 		58680F86268E0C7500880108 /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58680F85268E0C7500880108 /* UpdateProfileVC.swift */; };
+		58692A3D26EF0ED20024A623 /* ViewReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58692A3C26EF0ED20024A623 /* ViewReportVC.swift */; };
+		58692A3F26EF5F210024A623 /* ShowInviteeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58692A3E26EF5F210024A623 /* ShowInviteeVC.swift */; };
+		58692A4126EF5FAC0024A623 /* ShowInviteeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58692A4026EF5FAC0024A623 /* ShowInviteeListCell.swift */; };
 		586FE62426A571F10027960D /* QuestionaireVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE62326A571F10027960D /* QuestionaireVC.swift */; };
 		586FE62626A5724B0027960D /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE62526A5724B0027960D /* QuestionCell.swift */; };
 		586FE62B26A572FB0027960D /* RadioAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE62A26A572FB0027960D /* RadioAnswerCell.swift */; };
@@ -98,6 +104,9 @@
 		584F84C226BABD3B0028DE76 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		584F9EAF2689A6A200CB6062 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		584F9EB22689A81900CB6062 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5853294526CA5D1F00D1138F /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
+		5853294726CA6D8F00D1138F /* BenchmarkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchmarkListCell.swift; sourceTree = "<group>"; };
+		5853294926CA87FA00D1138F /* ParticipantListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantListCell.swift; sourceTree = "<group>"; };
 		58610A8C268B6B0400D717C7 /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
 		58642F2A268D98EB00D85B2C /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		58642F2C268DE13E00D85B2C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -105,6 +114,9 @@
 		58680F81268DFF5B00880108 /* VisionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionVC.swift; sourceTree = "<group>"; };
 		58680F83268DFFF000880108 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		58680F85268E0C7500880108 /* UpdateProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
+		58692A3C26EF0ED20024A623 /* ViewReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReportVC.swift; sourceTree = "<group>"; };
+		58692A3E26EF5F210024A623 /* ShowInviteeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInviteeVC.swift; sourceTree = "<group>"; };
+		58692A4026EF5FAC0024A623 /* ShowInviteeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInviteeListCell.swift; sourceTree = "<group>"; };
 		586FE62326A571F10027960D /* QuestionaireVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionaireVC.swift; sourceTree = "<group>"; };
 		586FE62526A5724B0027960D /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		586FE62A26A572FB0027960D /* RadioAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioAnswerCell.swift; sourceTree = "<group>"; };
@@ -258,7 +270,9 @@
 				586FE66826B1E0EE0027960D /* GroupVC.swift */,
 				584F84C026BAA4800028DE76 /* ResumeVC.swift */,
 				584F84C226BABD3B0028DE76 /* PurchaseVC.swift */,
+				58692A3E26EF5F210024A623 /* ShowInviteeVC.swift */,
 				584D3C8D26BBFDA9000AE123 /* ManageTeamVC.swift */,
+				58692A3C26EF0ED20024A623 /* ViewReportVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,6 +296,10 @@
 				586FE66C26B1E1C00027960D /* GroupCell.swift */,
 				58D6616226B81A94000E9D47 /* AlertGroupCell.swift */,
 				58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */,
+				5853294526CA5D1F00D1138F /* GroupListCell.swift */,
+				5853294726CA6D8F00D1138F /* BenchmarkListCell.swift */,
+				5853294926CA87FA00D1138F /* ParticipantListCell.swift */,
+				58692A4026EF5FAC0024A623 /* ShowInviteeListCell.swift */,
 				586FE62926A572690027960D /* DemoQuestionaire */,
 			);
 			path = Cells;
@@ -446,6 +464,7 @@
 				580FB7412688A25500D3E0CE /* ServerClass.swift in Sources */,
 				586FE62626A5724B0027960D /* QuestionCell.swift in Sources */,
 				580FB72E26889FB000D3E0CE /* ViewController.swift in Sources */,
+				58692A4126EF5FAC0024A623 /* ShowInviteeListCell.swift in Sources */,
 				582DBDE4268B32AF000A02A5 /* HomeVC.swift in Sources */,
 				58D6616326B81A94000E9D47 /* AlertGroupCell.swift in Sources */,
 				586FE62426A571F10027960D /* QuestionaireVC.swift in Sources */,
@@ -454,9 +473,12 @@
 				586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */,
 				584F84C126BAA4800028DE76 /* ResumeVC.swift in Sources */,
 				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
+				58692A3D26EF0ED20024A623 /* ViewReportVC.swift in Sources */,
 				58D6616126B81A22000E9D47 /* AlertVC.swift in Sources */,
+				5853294626CA5D1F00D1138F /* GroupListCell.swift in Sources */,
 				58D6616526B94B3F000E9D47 /* InviteParticipantCell.swift in Sources */,
 				58C0D72C268A14B8007FC933 /* SigninVC.swift in Sources */,
+				5853294826CA6D8F00D1138F /* BenchmarkListCell.swift in Sources */,
 				586FE66926B1E0F00027960D /* GroupVC.swift in Sources */,
 				58767A352694396E00B54EFA /* FaqCell.swift in Sources */,
 				58D0FF95268C47BE00402BEF /* SideMenuCell.swift in Sources */,
@@ -470,8 +492,10 @@
 				58680F86268E0C7500880108 /* UpdateProfileVC.swift in Sources */,
 				586FE66526B1D71B0027960D /* InviteDataCell.swift in Sources */,
 				580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */,
+				5853294A26CA87FA00D1138F /* ParticipantListCell.swift in Sources */,
 				58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */,
 				586FE66726B1D8D30027960D /* InviteVC.swift in Sources */,
+				58692A3F26EF5F210024A623 /* ShowInviteeVC.swift in Sources */,
 				586FE66D26B1E1C00027960D /* GroupCell.swift in Sources */,
 				58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */,
 				58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */,
@@ -632,8 +656,8 @@
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
-				INFOPLIST_KEY_CFBundleVersion = 1;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To click Image and upload directly, we need access to your Camera.";
+				INFOPLIST_KEY_CFBundleVersion = 1.5;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To select Image and upload directly, we need access to your Camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -673,8 +697,8 @@
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
-				INFOPLIST_KEY_CFBundleVersion = 1;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To click Image and upload directly, we need access to your Camera.";
+				INFOPLIST_KEY_CFBundleVersion = 1.5;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To select Image and upload directly, we need access to your Camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -51,7 +51,7 @@ var countryArr = [String]()
 
 let BASE_URL = "https://admin.teamplayerhr.com/api"
 let FLAG_BASE_URL = "http://34.220.107.44/SaharaGo/Flag"
-let FILE_BASE_URL = "http://34.220.107.44/SaharaGo/File"
+let FILE_BASE_URL = "https://admin.teamplayerhr.com/storage/app/public"
 
 
 let BANNER_BASE_URL = "http://35.160.227.253/SaharaGo/Banner/"
@@ -75,6 +75,7 @@ struct PROJECT_URL {
     static let SIGNUP = "/user/register"
     static let FORGET_PASSWORD = "/user/forgot_password"
     static let PROFILE = "/user/profile"
+    static let UPDATE_PROFILE = "/user/profile/update"
     static let CONTACT_US = "/user/contact"
     static let LOGOUT = "/user/logout"
     static let FAQ = "/faq"
@@ -88,7 +89,11 @@ struct PROJECT_URL {
     static let CREATE_TEAM = "/demo/add_subgroup"
     static let ADD_TO_TEAM = "/demo/add_user_subgroup"
     static let SEND_REMINDER = "/demo/send_reminder"
-    
+    static let CHANGE_USER_TYPE = "/demo/team_usertype"
+    static let GET_BRAINTREE_TOKEN = "/braintree/getclienttoken"
+    static let CREATE_PURCHASE = "/braintree/createpurchase"
+    static let SHOW_INVITEES = "/demo/questionnaire/invitee_list"
+    static let DEMO_REQUEST = "/user/demo_request"
 }
 
 struct CONDITION_KEYS {

@@ -6,8 +6,6 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To select Image and upload directly, we need access to your Photo Library.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>To select Image and upload directly, we need access to your Camera.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Bold</string>

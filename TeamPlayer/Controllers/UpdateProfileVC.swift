@@ -19,6 +19,10 @@ class UpdateProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     @IBOutlet weak var phoneTxt: UITextField!
     @IBOutlet weak var occupationTxt: UITextField!
     
+    @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var addressTxt: UITextField!
     var occupationList = [countryStruct]()
     var picker = UIPickerView()
     var toolBar = UIToolbar()
@@ -47,8 +51,6 @@ class UpdateProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
-
-        
         
         self.picker.delegate = self
         self.picker.dataSource = self
@@ -69,6 +71,8 @@ class UpdateProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         self.phoneTxt.text = self.profileDic.phone
         self.occupationTxt.text = self.profileDic.profession
         self.occupationId = self.profileDic.professionId
+        self.emailTxt.text = self.profileDic.email
+        self.addressTxt.text = self.profileDic.address
     }
     
     func setdashedView() {
@@ -76,6 +80,8 @@ class UpdateProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         self.lastNameView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
         self.phoneView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
         self.occupationView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
+        self.emailView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
+        self.addressView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
     }
     
     @objc func donePicker() {
@@ -129,8 +135,42 @@ class UpdateProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDelega
         }
     }
     
+    func saveProfileAPI() {
+        
+        if Reachability.isConnectedToNetwork() {
+            showProgressOnView(appDelegateInstance.window!)
+            
+            let param:[String:Any] = [ "first_name": self.firstNameTxt.text!,"last_name":self.lastNameTxt.text!, "phone":self.phoneTxt.text!, "occupation":self.occupationId]
+            
+            ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.UPDATE_PROFILE, successBlock: { (json) in
+                print(json)
+                hideAllProgressOnView(appDelegateInstance.window!)
+                let success = json["success"].stringValue
+                if success == "true"
+                {
+                    //save data in userdefault..
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    
+                    
+                }
+                else {
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                }
+            }, errorBlock: { (NSError) in
+                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+                hideAllProgressOnView(appDelegateInstance.window!)
+            })
+            
+        }else{
+            hideAllProgressOnView(appDelegateInstance.window!)
+            UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
+        }
+    }
+    
     @IBAction func saveAction(_ sender: Any) {
-        self.view.makeToast("Under Development.")
+        self.saveProfileAPI()
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -139,8 +179,6 @@ class UpdateProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDelega
     
     @IBAction func notificationAction(_ sender: Any) {
     }
-    
-    
     
 }
 

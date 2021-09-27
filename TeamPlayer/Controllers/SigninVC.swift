@@ -103,6 +103,7 @@ class SigninVC: UIViewController {
                         }
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+                        viewController.selectedIndex = 1
                                                 
                         window!.rootViewController = viewController
                         let options: UIView.AnimationOptions = .transitionCrossDissolve

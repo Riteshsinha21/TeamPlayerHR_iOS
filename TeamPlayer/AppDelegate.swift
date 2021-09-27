@@ -7,6 +7,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Braintree
+import BraintreeDropIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             UIApplication.shared.delegate!.window!!.rootViewController = viewController
         }
+        
+        BTAppSwitch.setReturnURLScheme("ChawtechSolutions.TeamPlayer.Payments")
         
         return true
     }
@@ -62,3 +66,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+extension AppDelegate {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme?.localizedCaseInsensitiveCompare("ChawtechSolutions.TeamPlayer.Payments") == .orderedSame {
+            return BTAppSwitch.handleOpen(url, options: options)
+        }
+        return false
+    }
+    
+    
+}
