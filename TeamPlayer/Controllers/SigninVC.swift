@@ -95,6 +95,8 @@ class SigninVC: UIViewController {
                     //save data in userdefault..
                     
                     UserDefaults.standard.setValue(json["data"]["token"].stringValue, forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)
+                    UserDefaults.standard.setValue(json["data"]["role"].stringValue, forKey: USER_DEFAULTS_KEYS.USER_ROLE)
+                    
                     self.view.makeToast(json["message"].stringValue)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         

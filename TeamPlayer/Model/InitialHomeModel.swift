@@ -24,6 +24,7 @@ struct profileStruct {
     var imId:String = ""
     var professionId:Int = 0
     var address:String = ""
+    var cv:String = ""
 }
 
 struct demoQuestionStruct {
@@ -85,4 +86,27 @@ struct showInviteeListStruct {
     var on_date:String = ""
     var group_id:String = ""
     
+}
+
+struct newsListStruct {
+    var id:String = ""
+    var title:String = ""
+    var description:String = ""
+    var feature_image:String = ""
+    
+}
+
+struct subscriptionListStruct {
+    var frequency_type:String = ""
+    var title:String = ""
+    var amount:String = ""
+    var duration:String = ""
+    var detail:String = ""
+    
+}
+
+struct purchaseHistoryStruct {
+    var amount:String = "N/A"
+    var on_date:String = "N/A"
+    var no_of_participant:String = "N/A"
 }

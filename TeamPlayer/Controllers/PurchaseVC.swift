@@ -12,18 +12,30 @@ import BraintreeDropIn
 class PurchaseVC: UIViewController {
 
     @IBOutlet weak var pptView: UIView!
+    @IBOutlet weak var numberOfQuestionaireTxt: UITextField!
     
     var clientToken = String()
     var orderId = String()
     var braintreeClient: BTAPIClient?
-//    var totalAmount : Double = Double()
-    var totalAmount = 0.1
+    var totalAmount : Double = Double()
+   // var totalAmount = 0.1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.getDemoPlanAPI()
         self.pptView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+        
+        self.tabBarController?.tabBar.standardAppearance = appearance;
+        if #available(iOS 15.0, *) {
+            self.tabBarController?.tabBar.scrollEdgeAppearance = self.tabBarController?.tabBar.standardAppearance
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     @IBAction func sideMenuAction(_ sender: Any) {
@@ -34,7 +46,44 @@ class PurchaseVC: UIViewController {
     }
     
     @IBAction func paymentAction(_ sender: Any) {
+        if self.numberOfQuestionaireTxt.text!.isEmpty {
+            self.view.makeToast("Please fill the number of Questionaire you want.")
+            return
+        }
+        self.totalAmount = self.totalAmount * Double(self.numberOfQuestionaireTxt.text!)!
         self.getBrainTreeToken()
+    }
+    
+    func getDemoPlanAPI() {
+        if Reachability.isConnectedToNetwork() {
+            showProgressOnView(appDelegateInstance.window!)
+            
+            let param:[String:String] = [:]
+            ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.DEMO_PLAN, successBlock: { (json) in
+                print(json)
+                hideAllProgressOnView(appDelegateInstance.window!)
+                let success = json["success"].stringValue
+                if success == "true"
+                {
+                    for i in 0..<json["data"].count {
+                        let amount =  json["data"][i]["amount"].stringValue
+                        self.totalAmount = Double(amount) ?? 0.0
+                     }
+                    
+                }
+                else {
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                }
+            }, errorBlock: { (NSError) in
+                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+                hideAllProgressOnView(appDelegateInstance.window!)
+            })
+            
+        }else{
+            hideAllProgressOnView(appDelegateInstance.window!)
+            UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
+        }
     }
     
     func getBrainTreeToken() {

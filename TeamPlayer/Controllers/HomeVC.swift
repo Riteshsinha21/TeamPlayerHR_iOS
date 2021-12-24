@@ -61,6 +61,18 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
             }
         }
         
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)        
+        self.tabBarController?.tabBar.standardAppearance = appearance;
+        if #available(iOS 15.0, *) {
+            self.tabBarController?.tabBar.scrollEdgeAppearance = self.tabBarController?.tabBar.standardAppearance
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

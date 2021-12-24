@@ -73,6 +73,7 @@ struct PROJECT_URL {
     static let GET_CITIES = "/cities"
     static let LOGIN = "/user/login"
     static let SIGNUP = "/user/register"
+    static let SIGNUP_COMPANY = "/user/register_org"
     static let FORGET_PASSWORD = "/user/forgot_password"
     static let PROFILE = "/user/profile"
     static let UPDATE_PROFILE = "/user/profile/update"
@@ -94,6 +95,18 @@ struct PROJECT_URL {
     static let CREATE_PURCHASE = "/braintree/createpurchase"
     static let SHOW_INVITEES = "/demo/questionnaire/invitee_list"
     static let DEMO_REQUEST = "/user/demo_request"
+    static let DEMO_PLAN = "/demo/plan"
+    static let NEWS = "/news"
+    static let DELETE_INVITEE = "/demo/user/delete_invite"
+    static let GET_SUBSCRIPTION_PLAN = "/user/app/subscription"
+    
+    static let GET_AppQuestionnairePurchase_HISTORY = "/user/appQuestionnairePurchase"
+    static let GET_SubscriptionPurchase_HISTORY = "/user/subscriptionPurchase"
+    static let GET_AppPPCPurchase_HISTORY = "/user/appPPCPurchase"
+    static let GET_RenewalPurchase_HISTORY = "/user/renewalPurchase"
+    static let GET_FullQuestionnairePurchase_HISTORY = "/user/fullQuestionnairePurchase"
+    static let GET_AppSubscriptionPurchase_HISTORY = "/user/appSubscriptionPurchase"
+
 }
 
 struct CONDITION_KEYS {
@@ -104,6 +117,7 @@ struct CONDITION_KEYS {
 struct USER_DEFAULTS_KEYS {
     
     static let VENDOR_SIGNUP_TOKEN = "vendorSignupToken"
+    static let USER_ROLE = "role"
 
     
     

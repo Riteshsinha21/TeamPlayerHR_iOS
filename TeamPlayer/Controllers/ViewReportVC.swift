@@ -42,6 +42,14 @@ class ViewReportVC: UIViewController, WKUIDelegate {
         webView.load(requestObj)
 
         
+//        webView.navigationDelegate = self
     }
 
+    func webViewDidStartLoad(_ : WKWebView) {
+        showProgressOnView(appDelegateInstance.window!)
+    }
+
+    func webViewDidFinishLoad(_ : WKWebView) {
+        hideAllProgressOnView(appDelegateInstance.window!)
+    }
 }

@@ -19,16 +19,19 @@ class InviteVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dashedView1: DashedView!
     @IBOutlet weak var dashedView: DashedView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var groupId = ""
     var participantArr = [inviteParticipantStruct]()
     var teamsArr = [inviteTeamStruct]()
     var teamUserListArr = [teamUserListStruct]()
+    var dispatchWorkItem: DispatchWorkItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.searchBar.delegate = self
         self.tableView.delegate = nil
         self.tableView.dataSource = nil
         self.tableView.tableFooterView = UIView()
@@ -39,6 +42,16 @@ class InviteVC: UIViewController {
         self.dashedView1.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
 //        self.getGroupDetail()
 //        self.getTeamAPI()
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+        
+        self.tabBarController?.tabBar.standardAppearance = appearance;
+        if #available(iOS 15.0, *) {
+            self.tabBarController?.tabBar.scrollEdgeAppearance = self.tabBarController?.tabBar.standardAppearance
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,7 +141,7 @@ class InviteVC: UIViewController {
             showProgressOnView(appDelegateInstance.window!)
             
             let param:[String:String] = [:]
-            ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.GET_GROUP_DETAIL + "\(self.groupId)", successBlock: { (json) in
+            ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.GET_GROUP_DETAIL + "\(self.groupId)" + "&pname=\(self.searchBar.text!)", successBlock: { (json) in
                 print(json)
                 hideAllProgressOnView(appDelegateInstance.window!)
                 let success = json["success"].stringValue
@@ -209,7 +222,7 @@ class InviteVC: UIViewController {
                             self.tableView.delegate = self
                             self.tableView.isHidden = false
                             self.teamEmptyView.isHidden = true
-                            //self.tableViewHeight.constant = self.tableView.contentSize.height
+//                            self.tableViewHeight.constant = CGFloat(self.teamsArr.count * 45)
                             self.tableView.reloadData()
                         } else {
                             self.tableView.isHidden = true
@@ -348,6 +361,7 @@ class InviteVC: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ShowInviteeVC") as! ShowInviteeVC
         vc.id = self.groupId
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -396,4 +410,48 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
         return UITableView.automaticDimension
     }
     
+}
+
+extension InviteVC: UISearchBarDelegate{
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        self.filterView.isHidden = true
+        
+    }
+
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            
+            dispatchWorkItem?.cancel()
+//            let totalChar = searchBar.text!.count
+            let productSearchWorkItem = DispatchWorkItem{
+                if searchText.count > 0{
+                    self.participantArr.removeAll()
+//                    self.getTutorWithSearch(searchText: searchBar.text!)
+                    self.getGroupDetail()
+                }else if searchText.count == 0{
+                    self.participantArr.removeAll()
+                    self.searchBar.endEditing(true)
+//                    self.getAllApprovedTutor()
+                    self.getGroupDetail()
+                }
+            }
+            
+            dispatchWorkItem = productSearchWorkItem
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: productSearchWorkItem)
+            
+        }
+    
+//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+//        return !shouldKeyboardOpen
+//    }
+//
+//
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        shouldKeyboardOpen = false
+//        self.searchBar.endEditing(true)
+//        shouldKeyboardOpen = true
+//    }
+     
 }

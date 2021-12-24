@@ -36,6 +36,16 @@ class ProfileVC: UIViewController {
         
     }
     
+    @IBAction func viewCvAction(_ sender: Any) {
+        let reportUrl = FILE_BASE_URL + "/\(self.profileDic.cv)"
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ViewReportVC") as! ViewReportVC
+        vc.urlStr = reportUrl
+//            vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func menuAction(_ sender: Any) {
         openSideMenu()
     }
@@ -63,8 +73,9 @@ class ProfileVC: UIViewController {
                     let professionId =  json["data"]["occupation_data"]["id"].intValue
                     let im =  json["data"]["im"].stringValue
                     let address = json["data"]["address_line_1"].stringValue
+                    let cv = json["data"]["cv"].stringValue
                     
-                    self.profileDic = profileStruct.init(title: title, first_name: firstName, last_name: lastName, phone: phone, email: email, profession: profession, image: image, imId: im, professionId: professionId, address: address)
+                    self.profileDic = profileStruct.init(title: title, first_name: firstName, last_name: lastName, phone: phone, email: email, profession: profession, image: image, imId: im, professionId: professionId, address: address, cv: cv)
                     
                     DispatchQueue.main.async {
                         self.setData()

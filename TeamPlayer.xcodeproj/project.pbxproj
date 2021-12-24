@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57E1CCB7276CBA1F00582499 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */; };
+		57E1CCB9276CBA8900582499 /* PurchaseHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */; };
+		57E1CCBB276CBA9C00582499 /* PurchaseHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */; };
 		580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB72926889FB000D3E0CE /* AppDelegate.swift */; };
 		580FB72E26889FB000D3E0CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB72D26889FB000D3E0CE /* ViewController.swift */; };
 		580FB73126889FB000D3E0CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580FB72F26889FB000D3E0CE /* Main.storyboard */; };
@@ -29,6 +32,8 @@
 		5830F7F02689B956009FF756 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7E42689B956009FF756 /* Roboto-Bold.ttf */; };
 		5830F7F12689B956009FF756 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5830F7E52689B956009FF756 /* Roboto-MediumItalic.ttf */; };
 		584D3C8E26BBFDA9000AE123 /* ManageTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584D3C8D26BBFDA9000AE123 /* ManageTeamVC.swift */; };
+		584EC350277486D00013FA81 /* PurchasePlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EC34F277486D00013FA81 /* PurchasePlanVC.swift */; };
+		584EC352277489A60013FA81 /* PurchasePlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EC351277489A60013FA81 /* PurchasePlanCell.swift */; };
 		584F84C126BAA4800028DE76 /* ResumeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F84C026BAA4800028DE76 /* ResumeVC.swift */; };
 		584F84C326BABD3B0028DE76 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F84C226BABD3B0028DE76 /* PurchaseVC.swift */; };
 		584F9EB02689A6A300CB6062 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F9EAF2689A6A200CB6062 /* Constants.swift */; };
@@ -55,6 +60,8 @@
 		586FE66726B1D8D30027960D /* InviteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66626B1D8D30027960D /* InviteVC.swift */; };
 		586FE66926B1E0F00027960D /* GroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66826B1E0EE0027960D /* GroupVC.swift */; };
 		586FE66D26B1E1C00027960D /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586FE66C26B1E1C00027960D /* GroupCell.swift */; };
+		5871CAB3276873F400BA912F /* NewsNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5871CAB2276873F400BA912F /* NewsNewVC.swift */; };
+		5871CAB52768743B00BA912F /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5871CAB42768743A00BA912F /* NewsCell.swift */; };
 		58767A3126931CE500B54EFA /* CompareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58767A3026931CE500B54EFA /* CompareVC.swift */; };
 		58767A332694393F00B54EFA /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58767A322694393F00B54EFA /* FaqVC.swift */; };
 		58767A352694396E00B54EFA /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58767A342694396D00B54EFA /* FaqCell.swift */; };
@@ -71,10 +78,14 @@
 		58D6616126B81A22000E9D47 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6616026B81A21000E9D47 /* AlertVC.swift */; };
 		58D6616326B81A94000E9D47 /* AlertGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6616226B81A94000E9D47 /* AlertGroupCell.swift */; };
 		58D6616526B94B3F000E9D47 /* InviteParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */; };
+		58DA91E027439C0700D728D9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58DA91DF27439C0700D728D9 /* Launch Screen.storyboard */; };
 		808002A8D0CC26D740115E1D /* Pods_TeamPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryCell.swift; sourceTree = "<group>"; };
+		57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryVC.swift; sourceTree = "<group>"; };
 		580FB72626889FB000D3E0CE /* TeamPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580FB72926889FB000D3E0CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		580FB72D26889FB000D3E0CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +111,8 @@
 		5830F7E42689B956009FF756 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5830F7E52689B956009FF756 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
 		584D3C8D26BBFDA9000AE123 /* ManageTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamVC.swift; sourceTree = "<group>"; };
+		584EC34F277486D00013FA81 /* PurchasePlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePlanVC.swift; sourceTree = "<group>"; };
+		584EC351277489A60013FA81 /* PurchasePlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePlanCell.swift; sourceTree = "<group>"; };
 		584F84C026BAA4800028DE76 /* ResumeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeVC.swift; sourceTree = "<group>"; };
 		584F84C226BABD3B0028DE76 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		584F9EAF2689A6A200CB6062 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -126,6 +139,8 @@
 		586FE66626B1D8D30027960D /* InviteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteVC.swift; sourceTree = "<group>"; };
 		586FE66826B1E0EE0027960D /* GroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVC.swift; sourceTree = "<group>"; };
 		586FE66C26B1E1C00027960D /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		5871CAB2276873F400BA912F /* NewsNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNewVC.swift; sourceTree = "<group>"; };
+		5871CAB42768743A00BA912F /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		58767A3026931CE500B54EFA /* CompareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareVC.swift; sourceTree = "<group>"; };
 		58767A322694393F00B54EFA /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		58767A342694396D00B54EFA /* FaqCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
@@ -142,6 +157,7 @@
 		58D6616026B81A21000E9D47 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		58D6616226B81A94000E9D47 /* AlertGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertGroupCell.swift; sourceTree = "<group>"; };
 		58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteParticipantCell.swift; sourceTree = "<group>"; };
+		58DA91DF27439C0700D728D9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C3DA65BC52B4A125443B3AF8 /* Pods-TeamPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC49E1FC73C22467BF3CAA11 /* Pods-TeamPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.release.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +179,7 @@
 		580FB71D26889FAF00D3E0CE = {
 			isa = PBXGroup;
 			children = (
+				5871CAB2276873F400BA912F /* NewsNewVC.swift */,
 				580FB72826889FB000D3E0CE /* TeamPlayer */,
 				580FB72726889FB000D3E0CE /* Products */,
 				D647D7B93AFA130C2CF25907 /* Pods */,
@@ -273,6 +290,8 @@
 				58692A3E26EF5F210024A623 /* ShowInviteeVC.swift */,
 				584D3C8D26BBFDA9000AE123 /* ManageTeamVC.swift */,
 				58692A3C26EF0ED20024A623 /* ViewReportVC.swift */,
+				57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */,
+				584EC34F277486D00013FA81 /* PurchasePlanVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,7 +319,11 @@
 				5853294726CA6D8F00D1138F /* BenchmarkListCell.swift */,
 				5853294926CA87FA00D1138F /* ParticipantListCell.swift */,
 				58692A4026EF5FAC0024A623 /* ShowInviteeListCell.swift */,
+				5871CAB42768743A00BA912F /* NewsCell.swift */,
 				586FE62926A572690027960D /* DemoQuestionaire */,
+				57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */,
+				57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */,
+				584EC351277489A60013FA81 /* PurchasePlanCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -310,6 +333,7 @@
 			children = (
 				580FB72F26889FB000D3E0CE /* Main.storyboard */,
 				58D0FF97268C4E1600402BEF /* SideMenu.storyboard */,
+				58DA91DF27439C0700D728D9 /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,6 +426,7 @@
 				5830F7EF2689B956009FF756 /* Roboto-Italic.ttf in Resources */,
 				580FB73326889FB300D3E0CE /* Assets.xcassets in Resources */,
 				5830F7EE2689B956009FF756 /* Roboto-BoldItalic.ttf in Resources */,
+				58DA91E027439C0700D728D9 /* Launch Screen.storyboard in Resources */,
 				5830F7E72689B956009FF756 /* Roboto-Regular.ttf in Resources */,
 				5830F7E92689B956009FF756 /* Roboto-Light.ttf in Resources */,
 				580FB73126889FB000D3E0CE /* Main.storyboard in Resources */,
@@ -460,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				584F9EB02689A6A300CB6062 /* Constants.swift in Sources */,
+				57E1CCB9276CBA8900582499 /* PurchaseHistoryCell.swift in Sources */,
 				584F9EB32689A81900CB6062 /* Extensions.swift in Sources */,
 				580FB7412688A25500D3E0CE /* ServerClass.swift in Sources */,
 				586FE62626A5724B0027960D /* QuestionCell.swift in Sources */,
@@ -472,6 +498,7 @@
 				586FE66126B038390027960D /* CheckboxAnswerCell.swift in Sources */,
 				586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */,
 				584F84C126BAA4800028DE76 /* ResumeVC.swift in Sources */,
+				57E1CCB7276CBA1F00582499 /* SubscriptionCell.swift in Sources */,
 				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
 				58692A3D26EF0ED20024A623 /* ViewReportVC.swift in Sources */,
 				58D6616126B81A22000E9D47 /* AlertVC.swift in Sources */,
@@ -483,6 +510,7 @@
 				58767A352694396E00B54EFA /* FaqCell.swift in Sources */,
 				58D0FF95268C47BE00402BEF /* SideMenuCell.swift in Sources */,
 				58C0D72E268AEE5D007FC933 /* DashedView.swift in Sources */,
+				5871CAB52768743B00BA912F /* NewsCell.swift in Sources */,
 				58767A332694393F00B54EFA /* FaqVC.swift in Sources */,
 				58767A3126931CE500B54EFA /* CompareVC.swift in Sources */,
 				582DBDDF268AFEDB000A02A5 /* ImageUploadServerClass.swift in Sources */,
@@ -494,14 +522,18 @@
 				580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */,
 				5853294A26CA87FA00D1138F /* ParticipantListCell.swift in Sources */,
 				58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */,
+				5871CAB3276873F400BA912F /* NewsNewVC.swift in Sources */,
 				586FE66726B1D8D30027960D /* InviteVC.swift in Sources */,
 				58692A3F26EF5F210024A623 /* ShowInviteeVC.swift in Sources */,
 				586FE66D26B1E1C00027960D /* GroupCell.swift in Sources */,
+				584EC350277486D00013FA81 /* PurchasePlanVC.swift in Sources */,
 				58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */,
 				58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */,
 				580FB7402688A25500D3E0CE /* Internet.swift in Sources */,
 				586FE62B26A572FB0027960D /* RadioAnswerCell.swift in Sources */,
 				58D0FF92268C472100402BEF /* SideMenuVC.swift in Sources */,
+				57E1CCBB276CBA9C00582499 /* PurchaseHistoryVC.swift in Sources */,
+				584EC352277489A60013FA81 /* PurchasePlanCell.swift in Sources */,
 				58680F82268DFF5B00880108 /* VisionVC.swift in Sources */,
 				584D3C8E26BBFDA9000AE123 /* ManageTeamVC.swift in Sources */,
 				58642F2F268DF75E00D85B2C /* HowItWorksVC.swift in Sources */,
@@ -575,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -630,7 +662,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -650,7 +682,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
@@ -658,8 +690,9 @@
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1.5;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To select Image and upload directly, we need access to your Camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To select Image and upload directly, we need access to your Photo Library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -690,7 +723,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -699,8 +732,9 @@
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1.5;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To select Image and upload directly, we need access to your Camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To select Image and upload directly, we need access to your Photo Library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
