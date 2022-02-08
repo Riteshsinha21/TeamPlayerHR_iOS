@@ -45,9 +45,14 @@ class ViewController: UIViewController {
     
     @IBAction func onTapDemoRequest(_ sender: Any) {
         isDemo = true
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
-        UIApplication.shared.delegate!.window!!.rootViewController = viewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+//        UIApplication.shared.delegate!.window!!.rootViewController = viewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DemoVC") as! DemoVC
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(vc, animated: true)
+
     }
 }
 

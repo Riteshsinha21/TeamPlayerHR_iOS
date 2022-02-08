@@ -49,15 +49,22 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 3 {
-            self.view.makeToast("Under Development")
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GroupVC") as! GroupVC
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         } else if indexPath.row == 4 {
             if let url = URL(string: "https://dev.teamplayerhr.com/purchase") {
                 UIApplication.shared.open(url)
             }
         } else if indexPath.row == 5 {
-            self.view.makeToast("Under Development")
+//            self.view.makeToast("Under Development")
+            let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "HowItWorksVC") as! HowItWorksVC
+            self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 6 {
-            self.view.makeToast("Under Development")
+            
+            if let url = URL(string: "https://dev.teamplayerhr.com/mobile-value-calculator") {
+                UIApplication.shared.open(url)
+            }
         } else if indexPath.row == 7 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "VisionVC") as! VisionVC
             self.navigationController?.pushViewController(vc, animated: true)
@@ -80,6 +87,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             self.view.makeToast("user Logged Out")
             UserDefaults.standard.removeObject(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)
+            UserDefaults.standard.removeObject(forKey: USER_DEFAULTS_KEYS.USER_ROLE)
+            inviteGroupArr.removeAll()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 
                 guard let window = UIApplication.shared.delegate?.window else {

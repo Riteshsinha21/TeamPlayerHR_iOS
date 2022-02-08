@@ -10,7 +10,7 @@ import UIKit
 class QuestionaireVC: UIViewController {
     
     @IBOutlet weak var timeView: UIView!
-    @IBOutlet weak var emptyView: UIImageView!
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var secondLbl: UILabel!
     @IBOutlet weak var minuteLbl: UILabel!
     @IBOutlet weak var quesLbl: UILabel!
@@ -23,6 +23,7 @@ class QuestionaireVC: UIViewController {
     var multipleAnswers:NSMutableArray = []
     var seconds = 86401
     var timer = Timer()
+    var groupId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,8 @@ class QuestionaireVC: UIViewController {
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        openSideMenu()
+//        openSideMenu()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func notificationAction(_ sender: Any) {
@@ -60,15 +62,17 @@ class QuestionaireVC: UIViewController {
         //        self.tableView.reloadRows(at: [myIndexPath], with: .fade)
         
         let quesObj = self.demoQuestionArr[self.count]
-        let ansObj = self.demoAnswersArr[self.count]
+//        let ansObj = self.demoAnswersArr[self.count]
+        let ansObj = self.demoQuestionArr[self.count]
         var param:[String:Any] = [:]
         
         if quesObj.maxanswers == "1" {
-            param = [ "question_id": ansObj.questionid,"answer_given":self.singleAnswer,"maxanswers":quesObj.maxanswers]
+            
             if self.singleAnswer.isEmpty {
                 self.view.makeToast("Please select your answer.")
                 return
             }
+            param = [ "question_id": ansObj.questionid,"answer_given":self.singleAnswer,"maxanswers":quesObj.maxanswers]
         } else {
             let selectedAnsArr = quesObj.answers
             let maxAnswerInt = Int(quesObj.maxanswers)
@@ -98,12 +102,14 @@ class QuestionaireVC: UIViewController {
     
     func getQuestionList() {
         if Reachability.isConnectedToNetwork() {
-            showProgressOnView(appDelegateInstance.window!)
+//            showProgressOnView(appDelegateInstance.window!)
+            showProgressOnView(self.view)
             
             let param:[String:String] = [:]
             ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.GET_QUESTION_LIST, successBlock: { (json) in
                 print(json)
-                hideAllProgressOnView(appDelegateInstance.window!)
+//                hideAllProgressOnView(appDelegateInstance.window!)
+                hideAllProgressOnView(self.view)
                 let success = json["success"].stringValue
                 //success == "true"
                 if success == "true"
@@ -116,6 +122,7 @@ class QuestionaireVC: UIViewController {
                         let question =  json["data"]["questions"][i]["question"].stringValue
                         let maxanswers =  json["data"]["questions"][i]["maxanswers"].stringValue
                         let subpart = json["data"]["questions"][i]["subpart"].stringValue
+                        let questionid =  json["data"]["questions"][i]["id"].stringValue
                         
                         self.demoAnswersArr.removeAll()
                         for j in 0..<json["data"]["questions"][i]["answers"].count {
@@ -135,9 +142,14 @@ class QuestionaireVC: UIViewController {
                         
                         self.seconds = Int(timelimit)!
                         if !answer_saved {
-                            self.demoQuestionArr.append(demoQuestionStruct.init(question: question, maxanswers: maxanswers, timelimit: timelimit, subpart: subpart, answers: self.demoAnswersArr))
+                            self.demoQuestionArr.append(demoQuestionStruct.init(question: question, maxanswers: maxanswers, timelimit: timelimit, subpart: subpart, answers: self.demoAnswersArr, questionid: questionid))
                         }
                         
+                    }
+                    
+                    if self.demoQuestionArr.count == 0 {
+                        self.setScore()
+
                     }
                     
                     DispatchQueue.main.async {
@@ -159,6 +171,50 @@ class QuestionaireVC: UIViewController {
                     
                 } else {
                     UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                }
+            }, errorBlock: { (NSError) in
+                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+//                hideAllProgressOnView(appDelegateInstance.window!)
+                hideAllProgressOnView(self.view)
+            })
+            
+        }else{
+//            hideAllProgressOnView(appDelegateInstance.window!)
+            hideAllProgressOnView(self.view)
+            UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
+        }
+    }
+    
+    func setScore() {
+        
+        if Reachability.isConnectedToNetwork() {
+            showProgressOnView(appDelegateInstance.window!)
+            
+            let param:[String:Any] = [ "test": "2","group_id":"\(self.groupId)"]
+            ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.SET_SCORE, successBlock: { (json) in
+                print(json)
+                hideAllProgressOnView(appDelegateInstance.window!)
+                let success = json["success"].stringValue
+                if success == "true"
+                {
+                    //save data in userdefault..
+                    
+//                    UserDefaults.standard.setValue(json["data"]["token"].stringValue, forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)
+//                    UserDefaults.standard.setValue(json["data"]["role"].stringValue, forKey: USER_DEFAULTS_KEYS.USER_ROLE)
+                    
+                    self.view.makeToast(json["message"].stringValue)
+                    DispatchQueue.main.async {
+                        self.emptyView.isHidden = false
+                        self.tableView.isHidden = true
+                        self.timeView.isHidden = true
+                    }
+                    
+
+                    
+                }
+                else {
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
@@ -199,6 +255,7 @@ class QuestionaireVC: UIViewController {
                 if success == "true"
                 {
                     self.view.makeToast(json["message"].stringValue)
+                    self.singleAnswer = ""
                     if self.demoQuestionArr.count > (self.count + 1) {
                         self.count += 1
                         let timelimit = self.demoQuestionArr[self.count].timelimit
@@ -208,7 +265,21 @@ class QuestionaireVC: UIViewController {
 //                        let myIndexPath = IndexPath(row: 1, section: 0)
 //                        self.tableView.reloadRows(at: [myIndexPath], with: .fade)
                     } else {
+                        //set score api hit
+//                        self.setScore()
                         self.getQuestionList()
+//                        let serialQueue = DispatchQueue(label: "SerialQueue")
+//
+//                                serialQueue.async {
+//                                    //first task
+//                                    self.setScore()
+//
+//                                }
+//
+//                                serialQueue.async {
+//                                    //second task
+//                                    self.getQuestionList()
+//                                }
                     }
                     
                 }
@@ -289,6 +360,24 @@ class QuestionaireVC: UIViewController {
            print(paramArr)
            return paramArr
        }
+    
+    @IBAction func inviteAction(_ sender: UIButton) {
+        guard let window = UIApplication.shared.delegate?.window else {
+            return
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+        viewController.selectedIndex = 1
+                                
+        window!.rootViewController = viewController
+        let options: UIView.AnimationOptions = .transitionCrossDissolve
+        let duration: TimeInterval = 0.5
+        UIView.transition(with: window!, duration: duration, options: options, animations: {}, completion:
+                            { completed in
+            window!.makeKeyAndVisible()
+        })
+
+    }
     
 //    func makeParams(_ ansArr: [demoAnswerStruct]) -> NSMutableArray {
 //        let paramArr: NSMutableArray = NSMutableArray()

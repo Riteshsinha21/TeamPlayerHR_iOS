@@ -96,6 +96,7 @@ class SigninVC: UIViewController {
                     
                     UserDefaults.standard.setValue(json["data"]["token"].stringValue, forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)
                     UserDefaults.standard.setValue(json["data"]["role"].stringValue, forKey: USER_DEFAULTS_KEYS.USER_ROLE)
+                    UserDefaults.standard.setValue(json["data"]["name"].stringValue, forKey: USER_DEFAULTS_KEYS.NAME)
                     
                     self.view.makeToast(json["message"].stringValue)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -103,17 +104,32 @@ class SigninVC: UIViewController {
                         guard let window = UIApplication.shared.delegate?.window else {
                             return
                         }
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
-                        viewController.selectedIndex = 1
-                                                
-                        window!.rootViewController = viewController
-                        let options: UIView.AnimationOptions = .transitionCrossDissolve
-                        let duration: TimeInterval = 0.5
-                        UIView.transition(with: window!, duration: duration, options: options, animations: {}, completion:
-                                            { completed in
-                            window!.makeKeyAndVisible()
-                        })
+                        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_ROLE) as! String == "3" {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+                            viewController.selectedIndex = 1
+                                                    
+                            window!.rootViewController = viewController
+                            let options: UIView.AnimationOptions = .transitionCrossDissolve
+                            let duration: TimeInterval = 0.5
+                            UIView.transition(with: window!, duration: duration, options: options, animations: {}, completion:
+                                                { completed in
+                                window!.makeKeyAndVisible()
+                            })
+                        } else {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+                            viewController.selectedIndex = 2
+                                                    
+                            window!.rootViewController = viewController
+                            let options: UIView.AnimationOptions = .transitionCrossDissolve
+                            let duration: TimeInterval = 0.5
+                            UIView.transition(with: window!, duration: duration, options: options, animations: {}, completion:
+                                                { completed in
+                                window!.makeKeyAndVisible()
+                            })
+                        }
+
                     }
                     
                 }

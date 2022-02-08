@@ -9,7 +9,7 @@ import UIKit
 
 class SubscriptionCell: UITableViewCell {
 
-    @IBOutlet weak var cellDetailLbl: UILabel!
+
     @IBOutlet weak var cellDurationLbl: UILabel!
     @IBOutlet weak var amountLbl: UILabel!
     @IBOutlet weak var cellFrequencyLbl: UILabel!

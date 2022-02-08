@@ -18,6 +18,13 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var professionLbl: UILabel!
+    @IBOutlet weak var companyLbl: UILabel!
+    @IBOutlet weak var companyView: UIView!
+    @IBOutlet weak var imIdView: UIView!
+    @IBOutlet weak var viewCvBtn: UIButton!
+    @IBOutlet weak var countryLbl: UILabel!
+    @IBOutlet weak var cityLbl: UILabel!
+    @IBOutlet weak var stateLbl: UILabel!
     
     var profileDic = profileStruct()
     
@@ -74,8 +81,13 @@ class ProfileVC: UIViewController {
                     let im =  json["data"]["im"].stringValue
                     let address = json["data"]["address_line_1"].stringValue
                     let cv = json["data"]["cv"].stringValue
+                    let company =  json["data"]["organization_name"].stringValue
+                    let country = json["data"]["country_data"]["name"].stringValue
+                    let city =  json["data"]["city_data"]["name"].stringValue
+                    let state =  json["data"]["state_data"]["name"].stringValue
                     
-                    self.profileDic = profileStruct.init(title: title, first_name: firstName, last_name: lastName, phone: phone, email: email, profession: profession, image: image, imId: im, professionId: professionId, address: address, cv: cv)
+                    
+                    self.profileDic = profileStruct.init(title: title, first_name: firstName, last_name: lastName, phone: phone, email: email, profession: profession, image: image, imId: im, professionId: professionId, address: address, cv: cv, company: company, country: country, city: city, state: state)
                     
                     DispatchQueue.main.async {
                         self.setData()
@@ -97,6 +109,17 @@ class ProfileVC: UIViewController {
     }
     
     func setData() {
+        
+        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_ROLE) as! String == "3" {
+            self.imIdView.isHidden = true
+            self.viewCvBtn.isHidden = true
+            self.companyView.isHidden = false
+        } else {
+            self.imIdView.isHidden = false
+            self.viewCvBtn.isHidden = false
+            self.companyView.isHidden = true
+        }
+        
         self.nameLbl.text = "\(self.profileDic.title) \(self.profileDic.first_name) \(self.profileDic.last_name)"
         self.participantNameLbl.text = "\(self.profileDic.title) \(self.profileDic.first_name) \(self.profileDic.last_name)"
         self.phoneLbl.text = self.profileDic.phone
@@ -104,6 +127,10 @@ class ProfileVC: UIViewController {
         self.professionLbl.text = self.profileDic.profession
         self.imIdLbl.text = self.profileDic.imId
         self.profileImg.sd_setImage(with: URL(string: FILE_BASE_URL + "/\(self.profileDic.image)"), placeholderImage: UIImage(named: "profile"))
+        self.companyLbl.text = profileDic.company
+        self.countryLbl.text = profileDic.country
+        self.stateLbl.text = profileDic.state
+        self.cityLbl.text = profileDic.city
     }
     
     @IBAction func editProfileAction(_ sender: Any) {

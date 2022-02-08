@@ -41,6 +41,9 @@
 		5853294626CA5D1F00D1138F /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5853294526CA5D1F00D1138F /* GroupListCell.swift */; };
 		5853294826CA6D8F00D1138F /* BenchmarkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5853294726CA6D8F00D1138F /* BenchmarkListCell.swift */; };
 		5853294A26CA87FA00D1138F /* ParticipantListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5853294926CA87FA00D1138F /* ParticipantListCell.swift */; };
+		585D05C1279EB06000112B3C /* MultipleInviteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585D05C0279EB06000112B3C /* MultipleInviteVC.swift */; };
+		585D05C3279EB0E500112B3C /* MultipleInviteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585D05C2279EB0E500112B3C /* MultipleInviteTableCell.swift */; };
+		585D05C527A971D900112B3C /* AppGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585D05C427A971D700112B3C /* AppGroupsVC.swift */; };
 		58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58610A8C268B6B0400D717C7 /* DemoVC.swift */; };
 		58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58642F2A268D98EB00D85B2C /* ContactVC.swift */; };
 		58642F2D268DE13F00D85B2C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58642F2C268DE13E00D85B2C /* MapKit.framework */; };
@@ -120,6 +123,9 @@
 		5853294526CA5D1F00D1138F /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5853294726CA6D8F00D1138F /* BenchmarkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchmarkListCell.swift; sourceTree = "<group>"; };
 		5853294926CA87FA00D1138F /* ParticipantListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantListCell.swift; sourceTree = "<group>"; };
+		585D05C0279EB06000112B3C /* MultipleInviteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleInviteVC.swift; sourceTree = "<group>"; };
+		585D05C2279EB0E500112B3C /* MultipleInviteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleInviteTableCell.swift; sourceTree = "<group>"; };
+		585D05C427A971D700112B3C /* AppGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupsVC.swift; sourceTree = "<group>"; };
 		58610A8C268B6B0400D717C7 /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
 		58642F2A268D98EB00D85B2C /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		58642F2C268DE13E00D85B2C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -292,6 +298,8 @@
 				58692A3C26EF0ED20024A623 /* ViewReportVC.swift */,
 				57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */,
 				584EC34F277486D00013FA81 /* PurchasePlanVC.swift */,
+				585D05C0279EB06000112B3C /* MultipleInviteVC.swift */,
+				585D05C427A971D700112B3C /* AppGroupsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 				57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */,
 				57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */,
 				584EC351277489A60013FA81 /* PurchasePlanCell.swift */,
+				585D05C2279EB0E500112B3C /* MultipleInviteTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -497,6 +506,7 @@
 				58680F84268DFFF000880108 /* NewsVC.swift in Sources */,
 				586FE66126B038390027960D /* CheckboxAnswerCell.swift in Sources */,
 				586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */,
+				585D05C1279EB06000112B3C /* MultipleInviteVC.swift in Sources */,
 				584F84C126BAA4800028DE76 /* ResumeVC.swift in Sources */,
 				57E1CCB7276CBA1F00582499 /* SubscriptionCell.swift in Sources */,
 				58610A8D268B6B0400D717C7 /* DemoVC.swift in Sources */,
@@ -519,6 +529,7 @@
 				58D0FF9C268C97A500402BEF /* ProfileVC.swift in Sources */,
 				58680F86268E0C7500880108 /* UpdateProfileVC.swift in Sources */,
 				586FE66526B1D71B0027960D /* InviteDataCell.swift in Sources */,
+				585D05C3279EB0E500112B3C /* MultipleInviteTableCell.swift in Sources */,
 				580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */,
 				5853294A26CA87FA00D1138F /* ParticipantListCell.swift in Sources */,
 				58C0D72A2689E1DA007FC933 /* InitialHomeModel.swift in Sources */,
@@ -530,6 +541,7 @@
 				58642F2B268D98EC00D85B2C /* ContactVC.swift in Sources */,
 				58C0D7272689C8A8007FC933 /* NewUserVC.swift in Sources */,
 				580FB7402688A25500D3E0CE /* Internet.swift in Sources */,
+				585D05C527A971D900112B3C /* AppGroupsVC.swift in Sources */,
 				586FE62B26A572FB0027960D /* RadioAnswerCell.swift in Sources */,
 				58D0FF92268C472100402BEF /* SideMenuVC.swift in Sources */,
 				57E1CCBB276CBA9C00582499 /* PurchaseHistoryVC.swift in Sources */,
@@ -682,7 +694,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3.4;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
@@ -723,7 +735,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3.4;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -50,16 +50,16 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
-        if inviteGroupArr.count == 0 {
-            self.getGroupList()
-        } else {
-            for i in 0..<inviteGroupArr.count {
-                let inviteGroupObj = inviteGroupArr[i]
-                if !inviteGroupObj.survey_progress || self.fromSideMenu {
-//                    self.alertView.isHidden = false
-                }
-            }
-        }
+//        if inviteGroupArr.count == 0 {
+//            self.getGroupList()
+//        } else {
+//            for i in 0..<inviteGroupArr.count {
+//                let inviteGroupObj = inviteGroupArr[i]
+//                if !inviteGroupObj.survey_progress || self.fromSideMenu {
+////                    self.alertView.isHidden = false
+//                }
+//            }
+//        }
         
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -79,6 +79,7 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
         super.viewWillAppear(true)
 
         self.navigationController?.navigationBar.isHidden = true
+//        self.getGroupList()
     }
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
@@ -87,21 +88,26 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
     
     @IBAction func onTapSideMenu(_ sender: Any) {
         
-        if isDemo {
-            let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
-            var settings = SideMenuSettings()
-            settings.menuWidth = self.view.frame.width - 100
-            menu.settings = settings
-            present(menu, animated: true, completion: nil)
-
-        } else {
-
-            let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
-            var settings = SideMenuSettings()
-            settings.menuWidth = self.view.frame.width - 100
-            menu.settings = settings
-            present(menu, animated: true, completion: nil)
-        }
+//        if isDemo {
+//            let menu = storyboard!.instantiateViewController(withIdentifier: "EarlySideMenuVC") as! SideMenuNavigationController
+//            var settings = SideMenuSettings()
+//            settings.menuWidth = self.view.frame.width - 100
+//            menu.settings = settings
+//            present(menu, animated: true, completion: nil)
+//
+//        } else {
+//
+//            let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
+//            var settings = SideMenuSettings()
+//            settings.menuWidth = self.view.frame.width - 100
+//            menu.settings = settings
+//            present(menu, animated: true, completion: nil)
+//        }
+        let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuNavigationController
+        var settings = SideMenuSettings()
+        settings.menuWidth = self.view.frame.width - 100
+        menu.settings = settings
+        present(menu, animated: true, completion: nil)
         
     }
     
@@ -129,7 +135,7 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
                         let max_size =  json["data"][i]["max_size"].stringValue
                         let survey_progress = json["data"][i]["survey_progress"].boolValue
                         if !survey_progress || self.fromSideMenu {
-//                            self.alertView.isHidden = false
+                            self.alertView.isHidden = false
                         }
                         
                         inviteGroupArr.append(inviteGroupStruct.init(id: id, name: name, max_size: max_size, survey_progress: survey_progress))
@@ -182,10 +188,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // let groupListObj = inviteGroupArr[indexPath.row]
+        let groupListObj = inviteGroupArr[indexPath.row]
         let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "QuestionaireVC") as! QuestionaireVC
-       // vc.groupId = groupListObj.id
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.groupId = groupListObj.id
+        vc.modalPresentationStyle = .fullScreen
+        //self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     

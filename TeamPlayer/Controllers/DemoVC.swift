@@ -28,6 +28,7 @@ class DemoVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
     @IBOutlet weak var slotTxt: UITextField!
     @IBOutlet weak var dateTxt: UITextField!
     @IBOutlet weak var timeTxt: UITextField!
+    @IBOutlet weak var backBtn: UIButton!
     
     let datePicker = UIDatePicker()
     var dateFormatter = DateFormatter()
@@ -62,6 +63,9 @@ class DemoVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
         dateTxt.inputAccessoryView = toolBar
         timeTxt.inputAccessoryView = toolBar
         
+        if isDemo {
+            self.backBtn.setImage(UIImage.init(named: "back"), for: .normal)
+        }
     }
     
     
@@ -190,6 +194,16 @@ class DemoVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
             print("completion block")
         })
     }
+    
+    @IBAction func backBtnAtion(_ sender: UIButton) {
+        if isDemo {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            openSideMenu()
+        }
+        
+    }
+    
     
     @IBAction func acceptBtnAction(_ sender: UIButton) {
         if sender.currentImage == UIImage.init(named: "uncheck") {

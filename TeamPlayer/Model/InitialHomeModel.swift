@@ -25,6 +25,10 @@ struct profileStruct {
     var professionId:Int = 0
     var address:String = ""
     var cv:String = ""
+    var company:String = ""
+    var country:String = ""
+    var city:String = ""
+    var state:String = ""
 }
 
 struct demoQuestionStruct {
@@ -33,6 +37,7 @@ struct demoQuestionStruct {
     var timelimit:String = ""
     var subpart:String = ""
     var answers = [demoAnswerStruct]()
+    var questionid:String = ""
     
 }
 
@@ -52,6 +57,14 @@ struct inviteGroupStruct {
     var name:String = ""
     var max_size:String = ""
     var survey_progress:Bool = false
+    
+}
+
+struct pendingGroupStruct {
+    var id:String = ""
+    var name:String = ""
+    var max_size:String = ""
+    var code:String = ""
     
 }
 
@@ -102,6 +115,7 @@ struct subscriptionListStruct {
     var amount:String = ""
     var duration:String = ""
     var detail:String = ""
+    var id:String = ""
     
 }
 
@@ -109,4 +123,6 @@ struct purchaseHistoryStruct {
     var amount:String = "N/A"
     var on_date:String = "N/A"
     var no_of_participant:String = "N/A"
+    var title:String = ""
+    var detail:String = ""
 }

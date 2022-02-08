@@ -63,6 +63,9 @@ let X_API_KEY = "AOmAfXgEOBiziaIZfynXNuUnnNvWnjjcoP1Qpd8S"
 var fcmKey:String = "dudaaaa"
 var isDemo = false
 var inviteGroupArr = [inviteGroupStruct]()
+var userType = ""
+var inviteeName: [String] = [String]()
+var planId = String()
 
 struct PROJECT_URL {
     
@@ -87,6 +90,7 @@ struct PROJECT_URL {
     static let GET_GROUP_JOINED = "/demo/group_joined"
     static let GET_TEAMS = "/demo/get_subgroup"
     static let SEND_INVITATION = "/demo/send_invite"
+    static let SEND_MULTIPLE_INVITATION = "/demo/send_multiple_invite"
     static let CREATE_TEAM = "/demo/add_subgroup"
     static let ADD_TO_TEAM = "/demo/add_user_subgroup"
     static let SEND_REMINDER = "/demo/send_reminder"
@@ -106,7 +110,15 @@ struct PROJECT_URL {
     static let GET_RenewalPurchase_HISTORY = "/user/renewalPurchase"
     static let GET_FullQuestionnairePurchase_HISTORY = "/user/fullQuestionnairePurchase"
     static let GET_AppSubscriptionPurchase_HISTORY = "/user/appSubscriptionPurchase"
-
+    static let UPDATE_AppSubscriptionPurchase = "/user/updateAppSubscriptionPayment"
+    static let UPDATE_PPC_PAYMENT = "/user/updatePPCPayment"
+    static let GEt_AppQuestionnairePurchase_AMOUNT = "/user/appQuestionnairePurchase"
+    static let SET_SCORE = "/demo/questions/set_score"
+    static let UPDATE_DEMO_PAYMENT = "/user/updateDemoPayment"
+    static let GET_INVITATION = "/demo/invitation"
+    static let JOIN_GROUP = "/demo/join_group"
+    
+    
 }
 
 struct CONDITION_KEYS {
@@ -118,6 +130,7 @@ struct USER_DEFAULTS_KEYS {
     
     static let VENDOR_SIGNUP_TOKEN = "vendorSignupToken"
     static let USER_ROLE = "role"
+    static let NAME = "name"
 
     
     

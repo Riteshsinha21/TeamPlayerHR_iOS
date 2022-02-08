@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class InviteVC: UIViewController {
+class InviteVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var teamEmptyView: UIView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -26,6 +26,7 @@ class InviteVC: UIViewController {
     var teamsArr = [inviteTeamStruct]()
     var teamUserListArr = [teamUserListStruct]()
     var dispatchWorkItem: DispatchWorkItem?
+    var remainingQuestionaire: Int = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class InviteVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        self.inviteMailTxt.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,7 +164,8 @@ class InviteVC: UIViewController {
                         if self.participantArr.count > 0 {
                             self.participantTableView.dataSource = self
                             self.participantTableView.delegate = self
-                            
+                            self.remainingQuestionaireLbl.text = "\(json["data"]["remaining"].stringValue) Questionnaire remaining"
+                            self.remainingQuestionaire = Int(json["data"]["remaining"].stringValue) ?? 0
                             self.participantTableView.reloadData()
                         }
                     }
@@ -363,8 +366,57 @@ class InviteVC: UIViewController {
         vc.id = self.groupId
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+//        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "MultipleInviteVC") as! MultipleInviteVC
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true, completion: nil)
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == self.inviteMailTxt {
+//            if UserDefaults.standard.object(forKey: USER_DEFAULTS_KEYS.USER_ROLE) as! String == "3" {
+            if self.remainingQuestionaire == 0 {
+                textField.resignFirstResponder()
+                self.showNoCreditAlert()
+            } else {
+                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "MultipleInviteVC") as! MultipleInviteVC
+                vc.groupId = self.groupId
+                vc.remainingQuestionaire = self.remainingQuestionaire
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+                
+//            }
+        }
+    }
+    
+    func showNoCreditAlert() {
+        let alert = UIAlertController(title: "No Credits !!", message: "Please purchase app questionaire.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+
+            guard let window = UIApplication.shared.delegate?.window else {
+                return
+            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+            viewController.selectedIndex = 3
+                                    
+            window!.rootViewController = viewController
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+            let duration: TimeInterval = 0.5
+            UIView.transition(with: window!, duration: duration, options: options, animations: {}, completion:
+                                { completed in
+                window!.makeKeyAndVisible()
+            })
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: { action in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+
+    }
     
 
 }
@@ -387,10 +439,8 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
             let groupListObj = self.participantArr[indexPath.row]
             cell.cellNameLbl.text = "Name: \(groupListObj.user_name)"
             cell.cellStatusLbl.text = "Status: \(groupListObj.survey_progress ? "Complete" : "Not Complete")"
-            DispatchQueue.main.async {
-                cell.cellBtn.setTitle("Ritesh", for: .normal)
-
-            }
+            cell.cellBtn.setTitle("Ritesh", for: .normal)
+            
 //            cell.cellBtn.setTitle(groupListObj.survey_progress ? "Add" : "Send Reminder", for: .normal)
             cell.cellBtn.tintColor = UIColor.white
             

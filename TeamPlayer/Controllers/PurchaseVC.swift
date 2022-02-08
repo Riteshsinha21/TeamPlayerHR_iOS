@@ -66,8 +66,12 @@ class PurchaseVC: UIViewController {
                 if success == "true"
                 {
                     for i in 0..<json["data"].count {
-                        let amount =  json["data"][i]["amount"].stringValue
-                        self.totalAmount = Double(amount) ?? 0.0
+                        if json["data"].count > 0 {
+                            let amount =  json["data"][i]["amount"].stringValue
+                            self.totalAmount = Double(amount) ?? 0.0
+                            planId = json["data"][0]["id"].stringValue
+                        }
+                        
                      }
                     
                 }
@@ -84,6 +88,64 @@ class PurchaseVC: UIViewController {
             hideAllProgressOnView(appDelegateInstance.window!)
             UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
         }
+    }
+    
+    func updateDemoPaymentAPI() {
+        
+        if Reachability.isConnectedToNetwork() {
+            showProgressOnView(appDelegateInstance.window!)
+            
+            let param:[String:Any] = ["id": planId, "number_survay": self.numberOfQuestionaireTxt.text!, "data": []]
+            print(param)
+            ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.UPDATE_DEMO_PAYMENT, successBlock: { (json) in
+                print(json)
+                hideAllProgressOnView(appDelegateInstance.window!)
+                let success = json["success"].stringValue
+                if success == "true"
+                {
+                    
+                    self.showAlert()
+                }
+                else {
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                }
+            }, errorBlock: { (NSError) in
+                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+                hideAllProgressOnView(appDelegateInstance.window!)
+            })
+            
+        }else{
+            hideAllProgressOnView(appDelegateInstance.window!)
+            UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
+        }
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Payment Done", message: "Please attend app questionaire.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+
+            guard let window = UIApplication.shared.delegate?.window else {
+                return
+            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+            viewController.selectedIndex = 2
+                                    
+            window!.rootViewController = viewController
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+            let duration: TimeInterval = 0.5
+            UIView.transition(with: window!, duration: duration, options: options, animations: {}, completion:
+                                { completed in
+                window!.makeKeyAndVisible()
+            })
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: { action in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+
     }
     
     func getBrainTreeToken() {
@@ -199,7 +261,8 @@ class PurchaseVC: UIViewController {
                 if success == "true"
                 {
                     
-                    self.view.makeToast("Payment done successfully.")
+//                    self.view.makeToast("Payment done successfully.")
+                    self.updateDemoPaymentAPI()
                     
                 }
                 else {

@@ -20,10 +20,12 @@ class PurchaseHistoryVC: UIViewController {
 
         // Do any additional setup after loading the view.
         self.getPurchaseHistoryAPI()
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        openSideMenu()
+//        openSideMenu()
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func notificationAction(_ sender: Any) {
@@ -67,8 +69,10 @@ class PurchaseHistoryVC: UIViewController {
                         let amount =  json["data"][i]["amount"].stringValue
                         let on_date =  json["data"][i]["on_date"].stringValue
                         let no_of_participant =  json["data"][i]["no_of_participant"].stringValue
+                        let title =  json["data"][i]["plan_title"].stringValue
+                        let detail =  json["data"][i]["detail"].stringValue
                         
-                        self.purchaseHistoryListArr.append(purchaseHistoryStruct.init(amount: amount, on_date: on_date, no_of_participant: no_of_participant))
+                        self.purchaseHistoryListArr.append(purchaseHistoryStruct.init(amount: amount, on_date: on_date, no_of_participant: no_of_participant, title:title, detail:detail))
                     }
 
                     if self.purchaseHistoryListArr.count > 0 {
@@ -111,6 +115,8 @@ extension PurchaseHistoryVC: UITableViewDelegate, UITableViewDataSource{
         cell.cellAmountLbl.text = info.amount
         cell.cellDateLbl.text = info.on_date
         cell.cellParticipantLbl.text = info.no_of_participant
+        cell.cellPlanTypeLbl.text = info.title
+        cell.cellPlanDetailLbl.text = info.detail
         return cell
     }
     

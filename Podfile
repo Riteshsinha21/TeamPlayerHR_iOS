@@ -21,6 +21,7 @@ target 'TeamPlayer' do
   pod 'Braintree/Apple-Pay'
   pod 'SideMenu'
   pod "youtube-ios-player-helper"
+  pod 'iOSDropDown'
   
 
 end

@@ -44,6 +44,7 @@ PODS:
     - Braintree/UnionPay (~> 4.32)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (8.2.0)
+  - iOSDropDown (0.3.4)
   - IQKeyboardManagerSwift (6.5.6)
   - MBProgressHUD (1.2.0)
   - ReachabilitySwift (5.0.0)
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - Braintree/PayPal
   - Braintree/Venmo
   - BraintreeDropIn
+  - iOSDropDown
   - IQKeyboardManagerSwift
   - MBProgressHUD
   - ReachabilitySwift
@@ -78,6 +80,7 @@ SPEC REPOS:
     - Alamofire
     - Braintree
     - BraintreeDropIn
+    - iOSDropDown
     - IQKeyboardManagerSwift
     - MBProgressHUD
     - ReachabilitySwift
@@ -92,6 +95,7 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Braintree: 78a33deb6f6ec617c2c4891fbe352854358b3a8d
   BraintreeDropIn: b57b653d130981aad7ad9bc97a69d3d7ef86f7a1
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -102,6 +106,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: 303f1ebc72eac69df8a8a2e74390efb62c0ea307
+PODFILE CHECKSUM: 691b2cd308a3daea5bff39e54f68a8def612fa76
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
