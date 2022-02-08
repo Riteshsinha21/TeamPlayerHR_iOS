@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZxI-dG-cO2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZxI-dG-cO2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -3362,7 +3362,7 @@
             </objects>
             <point key="canvasLocation" x="6479.7101449275369" y="2480.3571428571427"/>
         </scene>
-        <!--Purchase-->
+        <!--PurchaseVC-->
         <scene sceneID="na2-mN-nzT">
             <objects>
                 <viewController storyboardIdentifier="PurchaseVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wjc-Od-4qa" customClass="PurchaseVC" customModule="TeamPlayer" customModuleProvider="target" sceneMemberID="viewController">
@@ -3668,10 +3668,7 @@
                             <constraint firstItem="Stf-rl-8is" firstAttribute="leading" secondItem="uci-cR-WKh" secondAttribute="leading" id="tHo-gK-gvb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Purchase" id="wVn-2M-C0v">
-                        <imageReference key="image" image="faq"/>
-                        <imageReference key="selectedImage" image="faq_selected"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="oFt-3g-iMv"/>
                     <connections>
                         <outlet property="numberOfQuestionaireTxt" destination="i7V-Ib-IA8" id="eIT-B2-UcZ"/>
                         <outlet property="pptView" destination="NkS-rq-njh" id="FoP-fl-bfr"/>
@@ -3679,7 +3676,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuQ-Xy-TWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5721.739130434783" y="1790.625"/>
+            <point key="canvasLocation" x="6631.884057971015" y="1790.625"/>
         </scene>
         <!--Compare IM's-->
         <scene sceneID="GFk-pr-rM6">
@@ -3697,7 +3694,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzG-zS-bAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6452.1739130434789" y="1790.625"/>
+            <point key="canvasLocation" x="7362.3188405797109" y="1790.625"/>
         </scene>
         <!--Side MenuVC-->
         <scene sceneID="xyk-7e-17a">
@@ -4818,10 +4815,10 @@
                                 <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKt-w5-Soi">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="714.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RES-bx-5Od">
-                                                <rect key="frame" x="30" y="30" width="354" height="654.5"/>
+                                                <rect key="frame" x="30" y="30" width="354" height="655"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPB-zh-Nhz">
                                                         <rect key="frame" x="15" y="15" width="324" height="21.5"/>
@@ -5018,13 +5015,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="click name to compare" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCX-Vr-Y6M">
-                                                        <rect key="frame" x="15" y="253" width="324" height="14"/>
+                                                        <rect key="frame" x="15" y="253" width="324" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                         <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tzv-Be-N9D">
-                                                        <rect key="frame" x="15" y="272" width="324" height="150"/>
+                                                        <rect key="frame" x="15" y="272.5" width="324" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="EYc-iZ-nnl"/>
@@ -5113,7 +5110,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bD3-32-98R">
-                                                        <rect key="frame" x="15" y="272" width="324" height="150"/>
+                                                        <rect key="frame" x="15" y="272.5" width="324" height="150"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zkp-9J-Brt">
                                                                 <rect key="frame" x="102" y="15" width="120" height="120"/>
@@ -5131,14 +5128,14 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CB8-Zd-Du7">
-                                                        <rect key="frame" x="15" y="437" width="324" height="1"/>
+                                                        <rect key="frame" x="15" y="437.5" width="324" height="1"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="68Y-Bj-pdr"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnk-aP-SA3">
-                                                        <rect key="frame" x="15" y="453" width="324" height="21.5"/>
+                                                        <rect key="frame" x="15" y="453.5" width="324" height="21.5"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="Participant List">
                                                                 <attributes>
@@ -5151,7 +5148,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kpp-mV-QlT">
-                                                        <rect key="frame" x="15" y="484.5" width="324" height="150"/>
+                                                        <rect key="frame" x="15" y="485" width="324" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="hKK-Ns-rXc"/>
@@ -5239,7 +5236,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aV2-li-AxL">
-                                                        <rect key="frame" x="15" y="484.5" width="324" height="150"/>
+                                                        <rect key="frame" x="15" y="485" width="324" height="150"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HU6-tv-sf8">
                                                                 <rect key="frame" x="102" y="15" width="120" height="120"/>
@@ -5629,8 +5626,8 @@
                     <connections>
                         <segue destination="leG-81-wqe" kind="relationship" relationship="viewControllers" id="05c-or-cso"/>
                         <segue destination="vSu-Jz-Grr" kind="relationship" relationship="viewControllers" id="Vkm-zT-Gsn"/>
-                        <segue destination="ztd-jA-xX3" kind="relationship" relationship="viewControllers" id="srA-Wb-hmR"/>
-                        <segue destination="wjc-Od-4qa" kind="relationship" relationship="viewControllers" id="YuD-6v-q5t"/>
+                        <segue destination="weC-UF-02m" kind="relationship" relationship="viewControllers" id="srA-Wb-hmR"/>
+                        <segue destination="Jcg-Pi-wlz" kind="relationship" relationship="viewControllers" id="YuD-6v-q5t"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUk-lF-ipr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -6154,7 +6151,7 @@
             </objects>
             <point key="canvasLocation" x="3421.739130434783" y="1790.625"/>
         </scene>
-        <!--App Questionaire-->
+        <!--App GroupsVC-->
         <scene sceneID="N3g-VR-v6v">
             <objects>
                 <viewController storyboardIdentifier="AppGroupsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ztd-jA-xX3" customClass="AppGroupsVC" customModule="TeamPlayer" customModuleProvider="target" sceneMemberID="viewController">
@@ -6319,7 +6316,6 @@
                             <constraint firstItem="4Z9-fy-ftc" firstAttribute="trailing" secondItem="eW7-1P-wla" secondAttribute="trailing" id="mBd-DD-wob"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="App Questionaire" image="questioner copy" selectedImage="questioner_active copy" id="2d3-BE-Lgd"/>
                     <navigationItem key="navigationItem" id="Tjq-pT-2P3"/>
                     <connections>
                         <outlet property="headerTitle" destination="1BD-JF-TRl" id="qfv-Ha-M1q"/>
@@ -6328,7 +6324,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3u-FD-nG3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7128" y="1791"/>
+            <point key="canvasLocation" x="8947.826086956522" y="1790.625"/>
+        </scene>
+        <!--App Questionaire-->
+        <scene sceneID="Ajg-E4-92p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="weC-UF-02m" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="App Questionaire" image="questioner copy" selectedImage="questioner_active copy" id="2d3-BE-Lgd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="602-c0-BDm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ztd-jA-xX3" kind="relationship" relationship="rootViewController" id="Tvh-cQ-fbr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tS8-LS-CIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8037.6811594202909" y="1790.625"/>
+        </scene>
+        <!--Purchase-->
+        <scene sceneID="7Ob-Gt-ONS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jcg-Pi-wlz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Purchase" id="wVn-2M-C0v">
+                        <imageReference key="image" image="faq"/>
+                        <imageReference key="selectedImage" image="faq_selected"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WP4-cG-gd1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wjc-Od-4qa" kind="relationship" relationship="rootViewController" id="raC-Ef-1Sh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ok3-d9-Srg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5721.739130434783" y="1790.625"/>
         </scene>
     </scenes>
     <resources>
