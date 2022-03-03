@@ -38,14 +38,6 @@ class PurchaseVC: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = false
-//        self.getGroupList()
-    }
-    
     @IBAction func sideMenuAction(_ sender: Any) {
         openSideMenu()
     }

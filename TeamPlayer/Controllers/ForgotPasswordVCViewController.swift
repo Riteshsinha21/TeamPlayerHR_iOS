@@ -61,7 +61,8 @@ class ForgotPasswordVCViewController: UIViewController {
                     
                 }
                 else {
-                    UIAlertController.showInfoAlertWithTitle("Message", message: json["data"].stringValue, buttonTitle: "Okay")
+//                    UIAlertController.showInfoAlertWithTitle("Message", message: json["data"].stringValue, buttonTitle: "Okay")
+                    self.view.makeToast(json["data"].stringValue)
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")

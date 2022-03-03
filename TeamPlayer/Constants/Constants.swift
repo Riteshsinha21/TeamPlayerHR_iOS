@@ -101,7 +101,7 @@ struct PROJECT_URL {
     static let DEMO_REQUEST = "/user/demo_request"
     static let DEMO_PLAN = "/demo/plan"
     static let NEWS = "/news"
-    static let DELETE_INVITEE = "/demo/user/delete_invite"
+    static let DELETE_INVITEE = "/demo/delete_invite"
     static let GET_SUBSCRIPTION_PLAN = "/user/app/subscription"
     
     static let GET_AppQuestionnairePurchase_HISTORY = "/user/appQuestionnairePurchase"

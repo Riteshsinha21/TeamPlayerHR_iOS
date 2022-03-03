@@ -116,10 +116,6 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         self.stateTxt.inputAccessoryView = toolBar
         self.cityTxt.inputAccessoryView = toolBar
         
-//        self.getCountryList()
-//        self.getSectorList()
-//        self.getOccupationList()
-        
         let concurrentQueue = DispatchQueue(label: "ConcurrentQueue", attributes: .concurrent)
         
         concurrentQueue.async {
@@ -416,9 +412,6 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
             } else if self.stateTxt.text!.isEmpty {
                 self.view.makeToast("Please select State.")
                 return
-            } else if self.cityTxt.text!.isEmpty {
-                self.view.makeToast("Please select City.")
-                return
             } else if self.zipTxt.text!.isEmpty {
                 self.view.makeToast("Please enter Zip.")
                 return
@@ -434,10 +427,12 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
             } else if !self.isTermsAgreed {
                 self.view.makeToast("Please check and agree Our Terms and Conditions.")
                 return
-            } else if self.uplaodedCv.isEmpty {
-                self.view.makeToast("Please upload CV.")
-                return
             }
+            
+//            else if self.uplaodedCv.isEmpty {
+//                self.view.makeToast("Please upload CV.")
+//                return
+//            }
             self.signupApiCall()
 //            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 //            let vc = storyboard.instantiateViewController(withIdentifier: "ResumeVC") as! ResumeVC
@@ -478,9 +473,6 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 return
             } else if self.stateTxt.text!.isEmpty {
                 self.view.makeToast("Please select State.")
-                return
-            } else if self.cityTxt.text!.isEmpty {
-                self.view.makeToast("Please select City.")
                 return
             } else if self.zipTxt.text!.isEmpty {
                 self.view.makeToast("Please enter Zip.")
@@ -936,6 +928,67 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         }
     }
     
+    @IBAction func cityAction(_ sender: UIButton) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ActionSheetVC") as! ActionSheetVC
+        vc.countryList = self.cityList
+        vc.completionHandlerCallback = { [self](selectedDic: NSDictionary!)->Void in
+            self.cityTxt.text = selectedDic.object(forKey: "title") as? String
+            self.cityId = selectedDic.object(forKey: "id") as! Int
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func stateAction(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ActionSheetVC") as! ActionSheetVC
+        vc.countryList = self.stateList
+        vc.completionHandlerCallback = { [self](selectedDic: NSDictionary!)->Void in
+            self.stateTxt.text = selectedDic.object(forKey: "title") as? String
+            self.stateId = selectedDic.object(forKey: "id") as! Int
+            self.cityTxt.text = ""
+            self.getCityList()
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func countryAction(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ActionSheetVC") as! ActionSheetVC
+        vc.countryList = self.countryList
+        vc.completionHandlerCallback = { [self](selectedDic: NSDictionary!)->Void in
+            self.countryTxt.text = selectedDic.object(forKey: "title") as? String
+            self.countryId = selectedDic.object(forKey: "id") as! Int
+            self.stateTxt.text = ""
+            self.cityTxt.text = ""
+            self.stateId = 0
+            self.cityId = 0
+            self.getStateList()
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func sectorAction(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ActionSheetVC") as! ActionSheetVC
+        vc.countryList = self.sectorList
+//        vc.completionHandlerCallback = { [self](selectedDic: NSDictionary!)->Void in
+//            self.sectorTxt.text = selectedDic.object(forKey: "title") as? String
+//            self.sectorId = selectedDic.object(forKey: "id") as! Int
+//        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func occupationAction(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ActionSheetVC") as! ActionSheetVC
+        vc.countryList = self.occupationList
+        vc.completionHandlerCallback = { [self](selectedDic: NSDictionary!)->Void in
+            self.occupationTxt.text = selectedDic.object(forKey: "title") as? String
+            self.occupationId = selectedDic.object(forKey: "id") as! Int
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension NewUserVC : UIDocumentPickerDelegate, UIPickerViewDataSource {

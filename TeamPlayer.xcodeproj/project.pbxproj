@@ -10,6 +10,8 @@
 		57E1CCB7276CBA1F00582499 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */; };
 		57E1CCB9276CBA8900582499 /* PurchaseHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */; };
 		57E1CCBB276CBA9C00582499 /* PurchaseHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */; };
+		5804ED5227C667E800BA46C9 /* ActionSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5804ED5127C667E800BA46C9 /* ActionSheetVC.swift */; };
+		5804ED5427C66C4500BA46C9 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5804ED5327C66C4500BA46C9 /* ActionSheetCell.swift */; };
 		580FB72A26889FB000D3E0CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB72926889FB000D3E0CE /* AppDelegate.swift */; };
 		580FB72E26889FB000D3E0CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB72D26889FB000D3E0CE /* ViewController.swift */; };
 		580FB73126889FB000D3E0CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580FB72F26889FB000D3E0CE /* Main.storyboard */; };
@@ -89,6 +91,8 @@
 		57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryCell.swift; sourceTree = "<group>"; };
 		57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryVC.swift; sourceTree = "<group>"; };
+		5804ED5127C667E800BA46C9 /* ActionSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetVC.swift; sourceTree = "<group>"; };
+		5804ED5327C66C4500BA46C9 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
 		580FB72626889FB000D3E0CE /* TeamPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580FB72926889FB000D3E0CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		580FB72D26889FB000D3E0CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				584EC34F277486D00013FA81 /* PurchasePlanVC.swift */,
 				585D05C0279EB06000112B3C /* MultipleInviteVC.swift */,
 				585D05C427A971D700112B3C /* AppGroupsVC.swift */,
+				5804ED5127C667E800BA46C9 /* ActionSheetVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */,
 				584EC351277489A60013FA81 /* PurchasePlanCell.swift */,
 				585D05C2279EB0E500112B3C /* MultipleInviteTableCell.swift */,
+				5804ED5327C66C4500BA46C9 /* ActionSheetCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -547,6 +553,8 @@
 				57E1CCBB276CBA9C00582499 /* PurchaseHistoryVC.swift in Sources */,
 				584EC352277489A60013FA81 /* PurchasePlanCell.swift in Sources */,
 				58680F82268DFF5B00880108 /* VisionVC.swift in Sources */,
+				5804ED5227C667E800BA46C9 /* ActionSheetVC.swift in Sources */,
+				5804ED5427C66C4500BA46C9 /* ActionSheetCell.swift in Sources */,
 				584D3C8E26BBFDA9000AE123 /* ManageTeamVC.swift in Sources */,
 				58642F2F268DF75E00D85B2C /* HowItWorksVC.swift in Sources */,
 				58767A37269447A400B54EFA /* FaqContentCell.swift in Sources */,
@@ -694,7 +702,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.4;
+				CURRENT_PROJECT_VERSION = 3.5;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
@@ -735,7 +743,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.4;
+				CURRENT_PROJECT_VERSION = 3.5;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;
