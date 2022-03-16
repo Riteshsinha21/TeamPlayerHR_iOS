@@ -104,7 +104,7 @@ class SigninVC: UIViewController {
                         guard let window = UIApplication.shared.delegate?.window else {
                             return
                         }
-                        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_ROLE) as! String == "3" {
+                        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_ROLE) as! String == "3" || json["data"]["isAppQuestionaireDone"].boolValue {
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
                             viewController.selectedIndex = 1
