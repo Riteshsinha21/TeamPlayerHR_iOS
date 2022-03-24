@@ -18,6 +18,7 @@ class ManageTeamVC: UIViewController {
     @IBOutlet weak var benchmarkListEmptyView: UIView!
     @IBOutlet weak var groupListEmptyView: UIView!
     @IBOutlet weak var participantEmptyView: UIView!
+    @IBOutlet weak var pptSubLbl: UILabel!
     
     var teamParticipantObj = inviteTeamStruct()
     var teamUserListArr = [teamUserListStruct]()
@@ -83,6 +84,7 @@ class ManageTeamVC: UIViewController {
         self.groupListTableView.reloadData()
         self.participantTableView.reloadData()
         self.showAndHideEmptyViews()
+        self.pptSubLbl.text = "There are \(self.teamParticipantArr.count) Participants in this Questionnaire Group. Click a participant's name to view their questionnaire results."
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
@@ -167,6 +169,8 @@ class ManageTeamVC: UIViewController {
                         self.groupListTableView.reloadData()
                         self.participantTableView.reloadData()
                         self.showAndHideEmptyViews()
+                        self.pptSubLbl.text = "There are \(self.teamParticipantArr.count) Participants in this Questionnaire Group. Click a participant's name to view their questionnaire results."
+                        
                         //self.categorizeUserTypes()
                     }
                     

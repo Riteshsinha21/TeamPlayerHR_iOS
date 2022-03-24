@@ -13,7 +13,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
 //    var sideMenuArr = ["Home","Participants Profile", "Purchase Breif Qestionaores", "Compare IM Intrinsic Matrix", "How it Works","What are the benefits", "Vision and Technology", "FAQ's", "Contact Us", "Subscription", "Demo", "News", "Logout"]
-    var sideMenuArr = ["Home","Participants Profile", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Purchase Full Questionnaire", "Company Subscription", "What are the benefits", "Vision and Technology", "FAQ's", "Request Demo", "Contact Us", "News", "Purchase History", "Logout"]
+    var sideMenuArr = ["Home","Participants Profile", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Purchase Full Questionnaire", "Company Subscription", "Value Calculator", "Vision and Technology", "FAQ's", "Request Demo", "Contact Us", "News", "Purchase History", "Logout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

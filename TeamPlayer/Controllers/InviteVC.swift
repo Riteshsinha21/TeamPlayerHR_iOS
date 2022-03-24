@@ -164,7 +164,7 @@ class InviteVC: UIViewController, UITextFieldDelegate {
                         if self.participantArr.count > 0 {
                             self.participantTableView.dataSource = self
                             self.participantTableView.delegate = self
-                            self.remainingQuestionaireLbl.text = "\(json["data"]["remaining"].stringValue) Questionnaire remaining"
+                            self.remainingQuestionaireLbl.text = "\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.NAME) as! String) \(json["data"]["remaining"].stringValue) Questionnaire remaining"
                             self.remainingQuestionaire = Int(json["data"]["remaining"].stringValue) ?? 0
                             self.participantTableView.reloadData()
                         }
