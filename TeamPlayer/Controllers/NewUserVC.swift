@@ -972,10 +972,10 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ActionSheetVC") as! ActionSheetVC
         vc.countryList = self.sectorList
-//        vc.completionHandlerCallback = { [self](selectedDic: NSDictionary!)->Void in
-//            self.sectorTxt.text = selectedDic.object(forKey: "title") as? String
-//            self.sectorId = selectedDic.object(forKey: "id") as! Int
-//        }
+        vc.completionHandlerCallback = { [self](selectedDic: NSDictionary!)->Void in
+            self.sectorTxt.text = selectedDic.object(forKey: "title") as? String
+            self.sectorId = selectedDic.object(forKey: "id") as! Int
+        }
         self.present(vc, animated: true, completion: nil)
     }
     

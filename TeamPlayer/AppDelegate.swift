@@ -32,10 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             UIApplication.shared.delegate!.window!!.rootViewController = viewController
         }
-        
-        BTAppSwitch.setReturnURLScheme("ChawtechSolutions.TeamPlayer.Payments")
-        
-        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication)

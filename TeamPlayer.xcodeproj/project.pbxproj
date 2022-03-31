@@ -702,10 +702,11 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.5;
+				CURRENT_PROJECT_VERSION = 3.6;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TeamPlayerHR;
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1.5;
@@ -743,11 +744,12 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.5;
+				CURRENT_PROJECT_VERSION = 3.6;
 				DEVELOPMENT_TEAM = 4CK42MSB9T;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TeamPlayerHR;
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1.5;
