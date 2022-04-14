@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             UIApplication.shared.delegate!.window!!.rootViewController = viewController
         }
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication)

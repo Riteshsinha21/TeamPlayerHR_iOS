@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4553BCFA27FF1E8200AA8EBE /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553BCF927FF1E8200AA8EBE /* FooterCell.swift */; };
 		57E1CCB7276CBA1F00582499 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */; };
 		57E1CCB9276CBA8900582499 /* PurchaseHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */; };
 		57E1CCBB276CBA9C00582499 /* PurchaseHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4553BCF927FF1E8200AA8EBE /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
 		57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryCell.swift; sourceTree = "<group>"; };
 		57E1CCBA276CBA9C00582499 /* PurchaseHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryVC.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				58D6616226B81A94000E9D47 /* AlertGroupCell.swift */,
 				58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */,
 				5853294526CA5D1F00D1138F /* GroupListCell.swift */,
+				4553BCF927FF1E8200AA8EBE /* FooterCell.swift */,
 				5853294726CA6D8F00D1138F /* BenchmarkListCell.swift */,
 				5853294926CA87FA00D1138F /* ParticipantListCell.swift */,
 				58692A4026EF5FAC0024A623 /* ShowInviteeListCell.swift */,
@@ -512,6 +515,7 @@
 				58680F84268DFFF000880108 /* NewsVC.swift in Sources */,
 				586FE66126B038390027960D /* CheckboxAnswerCell.swift in Sources */,
 				586FE66326B1D6EE0027960D /* InviteHeaderCell.swift in Sources */,
+				4553BCFA27FF1E8200AA8EBE /* FooterCell.swift in Sources */,
 				585D05C1279EB06000112B3C /* MultipleInviteVC.swift in Sources */,
 				584F84C126BAA4800028DE76 /* ResumeVC.swift in Sources */,
 				57E1CCB7276CBA1F00582499 /* SubscriptionCell.swift in Sources */,

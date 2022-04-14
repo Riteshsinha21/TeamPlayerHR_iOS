@@ -267,6 +267,7 @@ class QuestionaireVC: UIViewController {
                     } else {
                         //set score api hit
 //                        self.setScore()
+                        self.count = 0
                         self.getQuestionList()
 //                        let serialQueue = DispatchQueue(label: "SerialQueue")
 //
@@ -308,11 +309,17 @@ class QuestionaireVC: UIViewController {
     @objc func updateTimer(){
         if seconds < 1 {
             timer.invalidate()
-            self.count += 1
-            let timelimit = self.demoQuestionArr[self.count].timelimit
-            self.seconds = Int(timelimit)!
-            self.setQuestionTxt(self.count)
-            self.tableView.reloadData()
+            if self.demoQuestionArr.count > (self.count + 1) {
+                self.count += 1
+                let timelimit = self.demoQuestionArr[self.count].timelimit
+                self.seconds = Int(timelimit)!
+                self.setQuestionTxt(self.count)
+                self.tableView.reloadData()
+            } else {
+                self.count = 0
+                self.getQuestionList()
+            }
+            
         } else {
             seconds -= 1
             //timerLabel.setText(timeString(time: TimeInterval(seconds)))

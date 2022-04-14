@@ -20,6 +20,7 @@ class InviteVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dashedView1: DashedView!
     @IBOutlet weak var dashedView: DashedView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tblHeightConstraint: NSLayoutConstraint!
     
     var groupId = ""
     var participantArr = [inviteParticipantStruct]()
@@ -33,11 +34,11 @@ class InviteVC: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         self.searchBar.delegate = self
-        self.tableView.delegate = nil
-        self.tableView.dataSource = nil
+//        self.tableView.delegate = nil
+//        self.tableView.dataSource = nil
         self.tableView.tableFooterView = UIView()
-        self.participantTableView.dataSource = nil
-        self.participantTableView.delegate = nil
+//        self.participantTableView.dataSource = nil
+//        self.participantTableView.delegate = nil
         self.participantTableView.tableFooterView = UIView()
         self.dashedView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
         self.dashedView1.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
@@ -54,6 +55,8 @@ class InviteVC: UIViewController, UITextFieldDelegate {
             // Fallback on earlier versions
         }
         self.inviteMailTxt.delegate = self
+        self.participantTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +67,30 @@ class InviteVC: UIViewController, UITextFieldDelegate {
         self.getGroupDetail()
         self.getTeamAPI()
     }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (object as! UITableView) == self.participantTableView {
+          if(keyPath == "contentSize"){
+            if let newvalue = change?[.newKey]
+            {
+              let newsize = newvalue as! CGSize
+                tblHeightConstraint.constant = newsize.height
+//                self.participantTableView.height = newsize.height
+            }
+          }
+        } else {
+            if(keyPath == "contentSize"){
+              if let newvalue = change?[.newKey]
+              {
+                let newsize = newvalue as! CGSize
+                  tableViewHeight.constant = newsize.height
+  //                self.participantTableView.height = newsize.height
+              }
+            }
+            
+        }
+      }
+
     
     @IBAction func createAction(_ sender: Any) {
         if self.teamNameTxt.text!.isEmpty {
@@ -86,7 +113,7 @@ class InviteVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func paticipantCellBtnAction(_ sender: UIButton) {
-        if sender.titleLabel?.text == "Add" {
+        if sender.titleLabel?.text == "Add to Team" {
             let indexPath: IndexPath? = participantTableView.indexPathForRow(at: sender.convert(CGPoint.zero, to: participantTableView))
              let participantObj = self.participantArr[indexPath!.row]
             self.openTeamActionSheet(participantObj.id, userName: participantObj.user_name)
@@ -392,7 +419,7 @@ class InviteVC: UIViewController, UITextFieldDelegate {
     }
     
     func showNoCreditAlert() {
-        let alert = UIAlertController(title: "No Credits !!", message: "Please purchase app questionaire.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "No Credits !!", message: "Please purchase app questionnaire.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
 
             guard let window = UIApplication.shared.delegate?.window else {
@@ -439,10 +466,11 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
             let groupListObj = self.participantArr[indexPath.row]
             cell.cellNameLbl.text = "Name: \(groupListObj.user_name)"
             cell.cellStatusLbl.text = "Status: \(groupListObj.survey_progress ? "Complete" : "Not Complete")"
-            cell.cellBtn.setTitle("Ritesh", for: .normal)
+//            cell.cellBtn.setTitle("Ritesh", for: .normal)
             
-//            cell.cellBtn.setTitle(groupListObj.survey_progress ? "Add" : "Send Reminder", for: .normal)
+            cell.cellBtn.setTitle(groupListObj.survey_progress ? "Add to Team" : "Send Reminder", for: .normal)
             cell.cellBtn.tintColor = UIColor.white
+            cell.selectionStyle = .none
             
             return cell
         } else {
@@ -451,6 +479,7 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
             let groupListObj = self.teamsArr[indexPath.row]
             cell.cellNameLbl.text = "Team Name: \(groupListObj.name)"
             cell.cellStatusLbl.text = "Participants: \(groupListObj.teamCount)"
+            cell.selectionStyle = .none
             
             return cell
         }
@@ -458,6 +487,15 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView == participantTableView {
+            tblHeightConstraint.constant = participantTableView.contentSize.height
+        } else {
+//            tableViewHeight.constant = tableView.contentSize.height
+        }
+        
     }
     
 }

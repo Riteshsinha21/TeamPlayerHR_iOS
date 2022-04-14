@@ -138,6 +138,7 @@ class ShowInviteeVC: UIViewController {
                 let success = json["success"].stringValue
                 if success == "true"
                 {
+                    self.view.makeToast(json["message"].stringValue)
                     self.getInviteeList()
                     
                 }

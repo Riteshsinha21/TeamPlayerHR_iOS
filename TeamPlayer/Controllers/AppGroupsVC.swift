@@ -342,7 +342,7 @@ extension AppGroupsVC : UITableViewDelegate, UITableViewDataSource {
                 //self.navigationController?.pushViewController(vc, animated: true)
                 self.present(vc, animated: true, completion: nil)
             } else {
-                let alert = UIAlertController(title: "No credits", message: "Please purchse app questionaire.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "No credits", message: "Please purchse app questionnaire.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
 
                     guard let window = UIApplication.shared.delegate?.window else {
