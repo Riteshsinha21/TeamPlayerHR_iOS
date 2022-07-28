@@ -261,7 +261,7 @@ class DemoVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
     
     @IBAction func submitAction(_ sender: Any) {
         if fullNameTxt.text!.isEmpty {
-            self.view.makeToast("Please enter name.")
+            self.view.makeToast("Please enter Full Name.")
             return
         } else if companyNameTxt.text!.isEmpty {
             self.view.makeToast("Please enter Company name.")

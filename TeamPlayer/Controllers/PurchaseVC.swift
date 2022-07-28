@@ -11,6 +11,9 @@ import BraintreeDropIn
 
 class PurchaseVC: UIViewController {
 
+    @IBOutlet weak var planLbl: UILabel!
+    @IBOutlet weak var newUserPlan: UIView!
+    @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var pptView: UIView!
     @IBOutlet weak var numberOfQuestionaireTxt: UITextField!
     
@@ -19,12 +22,17 @@ class PurchaseVC: UIViewController {
     var braintreeClient: BTAPIClient?
     var totalAmount : Double = Double()
    // var totalAmount = 0.1
+    var purchasePlansArray = [purchasePlansStruct]()
+    var newUserPlanAmount : Double = Double()
+    var newUserPlanId = String()
+    var isFrom = "New User Plan"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.getDemoPlanAPI()
+        self.getPurchasePlansApi()
         self.pptView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -36,6 +44,14 @@ class PurchaseVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        
+        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.IS_FULL_QUESTIONAIRE) as! String == "true"  {
+            self.planLbl.isHidden = true
+            self.newUserPlan.isHidden = true
+        } else {
+            self.planLbl.isHidden = false
+            self.newUserPlan.isHidden = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +59,12 @@ class PurchaseVC: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    @IBAction func purchaseFullQuestionAction(_ sender: UIButton) {
+        if let url = URL(string: "https://dev.teamplayerhr.com/purchase") {
+            UIApplication.shared.open(url)
+        }
     }
     
     @IBAction func sideMenuAction(_ sender: Any) {
@@ -57,9 +79,16 @@ class PurchaseVC: UIViewController {
             self.view.makeToast("Please fill the number of Questionaire you want.")
             return
         }
+        self.isFrom = "App Questionnaire"
         self.totalAmount = self.totalAmount * Double(self.numberOfQuestionaireTxt.text!)!
         self.getBrainTreeToken()
     }
+    
+    @IBAction func newUserPayAction(_ sender: UIButton) {
+        self.totalAmount = self.newUserPlanAmount
+        self.getBrainTreeToken()
+    }
+    
     
     func getDemoPlanAPI() {
         if Reachability.isConnectedToNetwork() {
@@ -112,6 +141,38 @@ class PurchaseVC: UIViewController {
                 {
                     
                     self.showAlert()
+                }
+                else {
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                }
+            }, errorBlock: { (NSError) in
+                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+                hideAllProgressOnView(appDelegateInstance.window!)
+            })
+            
+        }else{
+            hideAllProgressOnView(appDelegateInstance.window!)
+            UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
+        }
+    }
+    
+    func updateNewUserPlanAPI() {
+        
+        if Reachability.isConnectedToNetwork() {
+            showProgressOnView(appDelegateInstance.window!)
+            
+            let param:[String:Any] = ["id": self.newUserPlanId, "number_survay": "1", "data": []]
+            print(param)
+            ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.UPDATE_NEW_USER_PLAN_PAYMENT, successBlock: { (json) in
+                print(json)
+                hideAllProgressOnView(appDelegateInstance.window!)
+                let success = json["success"].stringValue
+                if success == "true"
+                {
+                    
+//                    self.showAlert()
+                    self.view.makeToast("Payment updated successfully.")
                 }
                 else {
                     self.view.makeToast(json["message"].stringValue)
@@ -190,6 +251,7 @@ class PurchaseVC: UIViewController {
     func showDropIn(clientTokenOrTokenizationKey: String) {
         let request =  BTDropInRequest()
         request.applePayDisabled = false // Make sure that  applePayDisabled is false
+        request.paypalDisabled = false
         
         let dropIn = BTDropInController.init(authorization: clientTokenOrTokenizationKey, request: request) { (controller, result, error) in
             
@@ -269,12 +331,60 @@ class PurchaseVC: UIViewController {
                 {
                     
 //                    self.view.makeToast("Payment done successfully.")
-                    self.updateDemoPaymentAPI()
+                    self.isFrom == "New User Plan" ? self.updateNewUserPlanAPI() : self.updateDemoPaymentAPI()
+//                    self.updateDemoPaymentAPI()
                     
                 }
                 else {
                     self.view.makeToast("\(json["message"].stringValue)")
                     // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                }
+            }, errorBlock: { (NSError) in
+                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+                hideAllProgressOnView(appDelegateInstance.window!)
+            })
+            
+        }else{
+            hideAllProgressOnView(appDelegateInstance.window!)
+            UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
+        }
+    }
+    
+    func getPurchasePlansApi() {
+        if Reachability.isConnectedToNetwork() {
+            showProgressOnView(appDelegateInstance.window!)
+            
+            let param:[String:String] = [:]
+            ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.GET_PURCHASE_PLANS, successBlock: { (json) in
+                print(json)
+                hideAllProgressOnView(appDelegateInstance.window!)
+                let success = json["success"].stringValue
+                //success == "true"
+                if success == "true"
+                {
+                    self.purchasePlansArray.removeAll()
+                    for i in 0..<json["data"].count
+                    {
+                        let id =  json["data"][i]["id"].stringValue
+                        let name =  json["data"][i]["name"].stringValue
+                        let number_survay =  json["data"][i]["number_survay"].stringValue
+                        let amount =  json["data"][i]["amount"].stringValue
+                        let plan_type =  json["data"][i]["plan_type"].stringValue
+                        self.newUserPlanAmount = Double(amount) ?? 0.0
+                        self.newUserPlanId = id
+                        
+                        self.purchasePlansArray.append(purchasePlansStruct.init(id: id, name: name, number_survay: number_survay, amount: amount, plan_type: plan_type))
+                    }
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.tblView.reloadData()
+                    }
+                    
+                    
+                } else {
+                    UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
@@ -340,4 +450,20 @@ extension PurchaseVC : PKPaymentAuthorizationViewControllerDelegate{
     }
     
     
+}
+
+extension PurchaseVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return purchasePlansArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseCell", for: indexPath) as! PurchaseCell
+        
+        let purchaseListObj = purchasePlansArray[indexPath.row]
+        cell.cellLbl.text = "\(purchaseListObj.name)"
+        
+        
+        return cell
+    }
 }

@@ -85,7 +85,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }else {
             
-            self.view.makeToast("user Logged Out")
+            self.view.makeToast("User Logged Out")
             UserDefaults.standard.removeObject(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)
             UserDefaults.standard.removeObject(forKey: USER_DEFAULTS_KEYS.USER_ROLE)
             inviteGroupArr.removeAll()

@@ -126,3 +126,11 @@ struct purchaseHistoryStruct {
     var title:String = ""
     var detail:String = ""
 }
+
+struct purchasePlansStruct {
+    var id:String = ""
+    var name:String = ""
+    var number_survay:String = ""
+    var amount:String = ""
+    var plan_type:String = ""
+}

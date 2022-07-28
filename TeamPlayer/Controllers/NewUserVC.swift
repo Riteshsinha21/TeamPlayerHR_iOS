@@ -45,6 +45,11 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var accountNumberTxt: UITextField!
     @IBOutlet weak var uploadCvView: UIView!
     @IBOutlet weak var uploadCvTxt: UITextField!
+    @IBOutlet weak var firstParaLbl: UILabel!
+    @IBOutlet weak var secondParaLbl: UILabel!
+    @IBOutlet weak var secondParaHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var thirdParaTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lblViewHeightConstraint: NSLayoutConstraint!
     
     var countryList = [countryStruct]()
     var sectorList = [countryStruct]()
@@ -163,7 +168,11 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
             self.passwordTxt.text = ""
             self.confirmPasswordTxt.text = ""
             self.imTxt.text = ""
-            
+            self.firstParaLbl.text = "Attach CV/resume or purchase APP questionnaire for 0.99 pence and receive One APP Questionnaire for you to take and a second one to invite another participant to take. Then You can compare your compatibility."
+            self.secondParaHeightConstraint.constant = 33
+            self.thirdParaTopConstraint.constant = 4
+            self.secondParaLbl.isHidden = false
+            self.lblViewHeightConstraint.constant = 270
         }
         
     }
@@ -198,6 +207,11 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
             self.passwordTxt.text = ""
             self.confirmPasswordTxt.text = ""
             self.imTxt.text = ""
+            self.firstParaLbl.text = "You need to subscribe to Organization Mobile App subscription and purchase a minimum of 100 APP questionnaires."
+            self.secondParaHeightConstraint.constant = 0
+            self.thirdParaTopConstraint.constant = 0
+            self.secondParaLbl.isHidden = true
+            self.lblViewHeightConstraint.constant = 300
         }
     }
     
@@ -1186,9 +1200,14 @@ extension NewUserVC: UIImagePickerControllerDelegate,UINavigationControllerDeleg
                 if error == nil && response != nil && response is NSDictionary && httpStatusCode == 200 {
                     let respDic = response as! NSDictionary
                     print(respDic)
-                    self.uplaodedCv = respDic.value(forKey: "file") as! String
+                    let data = respDic.value(forKey: "data") as! NSDictionary
                     
+//                    self.uplaodedCv = respDic.value(forKey: "file") as! String
+                    self.uplaodedCv = data.value(forKey: "filename") as! String
                     
+                    DispatchQueue.main.async {
+                        self.uploadCvTxt.text = "CV Uploaded"
+                    }
                     
                 }
             })
@@ -1290,7 +1309,9 @@ extension NewUserVC {
                     print(jsonDic)
                     let data = jsonDic.value(forKey: "data") as! NSDictionary
                     self.uplaodedCv = data.value(forKey: "filename") as! String
-                    
+                    DispatchQueue.main.async {
+                        self.uploadCvTxt.text = "CV Uploaded"
+                    }
                 } catch {
                     DispatchQueue.main.async {
                         hideAllProgressOnView(appDelegateInstance.window!)

@@ -98,6 +98,8 @@ class SigninVC: UIViewController {
                     UserDefaults.standard.setValue(json["data"]["role"].stringValue, forKey: USER_DEFAULTS_KEYS.USER_ROLE)
                     UserDefaults.standard.setValue(json["data"]["name"].stringValue, forKey: USER_DEFAULTS_KEYS.NAME)
                     
+                    UserDefaults.standard.setValue(json["data"]["isFullQuestionaireDone"].boolValue ? "true" : "false", forKey: USER_DEFAULTS_KEYS.IS_FULL_QUESTIONAIRE)
+                    
                     self.view.makeToast(json["message"].stringValue)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         

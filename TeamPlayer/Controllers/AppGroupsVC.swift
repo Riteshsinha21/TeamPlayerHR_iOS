@@ -192,8 +192,56 @@ class AppGroupsVC: UIViewController {
                     //save data in userdefault..
                     
                     self.view.makeToast(json["message"].stringValue)
+                    let group = DispatchGroup()
+                    
+                    group.enter()
+                    self.setScore(groupInfo.id)
+                    group.leave()
+                    
+                    group.enter()
                     self.getGroupList()
+                    group.leave()
+                    
+                    group.enter()
                     self.getPendingGroupList()
+                    group.leave()
+                    
+                    group.notify(queue: .main) {
+                        // All requests completed
+                        DispatchQueue.main.async {
+                            //process success
+                        }
+                    }
+                    
+                    
+                }
+                else {
+                    self.view.makeToast(json["message"].stringValue)
+                   // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
+                }
+            }, errorBlock: { (NSError) in
+                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+                hideAllProgressOnView(appDelegateInstance.window!)
+            })
+            
+        }else{
+            hideAllProgressOnView(appDelegateInstance.window!)
+            UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
+        }
+    }
+    
+    func setScore(_ groupId: String) {
+        
+        if Reachability.isConnectedToNetwork() {
+            showProgressOnView(appDelegateInstance.window!)
+            
+            let param:[String:Any] = [ "test": "2","group_id":"\(groupId)"]
+            ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.SET_SCORE, successBlock: { (json) in
+                print(json)
+                hideAllProgressOnView(appDelegateInstance.window!)
+                let success = json["success"].stringValue
+                if success == "true"
+                {
                     
                 }
                 else {

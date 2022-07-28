@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        BTAppSwitch.setReturnURLScheme("ChwatechSolutions.TeamPlayerHR.Payments")
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.black], for: .selected)
         //keyboard management
@@ -65,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if url.scheme?.localizedCaseInsensitiveCompare("ChawtechSolutions.TeamPlayer.Payments") == .orderedSame {
+        if url.scheme?.localizedCaseInsensitiveCompare("ChwatechSolutions.TeamPlayerHR.Payments") == .orderedSame {
             return BTAppSwitch.handleOpen(url, options: options)
         }
         return false

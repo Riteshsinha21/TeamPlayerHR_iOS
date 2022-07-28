@@ -117,6 +117,8 @@ struct PROJECT_URL {
     static let UPDATE_DEMO_PAYMENT = "/user/updateDemoPayment"
     static let GET_INVITATION = "/demo/invitation"
     static let JOIN_GROUP = "/demo/join_group"
+    static let GET_PURCHASE_PLANS = "/user/new_user_plan"
+    static let UPDATE_NEW_USER_PLAN_PAYMENT = "/user/updateNewUserPayment"
     
     
 }
@@ -131,6 +133,8 @@ struct USER_DEFAULTS_KEYS {
     static let VENDOR_SIGNUP_TOKEN = "vendorSignupToken"
     static let USER_ROLE = "role"
     static let NAME = "name"
+    static let IS_FULL_QUESTIONAIRE = "isFullQuestionaireDone"
+    
 
     
     

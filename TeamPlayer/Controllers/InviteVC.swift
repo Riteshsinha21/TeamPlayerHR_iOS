@@ -256,7 +256,7 @@ class InviteVC: UIViewController, UITextFieldDelegate {
                             self.tableView.reloadData()
                         } else {
                             self.tableView.isHidden = true
-                            self.teamEmptyView.isHidden = false
+//                            self.teamEmptyView.isHidden = false
                         }
                     }
                     
@@ -444,8 +444,6 @@ class InviteVC: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
 
     }
-    
-
 }
 
 extension InviteVC: UITableViewDelegate, UITableViewDataSource {
@@ -456,7 +454,6 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             return self.teamsArr.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -466,7 +463,6 @@ extension InviteVC: UITableViewDelegate, UITableViewDataSource {
             let groupListObj = self.participantArr[indexPath.row]
             cell.cellNameLbl.text = "Name: \(groupListObj.user_name)"
             cell.cellStatusLbl.text = "Status: \(groupListObj.survey_progress ? "Complete" : "Not Complete")"
-//            cell.cellBtn.setTitle("Ritesh", for: .normal)
             
             cell.cellBtn.setTitle(groupListObj.survey_progress ? "Add to Team" : "Send Reminder", for: .normal)
             cell.cellBtn.tintColor = UIColor.white
@@ -530,16 +526,5 @@ extension InviteVC: UISearchBarDelegate{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: productSearchWorkItem)
             
         }
-    
-//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-//        return !shouldKeyboardOpen
-//    }
-//
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        shouldKeyboardOpen = false
-//        self.searchBar.endEditing(true)
-//        shouldKeyboardOpen = true
-//    }
      
 }

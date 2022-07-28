@@ -5,11 +5,13 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>ChwatechSolutions.TeamPlayerHR</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>teamPlayerHR</string>
+				<string>ChwatechSolutions.TeamPlayerHR.Payments</string>
 			</array>
 		</dict>
 	</array>

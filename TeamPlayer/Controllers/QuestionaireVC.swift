@@ -80,6 +80,9 @@ class QuestionaireVC: UIViewController {
             if checkMaxLimitOfSelection(selectedAnsArr) > maxAnswerInt! {
                 self.view.makeToast("Only \(maxAnswerInt!) Max selections allowed.")
                 return
+            } else if checkMaxLimitOfSelection(selectedAnsArr) < maxAnswerInt! {
+                self.view.makeToast("Sleect minimum \(maxAnswerInt!) answers.")
+                return
             } else if checkMaxLimitOfSelection(selectedAnsArr) == 0 {
                 self.view.makeToast("Please select your answer.")
                 return

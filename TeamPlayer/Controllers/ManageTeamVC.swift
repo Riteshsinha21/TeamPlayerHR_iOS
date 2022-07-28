@@ -19,6 +19,10 @@ class ManageTeamVC: UIViewController {
     @IBOutlet weak var groupListEmptyView: UIView!
     @IBOutlet weak var participantEmptyView: UIView!
     @IBOutlet weak var pptSubLbl: UILabel!
+    @IBOutlet weak var benchmarlTblHeight: NSLayoutConstraint!
+    @IBOutlet weak var participantTblHeight: NSLayoutConstraint!
+  
+    @IBOutlet weak var groupTblHeight: NSLayoutConstraint!
     
     var teamParticipantObj = inviteTeamStruct()
     var teamUserListArr = [teamUserListStruct]()
@@ -48,23 +52,59 @@ class ManageTeamVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (object as! UITableView) == self.benchmarkTableView {
+          if(keyPath == "contentSize"){
+            if let newvalue = change?[.newKey]
+            {
+              let newsize = newvalue as! CGSize
+                benchmarlTblHeight.constant = newsize.height
+//                self.participantTableView.height = newsize.height
+            }
+          }
+        } else if (object as! UITableView) == self.participantTableView {
+            if(keyPath == "contentSize"){
+              if let newvalue = change?[.newKey]
+              {
+                let newsize = newvalue as! CGSize
+                  participantTblHeight.constant = newsize.height
+  //                self.participantTableView.height = newsize.height
+              }
+            }
+            
+        } else {
+            if(keyPath == "contentSize"){
+              if let newvalue = change?[.newKey]
+              {
+                let newsize = newvalue as! CGSize
+                  groupTblHeight.constant = newsize.height
+  //                self.participantTableView.height = newsize.height
+              }
+            }
+            
+        }
+      }
+    
     func showAndHideEmptyViews() {
         if self.teamUserListArr.count > 0 {
             self.groupListEmptyView.isHidden = true
         } else {
             self.groupListEmptyView.isHidden = false
+            self.groupTblHeight.constant = 150.0
         }
         
         if self.teamBenchmarkListArr.count > 0 {
             self.benchmarkListEmptyView.isHidden = true
         } else {
             self.benchmarkListEmptyView.isHidden = false
+            self.benchmarlTblHeight.constant = 150.0
         }
         
         if self.teamParticipantArr.count > 0 {
             self.participantEmptyView.isHidden = true
         } else {
             self.participantEmptyView.isHidden = false
+            self.participantTblHeight.constant = 150.0
         }
     }
     
@@ -304,6 +344,7 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
                 
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "ViewReportVC") as! ViewReportVC
+                print(reportUrl)
                 vc.urlStr = reportUrl
     //            vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
@@ -317,7 +358,7 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
                 self.getBrainTreeToken()
             } else {
                 let participantListObj = self.teamParticipantArr[indexPath.row]
-                let reportUrl = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(participantListObj.group_id)&user_id=\(participantListObj.user_id)&subgroup_id=\(participantListObj.subgroup_id)&user_type=benchmark&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
+                let reportUrl = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(participantListObj.group_id)&user_id=\(participantListObj.user_id)&subgroup_id=\(participantListObj.subgroup_id)&user_type=participant&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
                 
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "ViewReportVC") as! ViewReportVC
@@ -331,6 +372,17 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView == benchmarkTableView {
+            benchmarlTblHeight.constant = benchmarkTableView.contentSize.height
+        } else if tableView == participantTableView {
+            participantTblHeight.constant = participantTableView.contentSize.height
+        } else {
+            groupTblHeight.constant = groupListTableView.contentSize.height
+        }
+        
     }
     
     func getBrainTreeToken() {

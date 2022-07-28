@@ -77,7 +77,7 @@ class FaqVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65.0
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,7 +99,7 @@ class FaqVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FaqContentCell", for: indexPath) as! FaqContentCell
             
-            cell.cellLbl.text = tableViewData[indexPath.section].sectionData
+            cell.cellLbl.text = tableViewData[indexPath.section].sectionData.html2String
             
             return cell
         }
