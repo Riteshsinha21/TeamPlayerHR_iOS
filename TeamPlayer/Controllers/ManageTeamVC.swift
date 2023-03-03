@@ -42,6 +42,8 @@ class ManageTeamVC: UIViewController {
         self.showAndHideEmptyViews()
         self.categorizeUserTypes()
         self.getAmountApi()
+        NotificationCenter.default.addObserver(self, selector: #selector(payPerClickPurchased), name: NSNotification.Name(rawValue: "payPerClickPurchased"), object: nil)
+        
         
     }
     
@@ -84,6 +86,10 @@ class ManageTeamVC: UIViewController {
             
         }
       }
+    
+    @objc func payPerClickPurchased() {
+        self.autheticatePayment(paymentMethodNonce: "")
+    }
     
     func showAndHideEmptyViews() {
         if self.teamUserListArr.count > 0 {
@@ -337,7 +343,9 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
             self.selectedPpcPptObj = self.teamBenchmarkListArr[indexPath.row]
             self.amount = "\(Double(self.teamParticipantArr.count + 1) * Double(self.amount)!)"
             if UserDefaults.standard.object(forKey: USER_DEFAULTS_KEYS.USER_ROLE) as! String == "3" {
-                self.getBrainTreeToken()
+//                self.getBrainTreeToken()
+                IAPService.shared.purchase(product: .PayPerClick)
+                IAPService.shared.isSubscriptionPurchased = "payPerClick"
             } else {
                 let benhcmarkListObj = self.teamBenchmarkListArr[indexPath.row]
                 let reportUrl = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(benhcmarkListObj.group_id)&user_id=\(benhcmarkListObj.user_id)&subgroup_id=\(benhcmarkListObj.subgroup_id)&user_type=benchmark&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
@@ -355,7 +363,8 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
             self.selectedPpcPptObj = self.teamParticipantArr[indexPath.row]
             self.amount = "\(Double(self.teamBenchmarkListArr.count + 1) * Double(self.amount)!)"
             if UserDefaults.standard.object(forKey: USER_DEFAULTS_KEYS.USER_ROLE) as! String == "3" {
-                self.getBrainTreeToken()
+//                self.getBrainTreeToken()
+                IAPService.shared.purchase(product: .PayPerClick)
             } else {
                 let participantListObj = self.teamParticipantArr[indexPath.row]
                 let reportUrl = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(participantListObj.group_id)&user_id=\(participantListObj.user_id)&subgroup_id=\(participantListObj.subgroup_id)&user_type=participant&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
@@ -365,7 +374,6 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
                 vc.urlStr = reportUrl
     //            vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
-
             }
         }
     }

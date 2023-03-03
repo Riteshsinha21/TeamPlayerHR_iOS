@@ -49,6 +49,8 @@ class GroupVC: UIViewController {
             // Fallback on earlier versions
         }
         self.getGroupList()
+        NotificationCenter.default.addObserver(self, selector: #selector(SubscriptionPurchased), name: NSNotification.Name(rawValue: "SubscriptionPurchased"), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +59,10 @@ class GroupVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
 //        self.getGroupList()
+    }
+    
+    @objc func SubscriptionPurchased() {
+        self.autheticatePayment(paymentMethodNonce: "")
     }
     
     @IBAction func menuAction(_ sender: Any) {
@@ -210,11 +216,17 @@ class GroupVC: UIViewController {
     @IBAction func subscriptionPayAction(_ sender: UIButton) {
         let indexPath: IndexPath? = tblViewSubscription.indexPathForRow(at: sender.convert(CGPoint.zero, to: tblViewSubscription))
          let participantObj = self.subscriptionListArr[indexPath!.row]
-        
-//        self.selectedId = participantObj.id
+//
         planId = participantObj.id
-       // self.selectedId = participantObj.
-        self.getBrainTreeToken()
+//        self.getBrainTreeToken()
+        if indexPath!.row == 0 {
+            IAPService.shared.isSubscriptionPurchased = "monthly"
+            IAPService.shared.purchase(product: .MonthlySubscription)
+        } else {
+            IAPService.shared.isSubscriptionPurchased = "annual"
+            IAPService.shared.purchase(product: .AnnualSubscription)
+        }
+        
     }
     
     @IBAction func aletCloseAction(_ sender: UIButton) {

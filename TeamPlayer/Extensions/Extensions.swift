@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 import SideMenu
+import StoreKit
 
 extension UIView{
     @IBInspectable var borderColor:UIColor{
@@ -582,5 +583,19 @@ extension StringProtocol {
     }
     var html2String: String {
         html2AttributedString?.string ?? ""
+    }
+}
+
+extension SKProduct {
+    var localizedPrice: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = priceLocale
+//        formatter.currencyCode = "INR"
+        return formatter.string(from: price)!
+        
+        
+//        formatter.locale = product.priceLocale
+//        let cost = formatter.stringFromNumber(product.price)
     }
 }

@@ -49,7 +49,9 @@ var countryArr = [String]()
 //let FLAG_BASE_URL = "http://35.160.227.253/SaharaGo/Flag"
 //let FILE_BASE_URL = "http://35.160.227.253/SaharaGo/File"
 
-let BASE_URL = "https://admin.teamplayerhr.com/api"
+//let BASE_URL = "https://admin.teamplayerhr.com/api"
+let BASE_URL = "https://superadmin.teamplayerhr.com/api"
+
 let FLAG_BASE_URL = "http://34.220.107.44/SaharaGo/Flag"
 let FILE_BASE_URL = "https://admin.teamplayerhr.com/storage/app/public"
 

@@ -8,8 +8,16 @@
 import UIKit
 import Braintree
 import BraintreeDropIn
+import StoreKit
 
-class PurchaseVC: UIViewController {
+class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver, UIActionSheetDelegate {
+    
+//    enum Product: String, CaseIterable {
+//        case questionnaire: "com.ChwatechSolutions.questionnaire"
+//    }
+    
+   
+    
 
     @IBOutlet weak var planLbl: UILabel!
     @IBOutlet weak var newUserPlan: UIView!
@@ -26,6 +34,7 @@ class PurchaseVC: UIViewController {
     var newUserPlanAmount : Double = Double()
     var newUserPlanId = String()
     var isFrom = "New User Plan"
+    var questionaireCount = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +60,13 @@ class PurchaseVC: UIViewController {
         } else {
             self.planLbl.isHidden = false
             self.newUserPlan.isHidden = false
+//            self.planLbl.isHidden = true
+//            self.newUserPlan.isHidden = true
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(QuestionairePurchased), name: NSNotification.Name(rawValue: "QuestionairePurchased"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(newUserPlanPurchased), name: NSNotification.Name(rawValue: "newUserPlanPurchased"), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +74,14 @@ class PurchaseVC: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    @objc func QuestionairePurchased() {
+        self.updateDemoPaymentAPI()
+    }
+    
+    @objc func newUserPlanPurchased() {
+        self.updateNewUserPlanAPI()
     }
     
     @IBAction func purchaseFullQuestionAction(_ sender: UIButton) {
@@ -74,19 +97,97 @@ class PurchaseVC: UIViewController {
     @IBAction func notificationAction(_ sender: Any) {
     }
     
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if let oProduct = response.products.first {
+            debugPrint("Hey Product is Available")
+            debugPrint(oProduct.price)
+            debugPrint(oProduct.localizedPrice)
+            self.purchase(aproduct: oProduct)
+        } else {
+            debugPrint("Hey Product is not Available")
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                debugPrint("customer is in the process of purchase.")
+            case .purchased:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                self.updateDemoPaymentAPI()
+                debugPrint("Purchased.")
+            case .failed:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                debugPrint("Transaction Failed.")
+            case .restored:
+                debugPrint("Restored")
+            case .deferred:
+                debugPrint("Deferred")
+            default:
+                break
+            }
+        }
+    }
+    
+    func purchase(aproduct: SKProduct) {
+        let payment = SKPayment(product: aproduct)
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(payment)
+    }
+    
     @IBAction func paymentAction(_ sender: Any) {
         if self.numberOfQuestionaireTxt.text!.isEmpty {
             self.view.makeToast("Please fill the number of Questionaire you want.")
             return
         }
         self.isFrom = "App Questionnaire"
-        self.totalAmount = self.totalAmount * Double(self.numberOfQuestionaireTxt.text!)!
-        self.getBrainTreeToken()
+//        self.totalAmount = self.totalAmount * Double(self.numberOfQuestionaireTxt.text!)!
+//        self.getBrainTreeToken()
+        
+        // ============
+        if SKPaymentQueue.canMakePayments() {
+            let set: Set<String> = ["com.ChwatechSolutions.questionnaire1"]
+            let productRequest = SKProductsRequest(productIdentifiers: set)
+            productRequest.delegate = self
+            productRequest.start()
+        } else {
+            self.view.makeToast("Could not do Payment")
+            return
+        }
+        
+         
+        
+        switch self.questionaireCount {
+        case 1:
+            IAPService.shared.purchase(product: .Questionnaire_1)
+        case 5:
+            IAPService.shared.purchase(product: .Questionnaire_5)
+        case 10:
+            IAPService.shared.purchase(product: .Questionnaire_10)
+        case 15:
+            IAPService.shared.purchase(product: .Questionnaire_15)
+        case 25:
+            IAPService.shared.purchase(product: .Questionnaire_25)
+        case 50:
+            IAPService.shared.purchase(product: .Questionnaire_50)
+        case 75:
+            IAPService.shared.purchase(product: .Questionnaire_75)
+        case 100:
+            IAPService.shared.purchase(product: .Questionnaire_100)
+        case 500:
+            IAPService.shared.purchase(product: .Questionnaire_500)
+        default:
+            break
+        }
     }
     
     @IBAction func newUserPayAction(_ sender: UIButton) {
-        self.totalAmount = self.newUserPlanAmount
-        self.getBrainTreeToken()
+//        self.totalAmount = self.newUserPlanAmount
+//        self.getBrainTreeToken()
+        
+        IAPService.shared.isSubscriptionPurchased = "newUserPlan"
+        IAPService.shared.purchase(product: .NewUserPlan)
     }
     
     
@@ -131,7 +232,9 @@ class PurchaseVC: UIViewController {
         if Reachability.isConnectedToNetwork() {
             showProgressOnView(appDelegateInstance.window!)
             
-            let param:[String:Any] = ["id": planId, "number_survay": self.numberOfQuestionaireTxt.text!, "data": []]
+//            let param:[String:Any] = ["id": planId, "number_survay": self.numberOfQuestionaireTxt.text!, "data": []]
+            let param:[String:Any] = ["id": planId, "number_survay": self.questionaireCount, "data": []]
+            
             print(param)
             ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.UPDATE_DEMO_PAYMENT, successBlock: { (json) in
                 print(json)
@@ -396,6 +499,68 @@ class PurchaseVC: UIViewController {
             UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
         }
     }
+    
+    @IBAction func questionaireListAction(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Select Questionaire", message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Buy 1 Questionaire at $0.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 1
+            self.numberOfQuestionaireTxt.text = "1 Questionaire at $0.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 5 Questionaire at $4.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 5
+            self.numberOfQuestionaireTxt.text = "5 Questionaire at $4.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 10 Questionaire at $9.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 10
+            self.numberOfQuestionaireTxt.text = "10 Questionaire at $9.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 15 Questionaire at $14.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 15
+            self.numberOfQuestionaireTxt.text = "15 Questionaire at $14.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 25 Questionaire at $24.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 25
+            self.numberOfQuestionaireTxt.text = "25 Questionaire at $24.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 50 Questionaire at $49.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 50
+            self.numberOfQuestionaireTxt.text = "50 Questionaire at $49.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 75 Questionaire at $74.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 75
+            self.numberOfQuestionaireTxt.text = "75 Questionaire at $74.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 100 Questionaire at $99.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 100
+            self.numberOfQuestionaireTxt.text = "100 Questionaire at $99.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Buy 500 Questionaire at $499.99", style: .default , handler:{ (UIAlertAction)in
+            self.questionaireCount = 500
+            self.numberOfQuestionaireTxt.text = "500 Questionaire at $499.99"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        
+        //uncomment for iPad Support
+        //alert.popoverPresentationController?.sourceView = self.view
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
     
 }
 

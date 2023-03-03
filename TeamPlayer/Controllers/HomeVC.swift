@@ -82,6 +82,12 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
 //        self.getGroupList()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.playerView.stopVideo()
+    }
+    
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         playerView.playVideo()
     }

@@ -356,7 +356,7 @@ extension UpdateProfileVC: UIImagePickerControllerDelegate,UINavigationControlle
         let params = ["file": ""] as Dictionary<String, AnyObject>
         //        showProgressOnView(self.view)
         showProgressOnView(appDelegateInstance.window!)
-        ImageUploadServerClass.sharedInstance.multipartPostRequestHandler("https://admin.teamplayerhr.com/api/user/upload", mimeType: "", fileName: fileNamee, params: params, fileData: imageData) { ( response: AnyObject?, error:NSError?, httpStatusCode:Int?) in
+        ImageUploadServerClass.sharedInstance.multipartPostRequestHandler("https://superadmin.teamplayerhr.com/api/user/upload", mimeType: "", fileName: fileNamee, params: params, fileData: imageData) { ( response: AnyObject?, error:NSError?, httpStatusCode:Int?) in
             //hideAllProgressOnView(self.view)
             hideProgressOnView(appDelegateInstance.window!)
             DispatchQueue.main.async(execute: {
@@ -376,7 +376,7 @@ extension UpdateProfileVC: UIImagePickerControllerDelegate,UINavigationControlle
 extension UpdateProfileVC {
     func requestNativeImageUpload(image: UIImage) {
         showProgressOnView(appDelegateInstance.window!)
-        guard let url = NSURL(string: "https://admin.teamplayerhr.com/api/user/upload") else { return }
+        guard let url = NSURL(string: "https://superadmin.teamplayerhr.com/api/user/upload") else { return }
         let boundary = generateBoundary()
         var request = URLRequest(url: url as URL)
         

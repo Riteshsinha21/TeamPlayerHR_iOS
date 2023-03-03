@@ -13,7 +13,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
 //    var sideMenuArr = ["Home","Participants Profile", "Purchase Breif Qestionaores", "Compare IM Intrinsic Matrix", "How it Works","What are the benefits", "Vision and Technology", "FAQ's", "Contact Us", "Subscription", "Demo", "News", "Logout"]
-    var sideMenuArr = ["Home","Participants Profile", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Purchase Full Questionnaire", "Company Subscription", "Value Calculator", "Vision and Technology", "FAQ's", "Request Demo", "Contact Us", "News", "Purchase History", "Logout"]
+    var sideMenuArr = ["Home","Participants Profile", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Company Subscription", "Value Calculator", "Vision and Technology", "FAQ's", "Request Demo", "Contact Us", "News", "Purchase History", "Logout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,34 +53,34 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.row == 4 {
-            if let url = URL(string: "https://dev.teamplayerhr.com/purchase") {
-                UIApplication.shared.open(url)
-            }
-        } else if indexPath.row == 5 {
+//            if let url = URL(string: "https://dev.teamplayerhr.com/purchase") {
+//                UIApplication.shared.open(url)
+//            }
+        } else if indexPath.row == 4 {
 //            self.view.makeToast("Under Development")
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "HowItWorksVC") as! HowItWorksVC
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 6 {
+        } else if indexPath.row == 5 {
             
             if let url = URL(string: "https://dev.teamplayerhr.com/mobile-value-calculator") {
                 UIApplication.shared.open(url)
             }
-        } else if indexPath.row == 7 {
+        } else if indexPath.row == 6 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "VisionVC") as! VisionVC
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 8 {
+        } else if indexPath.row == 7 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "FaqVC") as! FaqVC
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 9 {
+        } else if indexPath.row == 8 {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DemoVC") as! DemoVC
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 10 {
+        } else if indexPath.row == 9 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "ContactVC") as! ContactVC
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 11 {
+        } else if indexPath.row == 10 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "NewsNewVC") as! NewsNewVC
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 12 {
+        } else if indexPath.row == 11 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "PurchasePlanVC") as! PurchasePlanVC
             self.navigationController?.pushViewController(vc, animated: true)
         }else {
