@@ -16,6 +16,7 @@ class SigninVC: UIViewController {
     @IBOutlet weak var mailView: DashedView!
     @IBOutlet weak var passwordView: UIView!
     
+    @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +30,14 @@ class SigninVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        if UIDevice.current.hasNotch {
+            imageTopConstraint.constant = 50
+            
+        } else {
+            imageTopConstraint.constant = 10
+            
+        }
         
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true

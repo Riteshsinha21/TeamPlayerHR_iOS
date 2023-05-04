@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45275DA029E6DE94006A4248 /* DeleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45275D9F29E6DE92006A4248 /* DeleteVC.swift */; };
 		454565B228AB9AB7000BED12 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454565B128AB9AB7000BED12 /* IAPProducts.swift */; };
 		454565B428AB9BB6000BED12 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454565B328AB9BB6000BED12 /* IAPService.swift */; };
 		4553BCFA27FF1E8200AA8EBE /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553BCF927FF1E8200AA8EBE /* FooterCell.swift */; };
+		45A3C94129BF1E1F009049CA /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3C94029BF1E1F009049CA /* PrivacyPolicyVC.swift */; };
+		45A3C94329BF1E53009049CA /* TermsOfUseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3C94229BF1E53009049CA /* TermsOfUseVC.swift */; };
 		45B84EFE28AD1835005B8B53 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B84EFD28AD1835005B8B53 /* StoreKit.framework */; };
 		57E1CCB7276CBA1F00582499 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */; };
 		57E1CCB9276CBA8900582499 /* PurchaseHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */; };
@@ -93,10 +96,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45275D9F29E6DE92006A4248 /* DeleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteVC.swift; sourceTree = "<group>"; };
 		454565B028AB7D98000BED12 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		454565B128AB9AB7000BED12 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
 		454565B328AB9BB6000BED12 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		4553BCF927FF1E8200AA8EBE /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
+		45A3C94029BF1E1F009049CA /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
+		45A3C94229BF1E53009049CA /* TermsOfUseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseVC.swift; sourceTree = "<group>"; };
 		45B84EFD28AD1835005B8B53 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		57E1CCB6276CBA1F00582499 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		57E1CCB8276CBA8900582499 /* PurchaseHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryCell.swift; sourceTree = "<group>"; };
@@ -336,6 +342,9 @@
 				585D05C0279EB06000112B3C /* MultipleInviteVC.swift */,
 				585D05C427A971D700112B3C /* AppGroupsVC.swift */,
 				5804ED5127C667E800BA46C9 /* ActionSheetVC.swift */,
+				45A3C94029BF1E1F009049CA /* PrivacyPolicyVC.swift */,
+				45A3C94229BF1E53009049CA /* TermsOfUseVC.swift */,
+				45275D9F29E6DE92006A4248 /* DeleteVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -538,6 +547,7 @@
 				584F9EB32689A81900CB6062 /* Extensions.swift in Sources */,
 				580FB7412688A25500D3E0CE /* ServerClass.swift in Sources */,
 				586FE62626A5724B0027960D /* QuestionCell.swift in Sources */,
+				45A3C94329BF1E53009049CA /* TermsOfUseVC.swift in Sources */,
 				580FB72E26889FB000D3E0CE /* ViewController.swift in Sources */,
 				58692A4126EF5FAC0024A623 /* ShowInviteeListCell.swift in Sources */,
 				582DBDE4268B32AF000A02A5 /* HomeVC.swift in Sources */,
@@ -594,6 +604,8 @@
 				5804ED5427C66C4500BA46C9 /* ActionSheetCell.swift in Sources */,
 				454565B228AB9AB7000BED12 /* IAPProducts.swift in Sources */,
 				584D3C8E26BBFDA9000AE123 /* ManageTeamVC.swift in Sources */,
+				45A3C94129BF1E1F009049CA /* PrivacyPolicyVC.swift in Sources */,
+				45275DA029E6DE94006A4248 /* DeleteVC.swift in Sources */,
 				58642F2F268DF75E00D85B2C /* HowItWorksVC.swift in Sources */,
 				58767A37269447A400B54EFA /* FaqContentCell.swift in Sources */,
 				584F84C326BABD3B0028DE76 /* PurchaseVC.swift in Sources */,
@@ -740,7 +752,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = MC9PGQKJPB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
@@ -748,6 +760,7 @@
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1.5;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To select Image and upload directly, we need access to your Camera.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To select Image and upload directly, we need access to your Photo Library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -782,7 +795,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = MC9PGQKJPB;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -791,6 +804,7 @@
 				INFOPLIST_KEY_CFBundleExecutable = TeamPlayer;
 				INFOPLIST_KEY_CFBundleName = TeamPlayer;
 				INFOPLIST_KEY_CFBundleVersion = 1.5;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To select Image and upload directly, we need access to your Camera.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To select Image and upload directly, we need access to your Photo Library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

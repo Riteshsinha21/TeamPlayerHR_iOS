@@ -26,8 +26,19 @@ class FaqVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.getFaqList()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     @IBAction func menuBtnAction(_ sender: Any) {
-        openSideMenu()
+       // openSideMenu()
+        self.navigationController?.popViewController(animated: true)
     }
     
     

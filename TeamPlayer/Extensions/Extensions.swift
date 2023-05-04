@@ -72,6 +72,15 @@ extension UIView{
     
 }
 
+// MARK : to check device have notch or not
+extension UIDevice {
+    var hasNotch: Bool {
+        let bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        return bottom > 0
+    }
+}
+
+
 extension UIAlertController {
     class func showInfoAlertWithTitle(_ title: String?, message: String?, buttonTitle: String, viewController: UIViewController? = nil){
         DispatchQueue.main.async(execute: {
@@ -340,6 +349,29 @@ extension UIViewController {
         settings.menuWidth = self.view.frame.width - 100
         menu.settings = settings
         present(menu, animated: true, completion: nil)
+    }
+    
+    func showAlertWithActions(_ msg: String,titles:[String], handler:@escaping (_ clickedIndex: Int) -> Void) {
+        let alert = UIAlertController(title: "Craddle", message: msg, preferredStyle: .alert)
+        
+        for title in titles {
+            let action  = UIAlertAction(title: title, style: .default, handler: { (alertAction) in
+                //Call back fall when user clicked
+                
+                let index = titles.firstIndex(of: alertAction.title!)
+                if index != nil {
+                    handler(index!+1)
+                }
+                else {
+                    handler(0)
+                }
+            })
+//            action.setValue(AppColor.AppColor2, forKey: "titleTextColor")
+
+            alert.addAction(action)
+            
+        }
+        present(alert, animated: true, completion: nil)
     }
 }
 

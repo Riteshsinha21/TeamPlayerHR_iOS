@@ -420,7 +420,8 @@
     if (@available(iOS 11.0, *)) {
         return CGRectGetHeight(self.view.safeAreaLayoutGuide.layoutFrame);
     } else {
-        return CGRectGetHeight(UIScreen.mainScreen.bounds) - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
+        return 0;
+//        return CGRectGetHeight(UIScreen.mainScreen.bounds) - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
     }
 }
 

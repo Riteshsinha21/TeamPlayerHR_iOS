@@ -13,7 +13,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
 //    var sideMenuArr = ["Home","Participants Profile", "Purchase Breif Qestionaores", "Compare IM Intrinsic Matrix", "How it Works","What are the benefits", "Vision and Technology", "FAQ's", "Contact Us", "Subscription", "Demo", "News", "Logout"]
-    var sideMenuArr = ["Home","Participants Profile", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Company Subscription", "Value Calculator", "Vision and Technology", "FAQ's", "Request Demo", "Contact Us", "News", "Purchase History", "Logout"]
+    var sideMenuArr = ["Home","Profile", "Purchase APP Questionnaire", "Compare Mobile APP IM’s (Intrinsic Matrix)", "Company Subscription", "Value Calculator", "Vision and Technology", "FAQ's", "Request Demo", "Contact Us", "News", "Purchase History", "Privacy Policy", "Terms of Use", "Delete Account" , "Logout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +47,11 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 2 {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC
+            vc.showTabbar = false
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 3 {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GroupVC") as! GroupVC
+            vc.showTabbar = false
             self.navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.row == 4 {
@@ -83,7 +85,16 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 11 {
             let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "PurchasePlanVC") as! PurchasePlanVC
             self.navigationController?.pushViewController(vc, animated: true)
-        }else {
+        } else if indexPath.row == 12 {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PrivacyPolicyVC") as! PrivacyPolicyVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 13 {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TermsOfUseVC") as! TermsOfUseVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 14 {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DeleteVC") as! DeleteVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
             
             self.view.makeToast("User Logged Out")
             UserDefaults.standard.removeObject(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)

@@ -39,8 +39,14 @@ class ProfileVC: UIViewController {
         super.viewWillAppear(true)
         
         self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+        
         self.getProfileApi()
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func viewCvAction(_ sender: Any) {
@@ -54,7 +60,8 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        openSideMenu()
+       // openSideMenu()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func getProfileApi() {

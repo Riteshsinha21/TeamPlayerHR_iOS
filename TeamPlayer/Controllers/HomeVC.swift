@@ -50,6 +50,9 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        setUpTabController()
+        
 //        if inviteGroupArr.count == 0 {
 //            self.getGroupList()
 //        } else {
@@ -60,24 +63,50 @@ class HomeVC: UIViewController, YTPlayerViewDelegate {
 //                }
 //            }
 //        }
-        
+   
+        /*
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)        
+        appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+        
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
         self.tabBarController?.tabBar.standardAppearance = appearance;
         if #available(iOS 15.0, *) {
-            self.tabBarController?.tabBar.scrollEdgeAppearance = self.tabBarController?.tabBar.standardAppearance
+           // self.tabBarController?.tabBar.scrollEdgeAppearance = self.tabBarController?.tabBar.standardAppearance
+            self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+
         } else {
             // Fallback on earlier versions
         }
+        */
         
         
+    }
+    func setUpTabController () {
+        
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+            
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            
+            
+            self.tabBarController?.tabBar.standardAppearance = appearance
+            // Update for iOS 15, Xcode 13
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+            }
+        }
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
+     
         self.navigationController?.navigationBar.isHidden = true
 //        self.getGroupList()
     }

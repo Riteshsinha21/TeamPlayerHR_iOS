@@ -50,6 +50,8 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var secondParaHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var thirdParaTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
+    
     
     var countryList = [countryStruct]()
     var sectorList = [countryStruct]()
@@ -217,6 +219,15 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        if UIDevice.current.hasNotch {
+            imageTopConstraint.constant = 50
+            
+        } else {
+            imageTopConstraint.constant = 10
+            
+        }
+        
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -408,12 +419,6 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
             } else if self.phoneTxt.text!.isEmpty {
                 self.view.makeToast("Please enter Phone No.")
                 return
-            } else if self.addressTxt.text!.isEmpty {
-                self.view.makeToast("Please enter Address.")
-                return
-            } else if self.roadTxt.text!.isEmpty {
-                self.view.makeToast("Please enter Road,Landmark.")
-                return
             } else if self.sectorTxt.text!.isEmpty {
                 self.view.makeToast("Please select Sector.")
                 return
@@ -469,12 +474,6 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 return
             } else if self.phoneTxt.text!.isEmpty {
                 self.view.makeToast("Please enter Phone No.")
-                return
-            } else if self.addressTxt.text!.isEmpty {
-                self.view.makeToast("Please enter H.No,Plot Area")
-                return
-            } else if self.roadTxt.text!.isEmpty {
-                self.view.makeToast("Please enter Road,Landmark.")
                 return
             } else if self.sectorTxt.text!.isEmpty {
                 self.view.makeToast("Please select Sector.")

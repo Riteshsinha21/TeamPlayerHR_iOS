@@ -121,6 +121,7 @@ struct PROJECT_URL {
     static let JOIN_GROUP = "/demo/join_group"
     static let GET_PURCHASE_PLANS = "/user/new_user_plan"
     static let UPDATE_NEW_USER_PLAN_PAYMENT = "/user/updateNewUserPayment"
+    static let DELETE_ACCOUNT = "/user/delete_account"
     
     
 }

@@ -18,6 +18,8 @@ class NewsVC: UIViewController {
     @IBAction func notificationAction(_ sender: Any) {
     }
     
+    
+    
     @IBAction func menuAction(_ sender: Any) {
         openSideMenu()
     }

@@ -19,8 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IAPService.shared.getProducts()
         BTAppSwitch.setReturnURLScheme("ChwatechSolutions.TeamPlayerHR.Payments")
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.black], for: .selected)
+//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
+//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.black], for: .selected)
+       
+        
+      //  if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+            
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+
+           // self.tabBarController?.tabBar.standardAppearance = appearance
+            // Update for iOS 15, Xcode 13
+//            if #available(iOS 15.0, *) {
+//              //  self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+//            }
+        
+  
         //keyboard management
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
@@ -28,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let token = UserDefaults.standard.object(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarcontroller") as! UITabBarController
+           
             UIApplication.shared.delegate!.window!!.rootViewController = viewController
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

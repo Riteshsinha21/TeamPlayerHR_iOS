@@ -13,9 +13,9 @@ class GroupVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tblViewSubscription: UITableView!
+    @IBOutlet weak var backMenuBtn: UIButton!
     @IBOutlet weak var groupView: UIView!
     @IBOutlet weak var subscriptionView: UIView!
-    
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var headerGroupTitle: UILabel!
     
@@ -26,6 +26,7 @@ class GroupVC: UIViewController {
     var clientToken = String()
     var orderId = String()
     var braintreeClient: BTAPIClient?
+    var showTabbar:Bool? = true
 //    var totalAmount : Double = Double()
 //    var selectedId = String()
     
@@ -38,6 +39,8 @@ class GroupVC: UIViewController {
         self.tblViewSubscription.dataSource = nil
         self.tblViewSubscription.delegate = nil
         self.tblViewSubscription.tableFooterView = UIView()
+       // setUpTabController()
+        /*
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
@@ -48,8 +51,30 @@ class GroupVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+         */
+        
         self.getGroupList()
         NotificationCenter.default.addObserver(self, selector: #selector(SubscriptionPurchased), name: NSNotification.Name(rawValue: "SubscriptionPurchased"), object: nil)
+        
+    }
+    
+    func setUpTabController () {
+        
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+            
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            
+            
+            self.tabBarController?.tabBar.standardAppearance = appearance
+            // Update for iOS 15, Xcode 13
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+            }
+        }
         
     }
     
@@ -57,16 +82,39 @@ class GroupVC: UIViewController {
         super.viewWillAppear(true)
         
         self.navigationController?.navigationBar.isHidden = true
+        if showTabbar == true {
         self.tabBarController?.tabBar.isHidden = false
+            setUpTabController()
+            backMenuBtn.setImage(UIImage(named: "menu"), for:.normal)
+
+        }
+        else {
+            backMenuBtn.setImage(UIImage(named: "back"), for:.normal)
+
+            self.tabBarController?.tabBar.isHidden = true
+
+        }
 //        self.getGroupList()
     }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        setUpTabController()
+    }
+    
     
     @objc func SubscriptionPurchased() {
         self.autheticatePayment(paymentMethodNonce: "")
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        openSideMenu()
+        if showTabbar == true {
+            openSideMenu()
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func getGroupList() {
@@ -271,7 +319,7 @@ extension GroupVC: UITableViewDelegate, UITableViewDataSource {
             cell.cellTitleLbl.text = subscriptionListObj.title
             cell.cellDurationLbl.text = subscriptionListObj.duration
             cell.cellFrequencyLbl.text = subscriptionListObj.frequency_type
-            cell.amountLbl.text = subscriptionListObj.amount
+            cell.amountLbl.text = subscriptionListObj.title == "Monthly APP Subscriptions" ? "£99.99" : "£1099.99"
             
             return cell
         }

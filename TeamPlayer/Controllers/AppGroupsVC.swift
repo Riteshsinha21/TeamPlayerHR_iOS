@@ -21,6 +21,9 @@ class AppGroupsVC: UIViewController {
         self.tableView.dataSource = nil
         self.tableView.delegate = nil
         self.tableView.tableFooterView = UIView()
+        setUpTabController()
+        
+        /*
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
@@ -31,7 +34,29 @@ class AppGroupsVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        */
+        
         self.getGroupList()
+    }
+    
+    func setUpTabController () {
+        
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+            
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            
+            
+            self.tabBarController?.tabBar.standardAppearance = appearance
+            // Update for iOS 15, Xcode 13
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

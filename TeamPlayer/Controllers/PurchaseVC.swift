@@ -21,6 +21,7 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
 
     @IBOutlet weak var planLbl: UILabel!
     @IBOutlet weak var newUserPlan: UIView!
+    @IBOutlet weak var backMenuBtn: UIButton!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var pptView: UIView!
     @IBOutlet weak var numberOfQuestionaireTxt: UITextField!
@@ -35,6 +36,8 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
     var newUserPlanId = String()
     var isFrom = "New User Plan"
     var questionaireCount = Int()
+    var showTabbar:Bool? = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,9 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
         self.getDemoPlanAPI()
         self.getPurchasePlansApi()
         self.pptView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
+        setUpTabController()
+        
+        /*
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
@@ -53,6 +59,7 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
         } else {
             // Fallback on earlier versions
         }
+        */
         
         if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.IS_FULL_QUESTIONAIRE) as! String == "true"  {
             self.planLbl.isHidden = true
@@ -69,12 +76,51 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
         
     }
     
+    func setUpTabController () {
+        
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+            
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            
+            
+            self.tabBarController?.tabBar.standardAppearance = appearance
+            // Update for iOS 15, Xcode 13
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+            }
+        }
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         self.navigationController?.navigationBar.isHidden = true
+        if showTabbar == true {
         self.tabBarController?.tabBar.isHidden = false
+            setUpTabController()
+            backMenuBtn.setImage(UIImage(named: "menu"), for:.normal)
+
+        }
+        else {
+            backMenuBtn.setImage(UIImage(named: "back"), for:.normal)
+
+            self.tabBarController?.tabBar.isHidden = true
+
+        }
+//        self.getGroupList()
     }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        setUpTabController()
+    }
+    
     
     @objc func QuestionairePurchased() {
         self.updateDemoPaymentAPI()
@@ -91,7 +137,12 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
     }
     
     @IBAction func sideMenuAction(_ sender: Any) {
-        openSideMenu()
+        if showTabbar == true {
+            openSideMenu()
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func notificationAction(_ sender: Any) {
@@ -149,8 +200,8 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
         if SKPaymentQueue.canMakePayments() {
             let set: Set<String> = ["com.ChwatechSolutions.questionnaire1"]
             let productRequest = SKProductsRequest(productIdentifiers: set)
-            productRequest.delegate = self
-            productRequest.start()
+//            productRequest.delegate = self
+//            productRequest.start()
         } else {
             self.view.makeToast("Could not do Payment")
             return

@@ -26,12 +26,37 @@ class PurchasePlanVC: UIViewController {
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        openSideMenu()
+        //openSideMenu()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setUpTabController () {
+        
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+            
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            
+            
+            self.tabBarController?.tabBar.standardAppearance = appearance
+            // Update for iOS 15, Xcode 13
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+        
+//        setUpTabController()
+       /*
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
@@ -42,7 +67,15 @@ class PurchasePlanVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        */
     }
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        setUpTabController()
+    }
+    
 
 }
 

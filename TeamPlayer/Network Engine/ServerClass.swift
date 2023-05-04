@@ -131,7 +131,7 @@ class ServerClass: NSObject {
     func deleteRequestWithUrlParameters(_ sendJson:[String:Any], path:String, successBlock:@escaping (_ response: JSON )->Void , errorBlock: @escaping (_ error: NSError) -> Void ){
         var headerField : [String : String] = [:]
         if UserDefaults.standard.object(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN) != nil  {
-            headerField = ["Content-Type":"application/json", "XAPIKEY":X_API_KEY, "token":UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN) as! String]
+            headerField = ["Content-Type":"application/json", "XAPIKEY":X_API_KEY, "authorization":UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN) as! String]
         }
         else {
             headerField = ["Content-Type":"application/json","XAPIKEY":X_API_KEY]

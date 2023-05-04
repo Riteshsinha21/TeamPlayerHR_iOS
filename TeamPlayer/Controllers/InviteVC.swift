@@ -44,6 +44,8 @@ class InviteVC: UIViewController, UITextFieldDelegate {
         self.dashedView1.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
 //        self.getGroupDetail()
 //        self.getTeamAPI()
+        setUpTabController()
+        /*
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
@@ -54,9 +56,30 @@ class InviteVC: UIViewController, UITextFieldDelegate {
         } else {
             // Fallback on earlier versions
         }
+        */
         self.inviteMailTxt.delegate = self
         self.participantTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+    }
+    
+    func setUpTabController () {
+        
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 6/255.0, green: 159/255.0, blue: 190/255.0, alpha: 1.0)
+            
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            
+            
+            self.tabBarController?.tabBar.standardAppearance = appearance
+            // Update for iOS 15, Xcode 13
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = appearance
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

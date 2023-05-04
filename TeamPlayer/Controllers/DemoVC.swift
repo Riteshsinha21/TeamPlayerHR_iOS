@@ -67,7 +67,16 @@ class DemoVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
             self.backBtn.setImage(UIImage.init(named: "back"), for: .normal)
         }
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     func setDashedBorder() {
         self.fullNameView.addLineDashedStroke(pattern: [2, 2], radius: 4, color: UIColor.gray.cgColor)
@@ -199,7 +208,9 @@ class DemoVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
         if isDemo {
             self.dismiss(animated: true, completion: nil)
         } else {
-            openSideMenu()
+            self.navigationController?.popViewController(animated: true)
+
+           // openSideMenu()
         }
         
     }

@@ -51,9 +51,13 @@ class ContactVC: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -90,7 +94,8 @@ class ContactVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        openSideMenu()
+        //openSideMenu()
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func submitAction(_ sender: Any) {
