@@ -8,6 +8,7 @@
 import UIKit
 import Braintree
 import BraintreeDropIn
+import GooglePlaces
 
 class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     
@@ -52,7 +53,6 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var lblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
     
-    
     var countryList = [countryStruct]()
     var sectorList = [countryStruct]()
     var occupationList = [countryStruct]()
@@ -84,7 +84,7 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-       
+        
         showParticipantView()
         self.userType = "ppt"
         self.signupView.roundRadius(options: [.layerMinXMinYCorner, .layerMaxXMinYCorner], cornerRadius: 30)
@@ -232,6 +232,8 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    
+    
     @IBAction func roleAction(_ sender: Any) {
         let alert = UIAlertController(title: "Select Role", message: "", preferredStyle: .actionSheet)
         
@@ -334,6 +336,13 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         }
     }
     
+    @IBAction func onTapAddressBtn(_ sender: Any) {
+        // setLocation()
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        present(autocompleteController, animated: true, completion: nil)
+    }
     
     @objc func donePicker() {
         
@@ -448,19 +457,19 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 return
             }
             
-//            else if self.uplaodedCv.isEmpty {
-//                self.view.makeToast("Please upload CV.")
-//                return
-//            }
+            //            else if self.uplaodedCv.isEmpty {
+            //                self.view.makeToast("Please upload CV.")
+            //                return
+            //            }
             self.signupApiCall()
-//            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "ResumeVC") as! ResumeVC
-//            vc.completionHandlerCallback = {(cv: String?)->Void in
-//                self.uplaodedCv = cv!
-//                self.signupApiCall()
-//            }
-//            vc.modalPresentationStyle = .fullScreen
-//            self.present(vc, animated: true, completion: nil)
+            //            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            //            let vc = storyboard.instantiateViewController(withIdentifier: "ResumeVC") as! ResumeVC
+            //            vc.completionHandlerCallback = {(cv: String?)->Void in
+            //                self.uplaodedCv = cv!
+            //                self.signupApiCall()
+            //            }
+            //            vc.modalPresentationStyle = .fullScreen
+            //            self.present(vc, animated: true, completion: nil)
         } else {
             
             if self.firstNameTxt.text!.isEmpty {
@@ -509,7 +518,7 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 self.view.makeToast("Please confirm your Password.")
                 return
             }
-
+            
             
             self.signupApiCall()
         }
@@ -538,12 +547,12 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     
     func getCountryList() {
         if Reachability.isConnectedToNetwork() {
-//            showProgressOnView(appDelegateInstance.window!)
+            //            showProgressOnView(appDelegateInstance.window!)
             
             let param:[String:String] = [:]
             ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.GET_COUNTRIES, successBlock: { (json) in
                 print(json)
-//                hideAllProgressOnView(appDelegateInstance.window!)
+                //                hideAllProgressOnView(appDelegateInstance.window!)
                 let success = json["success"].stringValue
                 //success == "true"
                 if success == "true"
@@ -563,23 +572,23 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
-//                hideAllProgressOnView(appDelegateInstance.window!)
+                //                hideAllProgressOnView(appDelegateInstance.window!)
             })
             
         }else{
-//            hideAllProgressOnView(appDelegateInstance.window!)
+            //            hideAllProgressOnView(appDelegateInstance.window!)
             UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
         }
     }
     
     func getSectorList() {
         if Reachability.isConnectedToNetwork() {
-//            showProgressOnView(appDelegateInstance.window!)
+            //            showProgressOnView(appDelegateInstance.window!)
             
             let param:[String:String] = [:]
             ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.GET_SECTOR, successBlock: { (json) in
                 print(json)
-//                hideAllProgressOnView(appDelegateInstance.window!)
+                //                hideAllProgressOnView(appDelegateInstance.window!)
                 let success = json["success"].stringValue
                 //success == "true"
                 if success == "true"
@@ -599,23 +608,23 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
-//                hideAllProgressOnView(appDelegateInstance.window!)
+                //                hideAllProgressOnView(appDelegateInstance.window!)
             })
             
         }else{
-//            hideAllProgressOnView(appDelegateInstance.window!)
+            //            hideAllProgressOnView(appDelegateInstance.window!)
             UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
         }
     }
     
     func getOccupationList() {
         if Reachability.isConnectedToNetwork() {
-//            showProgressOnView(appDelegateInstance.window!)
+            //            showProgressOnView(appDelegateInstance.window!)
             
             let param:[String:String] = [:]
             ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.GET_OCCUPATION, successBlock: { (json) in
                 print(json)
-//                hideAllProgressOnView(appDelegateInstance.window!)
+                //                hideAllProgressOnView(appDelegateInstance.window!)
                 let success = json["success"].stringValue
                 //success == "true"
                 if success == "true"
@@ -637,11 +646,11 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 }
             }, errorBlock: { (NSError) in
                 UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
-//                hideAllProgressOnView(appDelegateInstance.window!)
+                //                hideAllProgressOnView(appDelegateInstance.window!)
             })
             
         }else{
-//            hideAllProgressOnView(appDelegateInstance.window!)
+            //            hideAllProgressOnView(appDelegateInstance.window!)
             UIAlertController.showInfoAlertWithTitle("Alert", message: "Please Check internet connection", buttonTitle: "Okay")
         }
     }
@@ -755,9 +764,9 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
             } else {
                 urlStr = BASE_URL + PROJECT_URL.SIGNUP_COMPANY
                 param = [ "email": self.emailTxt.text!,"title":self.titleTxt.text!,"phone":self.phoneTxt.text!,"address_line_1":self.addressTxt.text!,"address_line_2":self.roadTxt.text!,"sector":self.sectorId,"occupation":self.occupationId,"country":self.countryId,"city":self.cityId,"state":self.stateId,"zip":self.zipTxt.text!,"password":self.passwordTxt.text!,"confirm_password":self.confirmPasswordTxt.text!,"agreeTerms":self.isTermsAgreed,"agreePrivacy":self.isTermsAgreed, "first_name": self.firstNameTxt.text!, "last_name":self.lastNameTxt.text!,"user_role":self.designation,"no_of_employees":self.slot,"organization_name":self.organizationNameTxt.text!]
-
+                
             }
-                        
+            
             ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: urlStr, successBlock: { (json) in
                 print(json)
                 hideAllProgressOnView(appDelegateInstance.window!)
@@ -802,7 +811,7 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         
         alertController.addAction(cancelButton)
         self.present(alertController, animated: true, completion: nil)
-//        UIApplication.topViewController()?.present(alertController, animated: true, completion: nil)
+        //        UIApplication.topViewController()?.present(alertController, animated: true, completion: nil)
     }
     
     func getBrainTreeToken() {
@@ -818,9 +827,9 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 if success == "true"
                 {
                     self.clientToken = json["token"].stringValue
-//                    //print(self.clientToken)
+                    //                    //print(self.clientToken)
                     self.braintreeClient = BTAPIClient(authorization: self.clientToken)
-//
+                    //
                     self.showDropIn(clientTokenOrTokenizationKey: self.clientToken)
                     
                 } else {
@@ -909,7 +918,7 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
         if Reachability.isConnectedToNetwork() {
             showProgressOnView(appDelegateInstance.window!)
             
-//            let param:[String:Any] = ["id": "\(self.selectedId)", "transaction_id": paymentMethodNonce]
+            //            let param:[String:Any] = ["id": "\(self.selectedId)", "transaction_id": paymentMethodNonce]
             
             ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.UPDATE_AppSubscriptionPurchase, successBlock: { (json) in
                 print(json)
@@ -919,7 +928,7 @@ class NewUserVC: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
                 {
                     
                     self.view.makeToast("Payment done successfully.")
-//                    self.getGroupList()
+                    //                    self.getGroupList()
                     
                 }
                 else {
@@ -1197,7 +1206,7 @@ extension NewUserVC: UIImagePickerControllerDelegate,UINavigationControllerDeleg
                     print(respDic)
                     let data = respDic.value(forKey: "data") as! NSDictionary
                     
-//                    self.uplaodedCv = respDic.value(forKey: "file") as! String
+                    //                    self.uplaodedCv = respDic.value(forKey: "file") as! String
                     self.uplaodedCv = data.value(forKey: "filename") as! String
                     
                     DispatchQueue.main.async {
@@ -1374,5 +1383,74 @@ extension Data {
             append(data)
         }
     }
+}
+
+
+extension NewUserVC: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(String(describing: place.name))")
+        print("Place ID: \(String(describing: place.placeID))")
+        print("Place attributions: \(String(describing: place.attributions))")
+        
+        let geocoder = CLGeocoder()
+        let locValue: CLLocationCoordinate2D = place.coordinate
+        print("locations with lat & long = \(locValue.latitude) \(locValue.longitude) \(place.name ?? "")")
+        
+        let latitude = locValue.latitude // Replace with the latitude of your location
+        let longitude = locValue.longitude // Replace with the longitude of your location
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            if let error = error {
+                print("Reverse geocoding error: \(error.localizedDescription)")
+                return
+            }
+            if let placemark = placemarks?.first {
+                if let city = placemark.locality {
+                    print("City: \(city)")
+                    self.addressTxt.text = "\(place.name ?? "")"
+                    self.cityTxt.text = city
+                }
+                
+                if let state = placemark.administrativeArea {
+                    print("State: \(state)")
+                    self.stateTxt.text = state
+                }
+//                if let country = placemark.country {
+//                    print("Country: \(country)")
+//                    self.countryTxt.text = country
+//                }
+                if let postCode = placemark.postalCode {
+                    print("PostCode: \(postCode)")
+                    self.zipTxt.text = postCode
+                }
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    
 }
 

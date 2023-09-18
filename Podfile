@@ -22,6 +22,6 @@ target 'TeamPlayer' do
   pod 'SideMenu'
   pod "youtube-ios-player-helper"
   pod 'iOSDropDown'
-  
+  pod 'GooglePlaces', '~> 6.2.1'
 
 end

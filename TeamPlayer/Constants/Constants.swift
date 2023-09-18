@@ -59,7 +59,7 @@ let FILE_BASE_URL = "https://admin.teamplayerhr.com/storage/app/public"
 let BANNER_BASE_URL = "http://35.160.227.253/SaharaGo/Banner/"
 let TRUST_BASE_URL = "http://35.160.227.253:8081"
 let IMAGE_URL = ""
-let GOOGLE_API_KEY =  "AIzaSyDwBRVfP3aoCIZ77fhT1Gj8ntbKoL01qPE"
+let GOOGLE_API_KEY = "AIzaSyDVB3k-rFkbVioA_rSpdOlWqSb1RrgjERo  "  //"AIzaSyDwBRVfP3aoCIZ77fhT1Gj8ntbKoL01qPE"
 let X_API_KEY = "AOmAfXgEOBiziaIZfynXNuUnnNvWnjjcoP1Qpd8S"
 
 var fcmKey:String = "dudaaaa"
