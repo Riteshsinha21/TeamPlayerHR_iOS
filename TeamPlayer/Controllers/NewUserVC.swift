@@ -1411,13 +1411,13 @@ extension NewUserVC: GMSAutocompleteViewControllerDelegate {
                 if let city = placemark.locality {
                     print("City: \(city)")
                     self.addressTxt.text = "\(place.name ?? "")"
-                    self.cityTxt.text = city
+                   // self.cityTxt.text = city
                 }
                 
-                if let state = placemark.administrativeArea {
-                    print("State: \(state)")
-                    self.stateTxt.text = state
-                }
+//                if let state = placemark.administrativeArea {
+//                    print("State: \(state)")
+//                    self.stateTxt.text = state
+//                }
 //                if let country = placemark.country {
 //                    print("Country: \(country)")
 //                    self.countryTxt.text = country
