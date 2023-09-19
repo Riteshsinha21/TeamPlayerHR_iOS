@@ -1414,6 +1414,7 @@ extension NewUserVC: GMSAutocompleteViewControllerDelegate {
                    // self.cityTxt.text = city
                 }
                 
+                
 //                if let state = placemark.administrativeArea {
 //                    print("State: \(state)")
 //                    self.stateTxt.text = state
