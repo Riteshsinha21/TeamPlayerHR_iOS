@@ -166,7 +166,7 @@ extension IAPService: SKPaymentTransactionObserver {
             isrestored = true
             return
         }
-        let jsonDict: [String: AnyObject] = ["receipt-data" : recieptString! as AnyObject, "password" : "6cb4f2ea9c37411e82a042cfca71110c" as AnyObject]
+        let jsonDict: [String: AnyObject] = ["receipt-data" : recieptString! as AnyObject, "password" : "283577293795433fb46be6fcc74395a9" as AnyObject]
         
         do {
             let requestData = try JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)

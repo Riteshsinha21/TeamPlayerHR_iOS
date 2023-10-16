@@ -64,7 +64,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 5 {
             
-            if let url = URL(string: "https://dev.teamplayerhr.com/mobile-value-calculator") {
+            if let url = URL(string: "https://teamplayerhr.com/mobile-value-calculator") {
                 UIApplication.shared.open(url)
             }
         } else if indexPath.row == 6 {
