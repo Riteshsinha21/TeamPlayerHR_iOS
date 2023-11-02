@@ -131,7 +131,7 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
     }
     
     @IBAction func purchaseFullQuestionAction(_ sender: UIButton) {
-        if let url = URL(string: "https://teamplayerhr.com/purchase") {
+        if let url = URL(string: "https://dev.teamplayerhr.com/purchase") {
             UIApplication.shared.open(url)
         }
     }
@@ -160,16 +160,11 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        var count = 0
         for transaction in transactions {
-            count += 1
             switch transaction.transactionState {
             case .purchasing:
                 debugPrint("customer is in the process of purchase.")
             case .purchased:
-                if count == 1 {
-                    receiptValidation()
-                }
                 SKPaymentQueue.default().finishTransaction(transaction)
                 self.updateDemoPaymentAPI()
                 debugPrint("Purchased.")

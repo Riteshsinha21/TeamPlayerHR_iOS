@@ -92,6 +92,7 @@
 		58D6616526B94B3F000E9D47 /* InviteParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */; };
 		58D89306281803510085BEB2 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D89305281803500085BEB2 /* PurchaseCell.swift */; };
 		58DA91E027439C0700D728D9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58DA91DF27439C0700D728D9 /* Launch Screen.storyboard */; };
+		684BE7C82AD4144E001D6AE6 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684BE7C72AD4144E001D6AE6 /* IAPManager.swift */; };
 		808002A8D0CC26D740115E1D /* Pods_TeamPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +186,7 @@
 		58D6616426B94B3E000E9D47 /* InviteParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteParticipantCell.swift; sourceTree = "<group>"; };
 		58D89305281803500085BEB2 /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
 		58DA91DF27439C0700D728D9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		684BE7C72AD4144E001D6AE6 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		C3DA65BC52B4A125443B3AF8 /* Pods-TeamPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D8CC7925CBFB554C7D39DDE6 /* Pods_TeamPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC49E1FC73C22467BF3CAA11 /* Pods-TeamPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPlayer.release.xcconfig"; path = "Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		580FB72826889FB000D3E0CE /* TeamPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				684BE7C62AD41431001D6AE6 /* Subscription */,
 				454565AF28AB7D30000BED12 /* IAP */,
 				454565AE28AB7D1A000BED12 /* Font */,
 				582DBDE0268B07CC000A02A5 /* TeamPlayer.entitlements */,
@@ -393,6 +396,14 @@
 				58DA91DF27439C0700D728D9 /* Launch Screen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		684BE7C62AD41431001D6AE6 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				684BE7C72AD4144E001D6AE6 /* IAPManager.swift */,
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		740086AF14E8E8C2371D43A8 /* Frameworks */ = {
@@ -560,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684BE7C82AD4144E001D6AE6 /* IAPManager.swift in Sources */,
 				584F9EB02689A6A300CB6062 /* Constants.swift in Sources */,
 				57E1CCB9276CBA8900582499 /* PurchaseHistoryCell.swift in Sources */,
 				584F9EB32689A81900CB6062 /* Extensions.swift in Sources */,
@@ -770,9 +782,8 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.10;
 				DEVELOPMENT_TEAM = MC9PGQKJPB;
-				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TeamPlayerHR;
@@ -814,9 +825,8 @@
 				CODE_SIGN_ENTITLEMENTS = TeamPlayer/TeamPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.10;
 				DEVELOPMENT_TEAM = MC9PGQKJPB;
-				EXCLUDED_ARCHS = arm64;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamPlayer/Info.plist;

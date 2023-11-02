@@ -7,7 +7,6 @@ LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Braintree/BraintreePayPal/PayP
 OTHER_LDFLAGS = $(inherited) -ObjC -l"PPRiskMagnesOC" -l"c++" -framework "CoreLocation" -framework "MessageUI" -framework "PassKit" -framework "SystemConfiguration" -framework "UIKit" -weak_framework "Contacts" -weak_framework "SafariServices"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
-PODS_DEVELOPMENT_LANGUAGE = ${DEVELOPMENT_LANGUAGE}
 PODS_ROOT = ${SRCROOT}
 PODS_TARGET_SRCROOT = ${PODS_ROOT}/Braintree
 PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates

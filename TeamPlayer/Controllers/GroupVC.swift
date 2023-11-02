@@ -266,12 +266,17 @@ class GroupVC: UIViewController {
          let participantObj = self.subscriptionListArr[indexPath!.row]
 //
         planId = participantObj.id
+        
+
 //        self.getBrainTreeToken()
         if indexPath!.row == 0 {
             IAPService.shared.isSubscriptionPurchased = "monthly"
+           // IAPManager.shared.purchaseMyProduct(identifier: planId)
+
             IAPService.shared.purchase(product: .MonthlySubscription)
         } else {
             IAPService.shared.isSubscriptionPurchased = "annual"
+            //IAPManager.shared.purchaseMyProduct(identifier: planId)
             IAPService.shared.purchase(product: .AnnualSubscription)
         }
         

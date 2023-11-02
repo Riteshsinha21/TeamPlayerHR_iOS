@@ -23,5 +23,7 @@ target 'TeamPlayer' do
   pod "youtube-ios-player-helper"
   pod 'iOSDropDown'
   pod 'GooglePlaces', '~> 6.2.1'
+  pod 'BRYXBanner'
+
 
 end

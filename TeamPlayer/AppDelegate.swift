@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
-        
+//        IAPManager.shared.fetchAvailableProducts(showLoader: false)
         IAPService.shared.getProducts()
         BTAppSwitch.setReturnURLScheme("ChwatechSolutions.TeamPlayerHR.Payments")
 //        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)

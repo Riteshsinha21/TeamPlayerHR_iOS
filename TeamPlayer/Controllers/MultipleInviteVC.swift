@@ -70,8 +70,13 @@ class MultipleInviteVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         if Reachability.isConnectedToNetwork() {
             showProgressOnView(appDelegateInstance.window!)
+//            let characterToRemove: Character = " "
+//            let filteredString = String(self.inviteeName.filter { $0 != characterToRemove })
+//            print(filteredString)
             
+            inviteeName = inviteeName.filter { $0 != "" }
             let param:[String:Any] = ["group_id": self.groupId, "emails": inviteeName]
+            print(param)
             ServerClass.sharedInstance.postRequestWithUrlParameters(param, path: BASE_URL + PROJECT_URL.SEND_MULTIPLE_INVITATION, successBlock: { (json) in
                 print(json)
                 hideAllProgressOnView(appDelegateInstance.window!)
@@ -89,7 +94,8 @@ class MultipleInviteVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                    // UIAlertController.showInfoAlertWithTitle("Message", message: json["message"].stringValue, buttonTitle: "Okay")
                 }
             }, errorBlock: { (NSError) in
-                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
+                self.view.makeToast(NSError.localizedDescription)
+//                UIAlertController.showInfoAlertWithTitle("Alert", message: kUnexpectedErrorAlertString, buttonTitle: "Okay")
                 hideAllProgressOnView(appDelegateInstance.window!)
             })
             

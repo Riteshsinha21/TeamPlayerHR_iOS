@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-TeamPlayer/Pods-TeamPlayer-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/BRYXBanner/BRYXBanner.framework
 ${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework
 ${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.framework
 ${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework
