@@ -131,7 +131,7 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
     }
     
     @IBAction func purchaseFullQuestionAction(_ sender: UIButton) {
-        if let url = URL(string: "https://dev.teamplayerhr.com/purchase") {
+        if let url = URL(string: "https://superadmin.teamplayerhr.com/purchase") {
             UIApplication.shared.open(url)
         }
     }

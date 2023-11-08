@@ -271,7 +271,7 @@ class ManageTeamVC: UIViewController {
             showProgressOnView(appDelegateInstance.window!)
             
             let param:[String:String] = [:]
-            let url = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(group_id)&user_id=\(user_id)&subgroup_id=\(subgroup_id)&user_type=\(user_type)&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
+            let url = "https://superadmin.teamplayerhr.com/app-survey-result-team?group_id=\(group_id)&user_id=\(user_id)&subgroup_id=\(subgroup_id)&user_type=\(user_type)&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
             ServerClass.sharedInstance.getRequestWithUrlParameters(param, path: url, successBlock: { (json) in
                 print(json)
                 hideAllProgressOnView(appDelegateInstance.window!)
@@ -348,7 +348,7 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
                 IAPService.shared.isSubscriptionPurchased = "payPerClick"
             } else {
                 let benhcmarkListObj = self.teamBenchmarkListArr[indexPath.row]
-                let reportUrl = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(benhcmarkListObj.group_id)&user_id=\(benhcmarkListObj.user_id)&subgroup_id=\(benhcmarkListObj.subgroup_id)&user_type=benchmark&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
+                let reportUrl = "https://teamplayerhr.com/app-survey-result-team?group_id=\(benhcmarkListObj.group_id)&user_id=\(benhcmarkListObj.user_id)&subgroup_id=\(benhcmarkListObj.subgroup_id)&user_type=benchmark&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
                 
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "ViewReportVC") as! ViewReportVC
@@ -367,7 +367,7 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
                 IAPService.shared.purchase(product: .PayPerClick)
             } else {
                 let participantListObj = self.teamParticipantArr[indexPath.row]
-                let reportUrl = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(participantListObj.group_id)&user_id=\(participantListObj.user_id)&subgroup_id=\(participantListObj.subgroup_id)&user_type=participant&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
+                let reportUrl = "https://superadmin.teamplayerhr.com/app-survey-result-team?group_id=\(participantListObj.group_id)&user_id=\(participantListObj.user_id)&subgroup_id=\(participantListObj.subgroup_id)&user_type=participant&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
                 
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "ViewReportVC") as! ViewReportVC
@@ -507,7 +507,7 @@ extension ManageTeamVC: UITableViewDelegate, UITableViewDataSource {
                 {
                     
                     self.view.makeToast("Payment done successfully.")
-                    let reportUrl = "https://dev.teamplayerhr.com/app-survey-result-team?group_id=\(self.selectedPpcPptObj.group_id)&user_id=\(self.selectedPpcPptObj.user_id)&subgroup_id=\(self.selectedPpcPptObj.subgroup_id)&user_type=benchmark&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
+                    let reportUrl = "https://superadmin.teamplayerhr.com/app-survey-result-team?group_id=\(self.selectedPpcPptObj.group_id)&user_id=\(self.selectedPpcPptObj.user_id)&subgroup_id=\(self.selectedPpcPptObj.subgroup_id)&user_type=benchmark&token=\(UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.VENDOR_SIGNUP_TOKEN)!)"
                     
                     let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "ViewReportVC") as! ViewReportVC
