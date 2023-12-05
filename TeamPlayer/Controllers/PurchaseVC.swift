@@ -128,6 +128,7 @@ class PurchaseVC: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
     
     @objc func newUserPlanPurchased() {
         self.updateNewUserPlanAPI()
+        
     }
     
     @IBAction func purchaseFullQuestionAction(_ sender: UIButton) {
